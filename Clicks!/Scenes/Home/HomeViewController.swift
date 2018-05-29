@@ -14,7 +14,7 @@ import UIKit
 
 protocol HomeDisplayLogic: class
 {
-  func displaySomething(viewModel: Home.Something.ViewModel)
+  func displayOpenChallenges(viewModel: Home.GetOpenChallenges.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic
@@ -69,21 +69,19 @@ class HomeViewController: UIViewController, HomeDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    fetchOpenChallenges()
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething()
-  {
-    let request = Home.Something.Request()
-    interactor?.doSomething(request: request)
-  }
+    func fetchOpenChallenges() {
+        let request = Home.GetOpenChallenges.Request(apiSecret: "", numberOfChallenges: 8)
+        interactor?.fetchOpenChallenges(request: request)
+    }
   
-  func displaySomething(viewModel: Home.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    func displayOpenChallenges(viewModel: Home.GetOpenChallenges.ViewModel) {
+        
+    }
 }

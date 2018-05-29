@@ -14,28 +14,29 @@ import UIKit
 
 protocol HomeBusinessLogic
 {
-  func doSomething(request: Home.Something.Request)
+  func fetchOpenChallenges(request: Home.GetOpenChallenges.Request)
 }
 
 protocol HomeDataStore
 {
-  //var name: String { get set }
+    var openChallenges : [Challenge]? { get }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore
 {
-  var presenter: HomePresentationLogic?
-  var worker: HomeWorker?
-  //var name: String = ""
+    var openChallenges: [Challenge]?
+    var presenter: HomePresentationLogic?
+    var worker: HomeWorker?
   
   // MARK: Do something
   
-  func doSomething(request: Home.Something.Request)
+  func fetchOpenChallenges(request: Home.GetOpenChallenges.Request)
   {
     worker = HomeWorker()
-    worker?.doSomeWork()
-    
-    let response = Home.Something.Response()
-    presenter?.presentSomething(response: response)
+    worker?.fetchOpenChallenges(apiSecret: "", numberOfChallenges: 8, completionHandle: { (challenges) in
+        self.openChallenges = challenges
+        let response = Home.GetOpenChallenges.Response(openChallenges: challenges)
+        self.presenter?.presentOpenChallenges(response: response)
+    })
   }
 }

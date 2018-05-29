@@ -14,7 +14,7 @@ import UIKit
 
 class HomeWorker
 {
-  func doSomeWork()
+    func fetchOpenChallenges(apiSecret: String, numberOfChallenges: Int, completionHandle: @escaping ([Challenge]) -> Void)
   {
   }
 }

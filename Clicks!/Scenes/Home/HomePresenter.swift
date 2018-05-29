@@ -14,7 +14,7 @@ import UIKit
 
 protocol HomePresentationLogic
 {
-  func presentSomething(response: Home.Something.Response)
+  func presentOpenChallenges(response: Home.GetOpenChallenges.Response)
 }
 
 class HomePresenter: HomePresentationLogic
@@ -23,9 +23,19 @@ class HomePresenter: HomePresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: Home.Something.Response)
+  func presentOpenChallenges(response: Home.GetOpenChallenges.Response)
   {
-    let viewModel = Home.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    var displayedOpenChallenges : [Home.GetOpenChallenges.ViewModel.DisplayedChallenge] = []
+    for challenge in response.openChallenges {
+        //do something with the challenge
+        //calculate the time left for the event
+        
+        let displayedChallenge = Home.GetOpenChallenges.ViewModel.DisplayedChallenge(coverPhotoUrl: challenge.id, timeLeft: "", theme: challenge.theme, isInVotationPeriod: challenge.isInVotationPeriod, numberOfPhotos: challenge.numPhotos)
+        
+        displayedOpenChallenges.append(displayedChallenge)
+    }
+    
+    let viewModel = Home.GetOpenChallenges.ViewModel(challenges: displayedOpenChallenges)
+    viewController?.displayOpenChallenges(viewModel: viewModel)
   }
 }
