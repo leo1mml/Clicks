@@ -7,9 +7,17 @@
 //
 
 import XCTest
+@testable import Clicks_
 
 class User_Tests: XCTestCase {
     
+    var user : User?
     
+    func testUserCycle() {
+        user = User("123","teste@teste.com", "John Doe", "johndoe", "asdfasdf", Date(), 1)
+//        let coder =
+//        user?.encode(with: coder)
+        
+    }
     
 }
