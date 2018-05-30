@@ -23,6 +23,7 @@ class User_Tests: XCTestCase {
         coder.dateEncodingStrategy = .iso8601
         decoder.dateDecodingStrategy = .iso8601
         let encodedData = try? coder.encode(user)
+        XCTAssertNotNil(encodedData)
         let decodedData = try? decoder.decode(User.self, from: encodedData!)
         XCTAssertNotNil(decodedData)
         XCTAssert(Formatter.iso8601noFS.string(from: (user?.birthDate)!) == Formatter.iso8601noFS.string(from: decodedData!.birthDate!), "Decoded Birth date did not match the original date")
