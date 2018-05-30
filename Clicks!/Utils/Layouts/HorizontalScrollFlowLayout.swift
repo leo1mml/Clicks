@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+///It configures the flow layout of a collection view
 class HorizontalScrollFlowLayout: UICollectionViewFlowLayout {
 
     override init() {
@@ -19,7 +19,7 @@ class HorizontalScrollFlowLayout: UICollectionViewFlowLayout {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
+    ///Defines the direction of the scroll to the horizontal.
     private func commonInit() {
         self.scrollDirection = .horizontal
     }

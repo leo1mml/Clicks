@@ -20,10 +20,11 @@ protocol OnboardingDisplayLogic: class
 
 class OnboardingViewController: UICollectionViewController, OnboardingDisplayLogic, UICollectionViewDelegateFlowLayout
 {
-    
+    ///Previous index of the collection view - It is used to define whether or not we should animate the image view
     private var prevIndex: Int = 0
     var interactor: OnboardingBusinessLogic?
     var router: (NSObjectProtocol & OnboardingRoutingLogic & OnboardingDataPassing)?
+    ///Imageview that shows the current onboard image
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +32,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         imageView.contentMode = .center
         return imageView
     }()
+    ///Indicates where is the current page
     private let pageControl : UIPageControl = {
        let pc = UIPageControl()
         pc.currentPage = 0
@@ -40,6 +42,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         pc.translatesAutoresizingMaskIntoConstraints = false
         return pc
     }()
+    ///Button to skip the instructions
     private let rightButton : UIButton = {
         let skipButton = UIButton()
         skipButton.setTitle(NSLocalizedString("SKIP", comment: ""), for: .normal)
@@ -49,6 +52,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         return skipButton
     }()
+    ///This button does nothing, I used it just to make the stackview work properly.
     private let leftButton : UIButton = {
         let prevButton = UIButton()
         prevButton.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +79,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     }
     
     // MARK: Setup
-    
+    ///This method binds all the architecture classes together
     private func setup()
     {
         let viewController = self
@@ -101,7 +105,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
             }
         }
     }
-    
+    ///This action is called when you wish to go to another viewcontroller
     @objc func handleSkip() {
         print("trying to skip")
     }
@@ -117,6 +121,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         setupBottomControls()
         self.view.backgroundColor = AppColors.darkwhite.color
     }
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -124,12 +129,15 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     // MARK: - SCROLL VIEW
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let x = targetContentOffset.pointee.x
+        ///gets the current page index from 0 to n-1
         let pageIndex = Int(x/view.frame.width)
         self.pageControl.currentPage = pageIndex
+        // Here we jus decide if the animation should happen
         if(self.prevIndex != pageIndex){
             switchImageAnimation(imageIndex: pageIndex + 1)
             prevIndex = pageIndex
         }
+        ///If the page index is 3 we show some message, if not we show another.
         if(pageIndex == 3){
             self.rightButton.setTitle(NSLocalizedString("LET'S GO", comment: ""), for: .normal)
         }else {
@@ -139,6 +147,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     
     // MARK: - Collection View
     
+    ///Configures the collectionview and changes it to its right size and color.
     func setupCollectionView() {
         collectionView?.backgroundColor = AppColors.darkwhite.color
         collectionView?.isPagingEnabled = true
@@ -158,6 +167,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! PageCell
+        //Here we ask the interactor to get the data from the models for us.
         interactor?.accessPageData(pageNumber: indexPath.item, completionHandler: { (structure) in
             cell.holders = structure
         })
@@ -185,7 +195,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         //nameTextField.text = viewModel.name
     }
     
-    
+    ///This method adds constraints to the image view and also sets its initial image
     func setupImageView()  {
         self.view.addSubview(self.imageView)
         self.imageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
@@ -195,6 +205,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         self.imageView.image = UIImage(named: "imageOnboard1")
     }
     
+    ///This method adds constraints to the bottom controls stackview.
     func setupBottomControls() {
         let stackViewBottomControls = UIStackView(arrangedSubviews: [ self.leftButton, self.pageControl, self.rightButton])
         stackViewBottomControls.translatesAutoresizingMaskIntoConstraints = false
@@ -210,6 +221,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     
     // MARK: - Animations
     
+    ///This animates the imageview as it changes the content image
     func switchImageAnimation(imageIndex: Int) {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             self.imageView.alpha = 0

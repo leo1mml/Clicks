@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class PageCell: UICollectionViewCell {
-    
+    ///Stores the page structure, once it is set it updates the UI content
     var holders : Onboarding.PageStructure.ViewModel.SinglePage? {
         didSet {
             guard let unwrappedHolders = holders else {return}
@@ -20,6 +20,7 @@ class PageCell: UICollectionViewCell {
             self.text.textAlignment = .center
         }
     }
+    ///TextView that stores the title and description from the user onboarding
     let text : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false

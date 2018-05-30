@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+///Extension to help with the colors within the app
 enum AppColors {
     case darkwhite
     case clearblack
@@ -34,6 +34,7 @@ enum AppColors {
     }
 }
 
+///Helper init to work with hexadecimal color values
 extension UIColor {
     convenience init(colorWithHexValue value: Int, alpha: CGFloat = 1.0) {
         self.init(

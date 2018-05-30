@@ -9,11 +9,13 @@
 import Foundation
 
 extension Formatter {
+    ///gets the date with fractional seconds
     static let iso8601: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         return formatter
     }()
+    ///gets the basic date
     static let iso8601noFS = ISO8601DateFormatter()
 }
 
