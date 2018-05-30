@@ -16,7 +16,7 @@ import UIKit
 enum Onboarding
 {
     // MARK: Use cases
-    
+    ///View Model to be shown 
     enum PageStructure {
         struct ViewModel {
             struct SinglePage {
