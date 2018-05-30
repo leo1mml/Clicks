@@ -339,6 +339,22 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		08DF49CF20BE5E56004D4057 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				08DF49C920BE53A3004D4057 /* HorizontalScrollFlowLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		08DF49D020BE5E76004D4057 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8AAA2BCE20BE4250007F2EA4 /* DateFormatter+iso8601.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8A1853BB20BDC7B000DC179B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,10 +484,10 @@
 		8AE6BFDF20B7B3F0005E8FFC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				08DF49D020BE5E76004D4057 /* Extensions */,
+				08DF49CF20BE5E56004D4057 /* Layouts */,
 				08DF49C620BE50EC004D4057 /* Managers */,
 				8AE6BFE020B7B40C005E8FFC /* AppColors.swift */,
-				8AAA2BCE20BE4250007F2EA4 /* DateFormatter+iso8601.swift */,
-				08DF49C920BE53A3004D4057 /* HorizontalScrollFlowLayout.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

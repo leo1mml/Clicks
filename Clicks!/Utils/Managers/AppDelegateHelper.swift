@@ -1,5 +1,5 @@
 //
-//  OnboardingManager.swift
+//  AppDelegateHelper.swift
 //  Clicks!
 //
 //  Created by Gabriel Reynoso on 30/05/2018.
