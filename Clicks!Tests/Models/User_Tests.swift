@@ -15,8 +15,9 @@ class User_Tests: XCTestCase {
     
     func testUserCycle() {
         user = User("123","teste@teste.com", "John Doe", "johndoe", "asdfasdf", Date(), 1)
-//        let coder =
-//        user?.encode(with: coder)
+        let coder = JSONEncoder()
+        coder.dateEncodingStrategy = .iso8601
+//        coder.encode(user)
         
     }
     
