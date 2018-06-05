@@ -9,7 +9,7 @@
 import Foundation
 
 ///This class abstracts the photos of the challenges
-class Photo {
+class Photo: NSObject, Codable {
     ///The photo ID in the database
     let id: String?
     ///The photo url to be downloaded.
@@ -20,12 +20,15 @@ class Photo {
     let challengeId: String
     ///Number of votes of this photo
     let votes : [String]?
+    ///Indicates wether this photo has won the challenge or not
+    let hasWon : Bool
     
-    init(_ id: String? = nil, _ url: String? = nil, _ ownerId: String, _ challengeId: String, _ votes: [String]?) {
+    init(_ id: String? = nil, _ url: String? = nil, _ ownerId: String, _ challengeId: String, _ votes: [String]?, _ hasWon: Bool) {
         self.id = id
         self.url = url
         self.ownerId = ownerId
         self.challengeId = challengeId
         self.votes = votes
+        self.hasWon = hasWon
     }
 }

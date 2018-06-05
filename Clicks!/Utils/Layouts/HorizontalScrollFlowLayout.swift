@@ -16,8 +16,7 @@ class HorizontalScrollFlowLayout: UICollectionViewFlowLayout {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
+        return nil
     }
     ///Defines the direction of the scroll to the horizontal.
     private func commonInit() {

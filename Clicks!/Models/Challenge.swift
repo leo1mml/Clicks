@@ -1,7 +1,7 @@
 
 import Foundation
 ///This class represents the challenges of the photo competitions.
-class Challenge {
+class Challenge: NSObject, Codable {
     
     ///Challenge ID in the database
     let id: String
@@ -24,7 +24,7 @@ class Challenge {
     var isOver: Bool {
         
         get {
-            return endDate.compare(Date()) == .orderedAscending
+            return endDate <= Date()
         }
     }
     /// Checks if the challenge has already begun by comparing the start date with the current date
@@ -44,9 +44,9 @@ class Challenge {
     }
     
     var isInVotationPeriod: Bool {
-        
         get {
-            return true
+            let today = Date()
+            return postDateLimit <= today && isHappening
         }
     }
     
@@ -58,6 +58,6 @@ class Challenge {
         self.endDate = endDate
         self.imageUrl = imageUrl
         self.numPhotos = numPhotos
-        self.winner = winner
+        self.winner = endDate < Date() ? winner : nil
     }
 }

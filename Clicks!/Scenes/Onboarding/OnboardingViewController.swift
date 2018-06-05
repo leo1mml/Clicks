@@ -221,7 +221,12 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     
     // MARK: - Animations
     
-    ///This animates the imageview as it changes the content image
+    /**
+     This animates the imageview as it changes the content image
+     - Parameters:
+     
+        - imageIndex: the index of the image to be displayed
+     */
     func switchImageAnimation(imageIndex: Int) {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             self.imageView.alpha = 0
