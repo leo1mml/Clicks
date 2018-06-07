@@ -14,19 +14,30 @@ class PageCell: UICollectionViewCell {
     var holders : Onboarding.PageStructure.ViewModel.SinglePage? {
         didSet {
             guard let unwrappedHolders = holders else {return}
-            let attributedText = NSMutableAttributedString(string: unwrappedHolders.title, attributes: [NSAttributedStringKey.font : UIFont(name: "Montserrat-Bold", size: 30) as Any])
-            attributedText.append(NSAttributedString(string: "\n\n\(unwrappedHolders.description)", attributes: [NSAttributedStringKey.font : UIFont(name: "Montserrat-Light", size: 15) as Any]))
-            self.text.attributedText = attributedText
-            self.text.textAlignment = .center
+            self.text.text = unwrappedHolders.description
+            self.title.text = unwrappedHolders.title
         }
     }
     ///TextView that stores the title and description from the user onboarding
+    
+    let title : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = UIFont(name: "Montserrat-Bold", size: 30)
+        label.textColor = AppColors.clearblack.color
+        return label
+    }()
+    
     let text : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = false
         textView.textAlignment = .center
         textView.isScrollEnabled = false
+        textView.font = UIFont(name: "Montserrat-Light", size: 15)
+        textView.textColor = AppColors.gray.color
         textView.backgroundColor = AppColors.darkwhite.color
         return textView
     }()
@@ -34,6 +45,7 @@ class PageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = AppColors.darkwhite.color
+        setupTitle()
         setupText()
     }
     
@@ -42,12 +54,21 @@ class PageCell: UICollectionViewCell {
     }
     
     ///Sets up text constraints
+    func setupTitle() {
+        addSubview(self.title)
+        NSLayoutConstraint.activate([
+            self.title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            self.title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            self.title.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.65)
+            ])
+    }
+    
     func setupText() {
         addSubview(self.text)
         NSLayoutConstraint.activate([
-            self.text.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
-            self.text.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
-            self.text.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.65)
+            self.text.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 30),
+            self.text.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            self.text.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
             ])
     }
 }

@@ -29,7 +29,16 @@ class PageCellTests: XCTestCase {
     func testDidSetHolder() {
         pageCell = PageCell()
         pageCell.holders = Onboarding.PageStructure.ViewModel.SinglePage(imageName: "image", title: "title", description: "description")
-        XCTAssertTrue(pageCell.text.attributedText.string == "title\n\ndescription")
+        guard let unwrappedTitle = pageCell.title.text else {
+            XCTFail()
+            return
+        }
+        guard let unwrappedText = pageCell.text.text else {
+            XCTFail()
+            return
+        }
+        XCTAssertTrue(unwrappedText == "description")
+        XCTAssert(unwrappedTitle == "title")
     }
     
 }

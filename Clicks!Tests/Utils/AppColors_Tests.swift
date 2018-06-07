@@ -16,6 +16,7 @@ class AppColors_Tests: XCTestCase {
         XCTAssertTrue(AppColors.blue.color == UIColor(colorWithHexValue: 0x3B5998))
         XCTAssertTrue(AppColors.darkgray.color == UIColor(colorWithHexValue: 0x4A4A4A))
         XCTAssertTrue(AppColors.darkGradient.color == UIColor(colorWithHexValue: 0x464F55))
-        XCTAssert(AppColors.clearblack.color == UIColor(colorWithHexValue: 0x272D30), "Color do not match")
+        XCTAssert(AppColors.clearblack.color == UIColor(colorWithHexValue: 0x272D30))
+        XCTAssert(AppColors.gray.color == UIColor(colorWithHexValue: 0x9B9B9B))
     }
 }

@@ -15,17 +15,34 @@ import UIKit
 
 protocol OnboardingDisplayLogic: class
 {
-    func displaySomething(viewModel: Onboarding.PageStructure.ViewModel)
+    func setupCollectionView()
+    func setupImageView()
+    func setupBottomControls()
+    func switchImageAnimation(imageIndex: Int)
 }
 
-class OnboardingViewController: UICollectionViewController, OnboardingDisplayLogic, UICollectionViewDelegateFlowLayout
+class OnboardingViewController: UICollectionViewController, OnboardingDisplayLogic
 {
+    
+    
+    
+    //MARK: - Variables
+    
+    
+    
     ///Previous index of the collection view - It is used to define whether or not we should animate the image view
     private var prevIndex: Int = 0
-    var interactor: OnboardingBusinessLogic?
+    var presenter: OnboardingPresentationLogic?
     var router: (NSObjectProtocol & OnboardingRoutingLogic & OnboardingDataPassing)?
+    
+    
+    
+    //MARK: - Screen Items
+    
+    
+    
     ///Imageview that shows the current onboard image
-    private let imageView : UIImageView = {
+    let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
@@ -48,6 +65,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         skipButton.setTitle(NSLocalizedString("SKIP", comment: ""), for: .normal)
         skipButton.setTitleColor(AppColors.clearblack.color, for: .normal)
         skipButton.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 13)
+        skipButton.accessibilityIdentifier = "SKIP BUTTON"
         skipButton.addTarget(self, action: #selector(handleSkip), for: .touchUpInside)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         return skipButton
@@ -59,13 +77,11 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         return prevButton
     }()
     
-    // MARK: Object lifecycle
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-    {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
+    
+    // MARK: - Object lifecycle
+    
+    
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
@@ -74,27 +90,27 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     
     required init?(coder aDecoder: NSCoder)
     {
-        super.init(coder: aDecoder)
-        setup()
+        return nil
     }
     
-    // MARK: Setup
+    
+    
+    // MARK: - Setup
+    
+    
     ///This method binds all the architecture classes together
     private func setup()
     {
         let viewController = self
-        let interactor = OnboardingInteractor()
         let presenter = OnboardingPresenter()
         let router = OnboardingRouter()
-        viewController.interactor = interactor
+        viewController.presenter = presenter
         viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
         router.viewController = viewController
-        router.dataStore = interactor
+        router.dataStore = presenter
     }
     
-    // MARK: Routing
+    // MARK: - Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -110,12 +126,15 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         print("trying to skip")
     }
     
-    // MARK: View lifecycle
+    
+    
+    // MARK: - View lifecycle
+    
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
         setupCollectionView()
         setupImageView()
         setupBottomControls()
@@ -126,7 +145,12 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         return true
     }
     
+    
+    
     // MARK: - SCROLL VIEW
+    
+    
+    
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let x = targetContentOffset.pointee.x
         ///gets the current page index from 0 to n-1
@@ -145,7 +169,11 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         }
     }
     
+    
+    
     // MARK: - Collection View
+    
+    
     
     ///Configures the collectionview and changes it to its right size and color.
     func setupCollectionView() {
@@ -168,31 +196,11 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! PageCell
         //Here we ask the interactor to get the data from the models for us.
-        interactor?.accessPageData(pageNumber: indexPath.item, completionHandler: { (structure) in
+        presenter?.accessPageData(pageNumber: indexPath.item, completionHandler: { (structure) in
             cell.holders = structure
         })
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    // MARK: Do something
-    
-    func doSomething()
-    {
-        
-    }
-    
-    func displaySomething(viewModel: Onboarding.PageStructure.ViewModel)
-    {
-        //nameTextField.text = viewModel.name
     }
     
     ///This method adds constraints to the image view and also sets its initial image
@@ -203,6 +211,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         self.imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.imageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.63).isActive = true
         self.imageView.image = UIImage(named: "imageOnboard1")
+        self.imageView.image?.accessibilityIdentifier = "imageOnboard1"
     }
     
     ///This method adds constraints to the bottom controls stackview.
@@ -219,7 +228,11 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
             ])
     }
     
+    
+    
     // MARK: - Animations
+    
+    
     
     /**
      This animates the imageview as it changes the content image
@@ -233,10 +246,22 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         }, completion: { finished in
             
             self.imageView.image = UIImage(named: "imageOnboard\(imageIndex)")
+            self.imageView.image?.accessibilityIdentifier = "imageOnboard\(imageIndex)"
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
                 self.imageView.alpha = 1
             }, completion: { finished in })
         })
+    }
+}
+
+extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

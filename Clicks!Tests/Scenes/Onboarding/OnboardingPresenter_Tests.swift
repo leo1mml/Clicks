@@ -10,22 +10,22 @@ import XCTest
 
 class OnboardingInteractor_Tests: XCTestCase {
     
-    var interactor : OnboardingInteractor!
+    var presenter : OnboardingPresenter!
     
     func testInit() {
-        interactor = OnboardingInteractor()
-        XCTAssertNotNil(interactor)
+        presenter = OnboardingPresenter()
+        XCTAssertNotNil(presenter)
     }
     
     
     func testAccessInteractorPageData() {
-        interactor = OnboardingInteractor()
+        presenter = OnboardingPresenter()
         for index in 0...3 {
-            interactor.accessPageData(pageNumber: index) { (structure) in
+            presenter.accessPageData(pageNumber: index) { (structure) in
                 XCTAssertNotNil(structure.description)
                 XCTAssertNotNil(structure.title)
             }
-        }
+        } 
     }
     
 }

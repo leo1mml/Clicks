@@ -14,6 +14,7 @@ enum AppColors {
     case blue
     case darkgray
     case darkGradient
+    case gray
     
     private static let allValues = [darkwhite, clearblack, blue, darkgray]
     
@@ -30,6 +31,8 @@ enum AppColors {
             return UIColor(colorWithHexValue: 0x272D30)
         case .darkGradient:
             return UIColor(colorWithHexValue: 0x464F55)
+        case .gray:
+            return UIColor(colorWithHexValue: 0x9B9B9B)
         }
     }
 }
