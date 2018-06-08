@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol OnboardingRoutingLogic
 {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func skipOnboarding()
 }
 
 protocol OnboardingDataPassing
@@ -27,5 +27,9 @@ class OnboardingRouter: NSObject, OnboardingRoutingLogic, OnboardingDataPassing
     weak var viewController: OnboardingViewController?
     var dataStore: OnboardingDataStore?
 
+    func skipOnboarding() {
+        let homeVC = UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "Home")
+        viewController?.navigationController?.pushViewController(homeVC, animated: true)
+    }
 }
 

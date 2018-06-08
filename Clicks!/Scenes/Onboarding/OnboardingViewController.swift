@@ -85,6 +85,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
+        self.view.accessibilityIdentifier = "Onboarding"
         setup()
     }
     
@@ -110,20 +111,14 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         router.dataStore = presenter
     }
     
-    // MARK: - Routing
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
+    
+    //MARK: - Actions
+    
+    
     ///This action is called when you wish to go to another viewcontroller
     @objc func handleSkip() {
-        print("trying to skip")
+        self.router?.skipOnboarding()
     }
     
     

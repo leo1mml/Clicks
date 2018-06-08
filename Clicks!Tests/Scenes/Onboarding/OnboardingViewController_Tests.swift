@@ -13,8 +13,9 @@ class OnboardingViewController_Tests: XCTestCase {
     
     
     func testInitWithCoder() {
-        let coder = NSCoder()
-        let vc = OnboardingViewController(coder: coder)
+        let archiverData = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: archiverData)
+        let vc = OnboardingViewController(coder: archiver)
         XCTAssertNil(vc)
     }
     

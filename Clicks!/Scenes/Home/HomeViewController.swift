@@ -1,3 +1,4 @@
+
 //
 //  HomeViewController.swift
 //  Clicks!
@@ -14,74 +15,198 @@ import UIKit
 
 protocol HomeDisplayLogic: class
 {
-  func displayOpenChallenges(viewModel: Home.GetOpenChallenges.ViewModel)
+    func displayOpenChallenges(viewModel: Home.GetOpenChallenges.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic
 {
-  var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = HomeInteractor()
-    let presenter = HomePresenter()
-    let router = HomeRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    
+    // MARK: - Variables and constants
+    
+    var interactor: HomeBusinessLogic?
+    var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    
+    ///last scroll offset value
+    private var lastOffset : CGFloat = 0.0
+    ///scale proportion per point moved in the scroll
+    private var homeImageScaleFactor : CGFloat = 0.0
+    ///scale proportion per point moved in the scroll
+    private var profileImageScaleFactor : CGFloat = 0.0
+    ///scale proportion per point moved in the scroll
+    private var configScaleFactor : CGFloat = 0.0
+    ///move proportion per point moved in the scroll
+    private var moveFactor : CGFloat = 0.0
+    ///Transformations max distance
+    private var maxDistanceTransformations : CGFloat = 0.0
+    ///Current profile image scale
+    private var profileImageScale : CGFloat = 1.0
+    ///Current profile home scale
+    private var homeImageScale : CGFloat = 1.0
+    
+    // MARK: - Outlets
+    
+    
+    @IBOutlet weak var containerCollectionView: UICollectionView!
+    @IBOutlet weak var configImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var homeImage: UIImageView!
+    
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    fetchOpenChallenges()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter()
+        let router = HomeRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        fetchOpenChallenges()
+        self.maxDistanceTransformations = self.profileImage.center.x - homeImage.center.x
+        self.moveFactor = (maxDistanceTransformations)/view.frame.width
+        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 1.2, height: homeImage.frame.height * 1.2))
+        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.9, height: homeImage.frame.height * 0.9))
+    }
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
+    
     func fetchOpenChallenges() {
         let request = Home.GetOpenChallenges.Request(apiSecret: "", numberOfChallenges: 8)
         interactor?.fetchOpenChallenges(request: request)
     }
-  
+    
     func displayOpenChallenges(viewModel: Home.GetOpenChallenges.ViewModel) {
         
+    }
+    
+    
+    @IBAction func leftButtonAction(_ sender: Any) {
+    }
+    
+    
+    @IBAction func middleAction(_ sender: Any) {
+    }
+    
+    
+    @IBAction func rightAction(_ sender: Any) {
+    }
+    
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - Collectionview configuration
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppPage", for: indexPath)
+        if(indexPath.item % 2 == 0){
+            cell.backgroundColor = .green
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: containerCollectionView.frame.width, height: containerCollectionView.frame.height)
+    }
+    
+    
+    // MARK: - CollectionView ScrollView
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //If last offset was smaller than the current one, move items to the right, else move to left.
+        let differenceOffsetX = lastOffset < scrollView.contentOffset.x ? abs(scrollView.contentOffset.x - lastOffset) : -abs(scrollView.contentOffset.x - lastOffset)
+        updateImagesCenterX(xDistance: (differenceOffsetX * moveFactor))
+        updateImagesScale(xDistance: differenceOffsetX)
+        print(self.profileImage.frame.width)
+        lastOffset = scrollView.contentOffset.x
+    }
+    
+    // MARK: - Scroll Animations
+    
+    /**
+     Updates the images scale as the scrolling happens based on each image scaleFactor
+     - Parameters:
+        - xDistance: The scroll offset variation
+     */
+    func updateImagesScale(xDistance: CGFloat) {
+        self.profileImageScale = self.profileImageScale + (profileImageScaleFactor * xDistance)
+        self.homeImageScale = self.homeImageScale + (homeImageScaleFactor * xDistance)
+        
+        self.profileImage.transform = CGAffineTransform(scaleX: self.profileImageScale, y: self.profileImageScale)
+        self.homeImage.transform = CGAffineTransform(scaleX: self.homeImageScale, y: self.homeImageScale)
+    }
+    
+    
+    /**
+     Changes the images center x with a value to be incremented or decremented.
+     - Parameters:
+        - xDistance: The distance value to be applied to the images center.
+     */
+    func updateImagesCenterX(xDistance: CGFloat){
+        self.configImage.center.x = self.configImage.center.x + xDistance
+        self.profileImage.center.x = self.profileImage.center.x + xDistance
+        self.homeImage.center.x = self.homeImage.center.x + xDistance
+    }
+    
+    /**
+     Gets the scale rate of the item based on it's final size and the distance in which it should vary.
+     - Parameters:
+        - distance: The amount of distance left until the item destination.
+        - finalSizeProportion: The item final size percentage
+     */
+    func getItemScaleRate(distance: CGFloat, from initialSize: CGSize, to finalSize: CGSize) -> CGFloat{
+        let sizeIncreaseRate = 1 - (initialSize.width / finalSize.width)
+        let increasePerPoint = sizeIncreaseRate/maxDistanceTransformations
+        return increasePerPoint
     }
 }
