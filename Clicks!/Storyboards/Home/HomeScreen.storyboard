@@ -18,25 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="config-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ocl-s8-zli">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ConfigImage" image="config-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ocl-s8-zli">
                                 <rect key="frame" x="326" y="33" width="29" height="29"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ConfigImage">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="29" id="Bfv-XG-I28"/>
-                                    <constraint firstAttribute="height" constant="29" id="Zyf-br-aPN"/>
+                                    <constraint firstAttribute="width" priority="250" constant="29" id="Bfv-XG-I28"/>
+                                    <constraint firstAttribute="height" priority="250" constant="29" id="Zyf-br-aPN"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Xvh-yA-h11">
-                                <rect key="frame" x="173" y="31.5" width="28" height="32"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ProfileImage" image="profile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Xvh-yA-h11">
+                                <rect key="frame" x="172" y="30.5" width="30" height="34"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ProfileImage">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="6e0-fS-JJZ"/>
-                                    <constraint firstAttribute="width" constant="28" id="J3z-Ip-63o"/>
+                                    <constraint firstAttribute="height" priority="250" constant="32" id="6e0-fS-JJZ"/>
+                                    <constraint firstAttribute="width" priority="250" constant="28" id="J3z-Ip-63o"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-icon" translatesAutoresizingMaskIntoConstraints="NO" id="hWW-R3-muw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="HomeImage" image="home-icon" translatesAutoresizingMaskIntoConstraints="NO" id="hWW-R3-muw">
                                 <rect key="frame" x="20" y="32.5" width="27" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="HomeImage">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="OkI-aM-AON"/>
-                                    <constraint firstAttribute="width" constant="27" id="qJ8-lk-gOX"/>
+                                    <constraint firstAttribute="height" priority="250" constant="30" id="OkI-aM-AON"/>
+                                    <constraint firstAttribute="width" priority="250" constant="27" id="qJ8-lk-gOX"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zvs-7x-Own">
@@ -95,19 +104,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hWW-R3-muw" firstAttribute="leading" secondItem="CiG-nz-zyv" secondAttribute="leading" id="3Jm-dx-m3u"/>
-                            <constraint firstItem="hWW-R3-muw" firstAttribute="centerY" secondItem="CiG-nz-zyv" secondAttribute="centerY" id="ILQ-50-XfR"/>
+                            <constraint firstItem="hWW-R3-muw" firstAttribute="leading" secondItem="CiG-nz-zyv" secondAttribute="leading" priority="250" id="3Jm-dx-m3u"/>
+                            <constraint firstItem="hWW-R3-muw" firstAttribute="centerY" secondItem="CiG-nz-zyv" secondAttribute="centerY" priority="250" id="ILQ-50-XfR"/>
                             <constraint firstItem="Zvs-7x-Own" firstAttribute="leading" secondItem="LMo-Qj-w6R" secondAttribute="leading" constant="20" id="OPs-t1-sTy"/>
-                            <constraint firstItem="Ocl-s8-zli" firstAttribute="centerY" secondItem="JFW-M7-aCr" secondAttribute="centerY" id="Qce-pd-3d0"/>
+                            <constraint firstItem="Ocl-s8-zli" firstAttribute="centerY" secondItem="JFW-M7-aCr" secondAttribute="centerY" priority="250" id="Qce-pd-3d0"/>
                             <constraint firstItem="Q7q-le-eOj" firstAttribute="leading" secondItem="LMo-Qj-w6R" secondAttribute="leading" id="VhT-Kq-KA3"/>
                             <constraint firstItem="Zvs-7x-Own" firstAttribute="top" secondItem="LMo-Qj-w6R" secondAttribute="top" id="Xid-8u-P8S"/>
                             <constraint firstItem="Q7q-le-eOj" firstAttribute="top" secondItem="Zvs-7x-Own" secondAttribute="bottom" id="YaB-BJ-W9p"/>
                             <constraint firstItem="Q7q-le-eOj" firstAttribute="bottom" secondItem="LMo-Qj-w6R" secondAttribute="bottom" id="bv4-Ad-Clg"/>
-                            <constraint firstItem="Xvh-yA-h11" firstAttribute="centerY" secondItem="erh-Wn-5Kw" secondAttribute="centerY" id="faY-ha-hmU"/>
-                            <constraint firstItem="Xvh-yA-h11" firstAttribute="centerX" secondItem="erh-Wn-5Kw" secondAttribute="centerX" id="gD0-KE-ToO"/>
+                            <constraint firstItem="Xvh-yA-h11" firstAttribute="centerY" secondItem="erh-Wn-5Kw" secondAttribute="centerY" priority="250" id="faY-ha-hmU"/>
+                            <constraint firstItem="Xvh-yA-h11" firstAttribute="centerX" secondItem="erh-Wn-5Kw" secondAttribute="centerX" priority="250" id="gD0-KE-ToO"/>
                             <constraint firstItem="LMo-Qj-w6R" firstAttribute="trailing" secondItem="Q7q-le-eOj" secondAttribute="trailing" id="kZj-CQ-jhj"/>
                             <constraint firstItem="LMo-Qj-w6R" firstAttribute="trailing" secondItem="Zvs-7x-Own" secondAttribute="trailing" constant="20" id="ro7-rX-DPC"/>
-                            <constraint firstItem="Ocl-s8-zli" firstAttribute="trailing" secondItem="JFW-M7-aCr" secondAttribute="trailing" id="tRl-4R-k8e"/>
+                            <constraint firstItem="Ocl-s8-zli" firstAttribute="trailing" secondItem="JFW-M7-aCr" secondAttribute="trailing" priority="250" id="tRl-4R-k8e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LMo-Qj-w6R"/>
                     </view>
@@ -115,7 +124,10 @@
                         <outlet property="configImage" destination="Ocl-s8-zli" id="c5f-Dz-nsm"/>
                         <outlet property="containerCollectionView" destination="Q7q-le-eOj" id="aTX-3u-tfc"/>
                         <outlet property="homeImage" destination="hWW-R3-muw" id="kkQ-mb-2fj"/>
+                        <outlet property="leftControl" destination="CiG-nz-zyv" id="Da9-rv-mR4"/>
+                        <outlet property="middleControl" destination="erh-Wn-5Kw" id="GDd-EV-VG8"/>
                         <outlet property="profileImage" destination="Xvh-yA-h11" id="fxC-GC-Z8n"/>
+                        <outlet property="rightControl" destination="JFW-M7-aCr" id="1ay-36-CdH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4T-IQ-CAd" userLabel="First Responder" sceneMemberID="firstResponder"/>

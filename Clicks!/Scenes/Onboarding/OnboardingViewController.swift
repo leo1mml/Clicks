@@ -112,17 +112,6 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     }
     
     
-    
-    //MARK: - Actions
-    
-    
-    ///This action is called when you wish to go to another viewcontroller
-    @objc func handleSkip() {
-        self.router?.skipOnboarding()
-    }
-    
-    
-    
     // MARK: - View lifecycle
     
     
@@ -134,11 +123,24 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         setupImageView()
         setupBottomControls()
         self.view.backgroundColor = AppColors.darkwhite.color
+        UserDefaults.standard.set(true, forKey: "kOnboardingPresented")
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    //MARK: - Actions
+    
+    
+    ///This action is called when you wish to go to another viewcontroller
+    @objc func handleSkip() {
+        self.router?.skipOnboarding()
+    }
+    
+    
+    
+    
     
     
     

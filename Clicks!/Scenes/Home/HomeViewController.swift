@@ -40,20 +40,26 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     private var maxDistanceTransformations : CGFloat = 0.0
     ///Current profile image scale
     private var profileImageScale : CGFloat = 1.0
-    ///Current profile home scale
+    ///Current home home scale
     private var homeImageScale : CGFloat = 1.0
     
     // MARK: - Outlets
     
+    //Control Views
+    @IBOutlet weak var leftControl: UIControl!
+    @IBOutlet weak var middleControl: UIControl!
+    @IBOutlet weak var rightControl: UIControl!
     
+    //CollectionView
     @IBOutlet weak var containerCollectionView: UICollectionView!
+    
+    //Images
     @IBOutlet weak var configImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var homeImage: UIImageView!
     
     
-    // MARK: Object lifecycle
+    // MARK: - Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
@@ -67,7 +73,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         setup()
     }
     
-    // MARK: Setup
+    // MARK: - Setup
     
     private func setup()
     {
@@ -83,7 +89,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         router.dataStore = interactor
     }
     
-    // MARK: Routing
+    // MARK: - Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -95,21 +101,18 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         }
     }
     
-    // MARK: View lifecycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         fetchOpenChallenges()
         self.maxDistanceTransformations = self.profileImage.center.x - homeImage.center.x
-        self.moveFactor = (maxDistanceTransformations)/view.frame.width
-        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 1.2, height: homeImage.frame.height * 1.2))
-        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.9, height: homeImage.frame.height * 0.9))
+        setupImages()
+        setFactors()
     }
     
     // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
     
     func fetchOpenChallenges() {
         let request = Home.GetOpenChallenges.Request(apiSecret: "", numberOfChallenges: 8)
@@ -120,6 +123,35 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         
     }
     
+    ///Sets the initial values for the move and scale factors
+    func setFactors() {
+        self.moveFactor = (maxDistanceTransformations)/view.frame.width
+        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.9, height: homeImage.frame.height * 0.9))
+        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.2, height: profileImage.frame.height * 1.2))
+    }
+    
+    ///Configures the initial position of images
+    func setupImages() {
+        
+        //Home Image
+        
+        self.homeImage.translatesAutoresizingMaskIntoConstraints = false
+        self.homeImage.centerXAnchor.constraint(equalTo: self.middleControl.centerXAnchor).isActive = true
+        self.homeImage.widthAnchor.constraint(equalToConstant: view.frame.width * 0.094).isActive = true
+        self.homeImage.heightAnchor.constraint(equalToConstant: view.frame.height * 0.06).isActive = true
+        self.homeImage.tintColor = AppColors.clearblack.color
+        
+        //Profile Image
+        self.profileImage.translatesAutoresizingMaskIntoConstraints = false
+        self.profileImage.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor).isActive = true
+        self.profileImage.widthAnchor.constraint(equalToConstant: view.frame.width * 0.07).isActive = true
+        self.profileImage.heightAnchor.constraint(equalToConstant: view.frame.height * 0.045).isActive = true
+        self.profileImage.tintColor = AppColors.gray.color
+        
+        //Config Image
+        self.configImage.translatesAutoresizingMaskIntoConstraints = false
+        self.configImage.leadingAnchor.constraint(equalTo: self.profileImage.trailingAnchor, constant: view.frame.width * 0.33368).isActive = true
+    }
     
     @IBAction func leftButtonAction(_ sender: Any) {
     }
@@ -164,12 +196,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //If last offset was smaller than the current one, move items to the right, else move to left.
-        let differenceOffsetX = lastOffset < scrollView.contentOffset.x ? abs(scrollView.contentOffset.x - lastOffset) : -abs(scrollView.contentOffset.x - lastOffset)
+        let differenceOffsetX = lastOffset < scrollView.contentOffset.x ? -abs(scrollView.contentOffset.x - lastOffset) : abs(scrollView.contentOffset.x - lastOffset)
         updateImagesCenterX(xDistance: (differenceOffsetX * moveFactor))
-        updateImagesScale(xDistance: differenceOffsetX)
-        print(self.profileImage.frame.width)
+        updateImagesScale(xDistance: -differenceOffsetX)
         lastOffset = scrollView.contentOffset.x
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageIndex = scrollView.contentOffset.x/view.frame.width
+        if(pageIndex == 0){
+            UIView.animate(withDuration: 0.4) {
+                self.homeImage.tintColor = AppColors.clearblack.color
+                self.profileImage.tintColor = AppColors.gray.color
+            }
+            
+        }else {
+            UIView.animate(withDuration: 0.4) {
+                self.homeImage.tintColor = AppColors.gray.color
+                self.profileImage.tintColor = AppColors.clearblack.color
+            }
+        }
+    }
+
     
     // MARK: - Scroll Animations
     
