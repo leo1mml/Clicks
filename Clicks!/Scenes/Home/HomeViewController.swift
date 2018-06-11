@@ -1,4 +1,4 @@
-
+ 
 //
 //  HomeViewController.swift
 //  Clicks!
@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     ///move proportion per point moved in the scroll
     private var moveFactor : CGFloat = 0.0
     ///Transformations max distance
-    private var maxDistanceTransformations : CGFloat = 0.0
+    var maxDistanceTransformations : CGFloat = 0.0
     ///Current profile image scale
     private var profileImageScale : CGFloat = 1.0
     ///Current home home scale
@@ -107,8 +107,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     {
         super.viewDidLoad()
         fetchOpenChallenges()
-        self.maxDistanceTransformations = self.profileImage.center.x - homeImage.center.x
         setupImages()
+        self.maxDistanceTransformations = self.profileImage.center.x - homeImage.center.x
         setFactors()
     }
     
@@ -126,8 +126,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     ///Sets the initial values for the move and scale factors
     func setFactors() {
         self.moveFactor = (maxDistanceTransformations)/view.frame.width
-        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.9, height: homeImage.frame.height * 0.9))
-        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.2, height: profileImage.frame.height * 1.2))
+        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.9, height: homeImage.frame.height * 0.9)).width
+        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.2, height: profileImage.frame.height * 1.2)).width
     }
     
     ///Configures the initial position of images
@@ -250,11 +250,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
      Gets the scale rate of the item based on it's final size and the distance in which it should vary.
      - Parameters:
         - distance: The amount of distance left until the item destination.
-        - finalSizeProportion: The item final size percentage
+        - initialSize: The item initial size
+        - finalSize: The item final size at the end of the movement
      */
-    func getItemScaleRate(distance: CGFloat, from initialSize: CGSize, to finalSize: CGSize) -> CGFloat{
-        let sizeIncreaseRate = 1 - (initialSize.width / finalSize.width)
-        let increasePerPoint = sizeIncreaseRate/maxDistanceTransformations
-        return increasePerPoint
+    func getItemScaleRate(distance: CGFloat, from initialSize: CGSize, to finalSize: CGSize) -> CGSize{
+        let widthIncreaseRate = 1 - (initialSize.width / finalSize.width)
+        let heightIncreseRate = 1 - (initialSize.height / finalSize.height)
+        let increasedWidthPerPoint = widthIncreaseRate/distance
+        let increasedHeightPerPoint = heightIncreseRate/distance
+        return CGSize(width: increasedWidthPerPoint, height: increasedHeightPerPoint)
     }
 }
