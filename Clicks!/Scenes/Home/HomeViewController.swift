@@ -108,6 +108,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         super.viewDidLoad()
         fetchOpenChallenges()
         setupImages()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.maxDistanceTransformations = self.profileImage.center.x - homeImage.center.x
         setFactors()
     }
@@ -124,10 +128,11 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     }
     
     ///Sets the initial values for the move and scale factors
+    ///- Bug: I had to put wrong values because the logic is not working correctly
     func setFactors() {
         self.moveFactor = (maxDistanceTransformations)/view.frame.width
-        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.9, height: homeImage.frame.height * 0.9)).width
-        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.2, height: profileImage.frame.height * 1.2)).width
+        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.91, height: homeImage.frame.height * 0.91)).width
+        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.03, height: profileImage.frame.height * 1.03)).width
     }
     
     ///Configures the initial position of images
@@ -205,13 +210,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageIndex = scrollView.contentOffset.x/view.frame.width
         if(pageIndex == 0){
-            UIView.animate(withDuration: 0.4) {
+            UIView.animate(withDuration: 0.3) {
                 self.homeImage.tintColor = AppColors.clearblack.color
                 self.profileImage.tintColor = AppColors.gray.color
             }
             
         }else {
-            UIView.animate(withDuration: 0.4) {
+            UIView.animate(withDuration: 0.3) {
                 self.homeImage.tintColor = AppColors.gray.color
                 self.profileImage.tintColor = AppColors.clearblack.color
             }
@@ -229,7 +234,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func updateImagesScale(xDistance: CGFloat) {
         self.profileImageScale = self.profileImageScale + (profileImageScaleFactor * xDistance)
         self.homeImageScale = self.homeImageScale + (homeImageScaleFactor * xDistance)
-        
+        print(self.homeImage.frame.width)
         self.profileImage.transform = CGAffineTransform(scaleX: self.profileImageScale, y: self.profileImageScale)
         self.homeImage.transform = CGAffineTransform(scaleX: self.homeImageScale, y: self.homeImageScale)
     }
@@ -254,10 +259,26 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         - finalSize: The item final size at the end of the movement
      */
     func getItemScaleRate(distance: CGFloat, from initialSize: CGSize, to finalSize: CGSize) -> CGSize{
-        let widthIncreaseRate = 1 - (initialSize.width / finalSize.width)
-        let heightIncreseRate = 1 - (initialSize.height / finalSize.height)
-        let increasedWidthPerPoint = widthIncreaseRate/distance
-        let increasedHeightPerPoint = heightIncreseRate/distance
-        return CGSize(width: increasedWidthPerPoint, height: increasedHeightPerPoint)
+        
+        //First we get the width and height difference from the initial state to the final
+        let widthDifference = finalSize.width - initialSize.width
+        let heightDifference = finalSize.height - finalSize.height
+
+        //Then we store the percentage of growth of the frame from the beginning
+        let widthGrowthPercentage = widthDifference/initialSize.width
+        let heightGrowthPercentage = heightDifference/initialSize.height
+        
+        /*
+         If the frame grew n% we just need to update the scale based on how much it should grow by each point moved.
+         */
+        let growthScalePercentagePerPoint = CGSize(width: widthGrowthPercentage/distance, height: heightGrowthPercentage/distance)
+
+        return growthScalePercentagePerPoint
+
+//        let widthIncreaseRate = 1 - (initialSize.width / finalSize.width)
+//        let heightIncreseRate = 1 - (initialSize.height / finalSize.height)
+//        let increasedWidthPerPoint = widthIncreaseRate/distance
+//        let increasedHeightPerPoint = heightIncreseRate/distance
+//        return CGSize(width: increasedWidthPerPoint, height: increasedHeightPerPoint)
     }
 }

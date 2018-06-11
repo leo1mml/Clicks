@@ -20,9 +20,9 @@ class HomeViewController_Tests: XCTestCase {
     
     func testGetItemScaleRate(){
         let initialSize = CGSize(width: 10, height: 10)
-        let finalSize = CGSize(width: 15, height: 15)
+        let finalSize = CGSize(width: 1, height: 1)
         let scaleRateSize = vc?.getItemScaleRate(distance: 100, from: initialSize, to: finalSize)
-        XCTAssert(scaleRateSize?.width == CGFloat(0.00333333333333333))
+        XCTAssert(scaleRateSize?.width == CGFloat(-0.09))
     }
     
 //    func testItemScaleRateZeroIfDistanceIsZero() {
