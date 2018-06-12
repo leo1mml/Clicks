@@ -9,7 +9,6 @@
 import UIKit
 
 private let kOnboardingPresented = "kOnboardingPresented"
-private let testModeFlag = false
 
 /// This enum works like a namespace that holds the methods needed to deal with onboarding
 /// complex tasks in the AppDelegate
@@ -32,7 +31,7 @@ enum AppDelegateHelper {
     
     /// Marks in the user defaults that the app was already accessed
     private static func markOnboardingPresented() {
-        UserDefaults.standard.set(!testModeFlag, forKey: kOnboardingPresented)
+        UserDefaults.standard.set(true, forKey: kOnboardingPresented)
     }
     
     /// Creates an instance of a navigation contoller with an OnboardingViewController in its root
