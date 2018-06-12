@@ -24,9 +24,10 @@ enum AppDelegateHelper {
         
         if !onboardingWasPresented {
             self.markOnboardingPresented()
+            return true
         }
         
-        return !onboardingWasPresented
+        return false
     }
     
     /// Marks in the user defaults that the app was already accessed
