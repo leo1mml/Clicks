@@ -123,7 +123,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         setupImageView()
         setupBottomControls()
         self.view.backgroundColor = AppColors.darkwhite.color
-        UserDefaults.standard.set(true, forKey: "kOnboardingPresented")
+//        UserDefaults.standard.set(true, forKey: "kOnboardingPresented")
     }
     
     override var prefersStatusBarHidden: Bool {

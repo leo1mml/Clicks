@@ -12,6 +12,8 @@ import XCTest
 class HomeViewController_Tests: XCTestCase {
     
     var vc : HomeViewController?
+    let initialSize = CGSize(width: 10, height: 10)
+    let finalSize = CGSize(width: 100, height: 100)
     
     override func setUp() {
         vc = HomeViewController()
@@ -19,11 +21,10 @@ class HomeViewController_Tests: XCTestCase {
     }
     
     func testGetItemScaleRate(){
-        let initialSize = CGSize(width: 10, height: 10)
-        let finalSize = CGSize(width: 1, height: 1)
         let scaleRateSize = vc?.getItemScaleRate(distance: 100, from: initialSize, to: finalSize)
-        XCTAssert(scaleRateSize?.width == CGFloat(-0.09))
+        XCTAssert(scaleRateSize?.width == CGFloat(0.09))
     }
+    
     
 //    func testItemScaleRateZeroIfDistanceIsZero() {
 //        let scaleRate = vc?.getItemScaleRate(distance: 0, from: CGSize(width: 10, height: 10), to: CGSize(width: 20, height: 20))

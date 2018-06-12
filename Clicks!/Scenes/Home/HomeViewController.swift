@@ -29,19 +29,20 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     ///last scroll offset value
     private var lastOffset : CGFloat = 0.0
     ///scale proportion per point moved in the scroll
-    private var homeImageScaleFactor : CGFloat = 0.0
+    private var homeImageScaleFactor : CGSize = CGSize(width: 0.0, height: 0.0)
     ///scale proportion per point moved in the scroll
-    private var profileImageScaleFactor : CGFloat = 0.0
+    private var profileImageScaleFactor : CGSize = CGSize(width: 0.0, height: 0.0)
     ///scale proportion per point moved in the scroll
-    private var configScaleFactor : CGFloat = 0.0
+    private var configScaleFactor : CGSize = CGSize(width: 0.0, height: 0.0)
     ///move proportion per point moved in the scroll
     private var moveFactor : CGFloat = 0.0
     ///Transformations max distance
     var maxDistanceTransformations : CGFloat = 0.0
     ///Current profile image scale
-    private var profileImageScale : CGFloat = 1.0
+    private var profileImageScale : CGSize = CGSize(width: 1.0, height: 1.0)
     ///Current home home scale
-    private var homeImageScale : CGFloat = 1.0
+    private var homeImageScale : CGSize = CGSize(width: 1.0, height: 1.0)
+
     
     // MARK: - Outlets
     
@@ -128,11 +129,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     }
     
     ///Sets the initial values for the move and scale factors
-    ///- Bug: I had to put wrong values because the logic is not working correctly
     func setFactors() {
         self.moveFactor = (maxDistanceTransformations)/view.frame.width
-        self.homeImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.91, height: homeImage.frame.height * 0.91)).width
-        self.profileImageScaleFactor = getItemScaleRate(distance: maxDistanceTransformations, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.03, height: profileImage.frame.height * 1.03)).width
+        self.homeImageScaleFactor = getItemScaleRate(distance: view.frame.width, from: homeImage.frame.size, to: CGSize(width: homeImage.frame.width * 0.75, height: homeImage.frame.height * 0.75))
+        self.profileImageScaleFactor = getItemScaleRate(distance: view.frame.width, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.066, height: profileImage.frame.height * 1.066))
     }
     
     ///Configures the initial position of images
@@ -201,9 +201,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //If last offset was smaller than the current one, move items to the right, else move to left.
-        let differenceOffsetX = lastOffset < scrollView.contentOffset.x ? -abs(scrollView.contentOffset.x - lastOffset) : abs(scrollView.contentOffset.x - lastOffset)
-        updateImagesCenterX(xDistance: (differenceOffsetX * moveFactor))
-        updateImagesScale(xDistance: -differenceOffsetX)
+        let differenceOffsetX = scrollView.contentOffset.x - lastOffset
+        updateImagesCenterX(xDistance: -(differenceOffsetX * moveFactor))
+        updateImagesScale(xDistance: differenceOffsetX)
         lastOffset = scrollView.contentOffset.x
     }
     
@@ -230,13 +230,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
      Updates the images scale as the scrolling happens based on each image scaleFactor
      - Parameters:
         - xDistance: The scroll offset variation
+     - Attention: In this case we're using the scrolling distance to scale the items.
      */
     func updateImagesScale(xDistance: CGFloat) {
-        self.profileImageScale = self.profileImageScale + (profileImageScaleFactor * xDistance)
-        self.homeImageScale = self.homeImageScale + (homeImageScaleFactor * xDistance)
-        print(self.homeImage.frame.width)
-        self.profileImage.transform = CGAffineTransform(scaleX: self.profileImageScale, y: self.profileImageScale)
-        self.homeImage.transform = CGAffineTransform(scaleX: self.homeImageScale, y: self.homeImageScale)
+        self.profileImageScale.width += (profileImageScaleFactor.width * xDistance)
+        self.profileImageScale.height += (profileImageScaleFactor.height * xDistance)
+        self.homeImageScale.width += (homeImageScaleFactor.width * xDistance)
+        self.homeImageScale.height += (homeImageScaleFactor.height * xDistance)
+        self.profileImage.transform = CGAffineTransform(scaleX: self.profileImageScale.width, y: self.profileImageScale.height)
+        self.homeImage.transform = CGAffineTransform(scaleX: self.homeImageScale.width, y: self.homeImageScale.height)
     }
     
     
@@ -246,9 +248,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         - xDistance: The distance value to be applied to the images center.
      */
     func updateImagesCenterX(xDistance: CGFloat){
-        self.configImage.center.x = self.configImage.center.x + xDistance
-        self.profileImage.center.x = self.profileImage.center.x + xDistance
-        self.homeImage.center.x = self.homeImage.center.x + xDistance
+        self.configImage.center.x += xDistance
+        self.profileImage.center.x += xDistance
+        self.homeImage.center.x += xDistance
     }
     
     /**
@@ -257,12 +259,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         - distance: The amount of distance left until the item destination.
         - initialSize: The item initial size
         - finalSize: The item final size at the end of the movement
+     - Attention: In this case we should use the screen width, because we're moving the entire screen to resize the items.
      */
     func getItemScaleRate(distance: CGFloat, from initialSize: CGSize, to finalSize: CGSize) -> CGSize{
         
         //First we get the width and height difference from the initial state to the final
         let widthDifference = finalSize.width - initialSize.width
-        let heightDifference = finalSize.height - finalSize.height
+        let heightDifference = finalSize.height - initialSize.height
 
         //Then we store the percentage of growth of the frame from the beginning
         let widthGrowthPercentage = widthDifference/initialSize.width
@@ -274,11 +277,5 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let growthScalePercentagePerPoint = CGSize(width: widthGrowthPercentage/distance, height: heightGrowthPercentage/distance)
 
         return growthScalePercentagePerPoint
-
-//        let widthIncreaseRate = 1 - (initialSize.width / finalSize.width)
-//        let heightIncreseRate = 1 - (initialSize.height / finalSize.height)
-//        let increasedWidthPerPoint = widthIncreaseRate/distance
-//        let increasedHeightPerPoint = heightIncreseRate/distance
-//        return CGSize(width: increasedWidthPerPoint, height: increasedHeightPerPoint)
     }
 }
