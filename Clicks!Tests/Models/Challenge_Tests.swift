@@ -49,9 +49,9 @@ class Challenge_Tests: XCTestCase {
         XCTAssertNotNil(encodedData)
         let decodedData = try? decoder.decode(Challenge.self, from: encodedData!)
         XCTAssertNotNil(decodedData)
-        XCTAssert(Formatter.compareEqualDate(date1: (currentChallenge?.startDate)!, date2: (decodedData?.startDate)!), "Start dates are not equal")
-        XCTAssert(Formatter.compareEqualDate(date1: (currentChallenge?.endDate)!, date2: (decodedData?.endDate)!), "End dates are not equal")
-        XCTAssert(Formatter.compareEqualDate(date1: (currentChallenge?.postDateLimit)!, date2: (decodedData?.postDateLimit)!), "Post dates are not equal")
+        XCTAssert(Date.compareEqualDate(date1: (currentChallenge?.startDate)!, date2: (decodedData?.startDate)!), "Start dates are not equal")
+        XCTAssert(Date.compareEqualDate(date1: (currentChallenge?.endDate)!, date2: (decodedData?.endDate)!), "End dates are not equal")
+        XCTAssert(Date.compareEqualDate(date1: (currentChallenge?.postDateLimit)!, date2: (decodedData?.postDateLimit)!), "Post dates are not equal")
         XCTAssert(currentChallenge?.id == decodedData?.id, "IDs do not match")
     }
     
