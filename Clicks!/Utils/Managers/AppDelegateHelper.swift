@@ -9,7 +9,7 @@
 import UIKit
 
 private let kOnboardingPresented = "kOnboardingPresented"
-private let testModeFlag = true
+private let testModeFlag = false
 
 /// This enum works like a namespace that holds the methods needed to deal with onboarding
 /// complex tasks in the AppDelegate
