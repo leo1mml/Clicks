@@ -170,8 +170,7 @@
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(indexPath.item == 0){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainScreenCellId, for: indexPath) as! MainScreenView
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainScreenCellId, for: indexPath)
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileScreenCellId, for: indexPath)

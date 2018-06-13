@@ -28,22 +28,24 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
     var router: (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
     
     //Commom variables
-    private let componentCellId = "ComponentCell"
+    private let openChallengesCellId = "OpenChallengesCell"
+    private let lastWinnersCellId = "LastWinnersCell"
+    private let nextChallengesCellId = "NextChallengesCell"
     
     //Screen Items
     
     ///Table view to store the current challenges, last winners and next challenges
-    var containerTableView : UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = AppColors.clearblack.color
-        return tableView
-    }()
+    var containerTableView : UITableView?
     
     // MARK: Object lifecycle
     
-    override init(frame: CGRect)
-    {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupTableView()
+        setup()
+    }
+    
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setupTableView()
         setup()
@@ -92,8 +94,48 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
     
     ///Set up the initial configurations for the container table view
     func setupTableView() {
-        self.containerTableView.frame = self.frame
-        self.addSubview(self.containerTableView)
+        self.containerTableView = UITableView(frame: self.frame, style: .grouped)
+        guard let tableView = self.containerTableView else {
+            return
+        }
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = AppColors.clearblack.color
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(OpenChallengesCell.self, forCellReuseIdentifier: self.openChallengesCellId)
+        tableView.allowsSelection = false
+        self.addSubview(tableView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
+}
+
+extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: openChallengesCellId)
+        return cell!
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return self.frame.height * 0.633
+        default:
+            return 100
+        }
+    }
+    
+    
+    
 }
 

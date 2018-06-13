@@ -24,12 +24,17 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic
 
   // MARK: Object lifecycle
   
-    override init(frame: CGRect)
-  {
-    super.init(frame: frame)
-    setup()
-    self.backgroundColor = .red
-  }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+        self.backgroundColor = .red
+    }
   
   required init?(coder aDecoder: NSCoder)
   {

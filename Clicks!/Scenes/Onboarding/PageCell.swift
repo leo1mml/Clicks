@@ -42,6 +42,13 @@ class PageCell: UICollectionViewCell {
         return textView
     }()
     
+    
+    override func awakeFromNib() {
+        self.backgroundColor = AppColors.darkwhite.color
+        setupTitle()
+        setupText()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = AppColors.darkwhite.color
