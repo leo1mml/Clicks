@@ -17,39 +17,49 @@ protocol MainScreenDisplayLogic: class
     func displaySomething(viewModel: MainScreen.Something.ViewModel)
 }
 
-class MainScreenView: UIView, MainScreenDisplayLogic
+class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
 {
-    @IBOutlet var contentView: UIView!
+    
+    // MARK: - Variables
+    
+    //Delegates
+    
     var interactor: MainScreenBusinessLogic?
     var router: (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
+    
+    //Commom variables
+    private let componentCellId = "ComponentCell"
+    
+    //Screen Items
+    
+    ///Table view to store the current challenges, last winners and next challenges
+    var containerTableView : UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = AppColors.clearblack.color
+        return tableView
+    }()
     
     // MARK: Object lifecycle
     
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        commomInit()
+        setupTableView()
         setup()
     }
     
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
-        commomInit()
         setup()
-    }
-    
-    func commomInit() {
-        Bundle.main.loadNibNamed("MainScreen", owner: self, options: nil)
-        addSubview(self.contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     // MARK: Setup
     
     private func setup()
     {
+        self.backgroundColor = AppColors.darkwhite.color
         let viewController = self
         let interactor = MainScreenInteractor()
         let presenter = MainScreenPresenter()
@@ -76,6 +86,14 @@ class MainScreenView: UIView, MainScreenDisplayLogic
     func displaySomething(viewModel: MainScreen.Something.ViewModel)
     {
         //nameTextField.text = viewModel.name
+    }
+    
+    //MARK: - Configure View
+    
+    ///Set up the initial configurations for the container table view
+    func setupTableView() {
+        self.containerTableView.frame = self.frame
+        self.addSubview(self.containerTableView)
     }
 }
 
