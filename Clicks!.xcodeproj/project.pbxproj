@@ -53,10 +53,13 @@
 		8A1DB58120D0EAB40094CC95 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */; };
 		8A1DB58220D0EAB40094CC95 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */; };
 		8A1DB58320D0EAB40094CC95 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */; };
-		8A1DB58C20D1C62E0094CC95 /* OpenChallengesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB58B20D1C62E0094CC95 /* OpenChallengesCell.swift */; };
-		8A1DB58D20D1C62E0094CC95 /* OpenChallengesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB58B20D1C62E0094CC95 /* OpenChallengesCell.swift */; };
-		8A1DB58E20D1C62E0094CC95 /* OpenChallengesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB58B20D1C62E0094CC95 /* OpenChallengesCell.swift */; };
 		8A1DB59220D1D01F0094CC95 /* CarouselCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */; };
+		8A1DB59720D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
+		8A1DB59820D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
+		8A1DB59920D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
+		8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
+		8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
+		8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
 		8A2F559120C9819B007E29E8 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */; };
 		8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
 		8A30889A20BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
@@ -74,6 +77,9 @@
 		8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A658F0E20C8CA990062F0C4 /* OnboardingViewController_UITests.swift */; };
 		8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */; };
 		8AAA2BD120BE4F19007F2EA4 /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
+		8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
+		8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
+		8AB603B520D2020000C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
 		8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */; };
 		8AC4B0A820B3AE28001D98B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A720B3AE28001D98B1 /* Assets.xcassets */; };
 		8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0E520B683F0001D98B1 /* HomeViewController.swift */; };
@@ -247,8 +253,9 @@
 		8A1DB56F20D0EAB40094CC95 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		8A1DB57020D0EAB40094CC95 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
-		8A1DB58B20D1C62E0094CC95 /* OpenChallengesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengesCell.swift; sourceTree = "<group>"; };
 		8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewLayout.swift; sourceTree = "<group>"; };
+		8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableHeaderView.swift; sourceTree = "<group>"; };
+		8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengeCell.swift; sourceTree = "<group>"; };
 		8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 		8A6256AB20B690CB0032195E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8A6256AD20B691620032195E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -258,6 +265,7 @@
 		8A658F0E20C8CA990062F0C4 /* OnboardingViewController_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController_UITests.swift; sourceTree = "<group>"; };
 		8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController_Tests.swift; sourceTree = "<group>"; };
 		8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+iso8601.swift"; sourceTree = "<group>"; };
+		8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengesContainerCell.swift; sourceTree = "<group>"; };
 		8AC4B09D20B3AE26001D98B1 /* Clicks!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clicks!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AC4B0A720B3AE28001D98B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -449,7 +457,7 @@
 		8A1DB58A20D1C5FF0094CC95 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8A1DB59020D1CFF10094CC95 /* CustomCollectionViewLayout */,
+				8A1DB59520D1E91A0094CC95 /* TableHeaderView */,
 				8A1DB58F20D1CBA10094CC95 /* CustomCells */,
 			);
 			path = Utils;
@@ -458,16 +466,34 @@
 		8A1DB58F20D1CBA10094CC95 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				8A1DB58B20D1C62E0094CC95 /* OpenChallengesCell.swift */,
+				8A1DB59A20D1FD630094CC95 /* Open Challenges */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		8A1DB59020D1CFF10094CC95 /* CustomCollectionViewLayout */ = {
+		8A1DB59520D1E91A0094CC95 /* TableHeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */,
 			);
-			path = CustomCollectionViewLayout;
+			path = TableHeaderView;
+			sourceTree = "<group>";
+		};
+		8A1DB59A20D1FD630094CC95 /* Open Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				8A1DB59B20D1FD780094CC95 /* Open Challenge Cell */,
+				8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */,
+			);
+			path = "Open Challenges";
+			sourceTree = "<group>";
+		};
+		8A1DB59B20D1FD780094CC95 /* Open Challenge Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */,
+			);
+			path = "Open Challenge Cell";
 			sourceTree = "<group>";
 		};
 		8A2F558F20C98164007E29E8 /* Home */ = {
@@ -926,13 +952,14 @@
 				8A1DB56520CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8AE6BFE820B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8A1DB57E20D0EAB40094CC95 /* ProfileView.swift in Sources */,
-				8A1DB58C20D1C62E0094CC95 /* OpenChallengesCell.swift in Sources */,
 				8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8A1DB56820CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
 				8A6256C520B790E40032195E /* OnboardingViewController.swift in Sources */,
 				8A1DB57B20D0EAB40094CC95 /* ProfileModels.swift in Sources */,
+				8AB603B520D2020000C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				08DF49C820BE5130004D4057 /* AppDelegateHelper.swift in Sources */,
 				8AE6BFE420B7BA4E005E8FFC /* OnboardingModels.swift in Sources */,
+				8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A1DB55F20CF87FC0094CC95 /* MainScreenRouter.swift in Sources */,
 				8A6256AE20B691620032195E /* User.swift in Sources */,
 				8AE6BFE120B7B40C005E8FFC /* AppColors.swift in Sources */,
@@ -941,6 +968,7 @@
 				8AAA2BD120BE4F19007F2EA4 /* Formatter+iso8601.swift in Sources */,
 				08DF49CA20BE53A3004D4057 /* HorizontalScrollFlowLayout.swift in Sources */,
 				8A6256C820B790E40032195E /* OnboardingPresenter.swift in Sources */,
+				8A1DB59720D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
 				8A1DB58120D0EAB40094CC95 /* ProfileInteractor.swift in Sources */,
 				8A1DB55C20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */,
 			);
@@ -958,9 +986,9 @@
 				8A1DB56920CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
 				8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */,
 				8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */,
-				8A1DB58D20D1C62E0094CC95 /* OpenChallengesCell.swift in Sources */,
 				8ACD434D20C8BB7B00594046 /* OnboardingViewController_Tests.swift in Sources */,
 				8A1DB54B20CF83A30094CC95 /* DateHelper.swift in Sources */,
+				8A1DB59820D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
 				8AE6C09120BCFBB1005E8FFC /* PageCell_Tests.swift in Sources */,
 				8A1853C520BDCE7B00DC179B /* Photo_Tests.swift in Sources */,
 				8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */,
@@ -968,7 +996,9 @@
 				8A1853C320BDCE3D00DC179B /* User_Tests.swift in Sources */,
 				8A1DB55A20CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
 				8A1DB56620CF87FC0094CC95 /* MainScreenView.swift in Sources */,
+				8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A1853BA20BDAFFE00DC179B /* OnboardingPresenter_Tests.swift in Sources */,
+				8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A6256C020B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A1DB57320D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
 				8A1DB57C20D0EAB40094CC95 /* ProfileModels.swift in Sources */,
@@ -991,7 +1021,6 @@
 				8AE6BFE620B7BA4E005E8FFC /* OnboardingModels.swift in Sources */,
 				8A6256C720B790E40032195E /* OnboardingViewController.swift in Sources */,
 				8A6256CA20B790E40032195E /* OnboardingPresenter.swift in Sources */,
-				8A1DB58E20D1C62E0094CC95 /* OpenChallengesCell.swift in Sources */,
 				8A1DB55E20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */,
 				8A1DB57A20D0EAB40094CC95 /* ProfileRouter.swift in Sources */,
 				8A1DB56420CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
@@ -1000,6 +1029,7 @@
 				8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */,
 				8A1DB55B20CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
 				8A1DB58320D0EAB40094CC95 /* ProfileInteractor.swift in Sources */,
+				8A1DB59920D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
 				8A1DB56120CF87FC0094CC95 /* MainScreenRouter.swift in Sources */,
 				8AE6BFEA20B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8A30889A20BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */,
@@ -1007,9 +1037,11 @@
 				8A1DB57720D0EAB40094CC95 /* ProfileWorker.swift in Sources */,
 				8AC4B0F520B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8AE6C08D20BCD541005E8FFC /* AppColors.swift in Sources */,
+				8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A1DB56720CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A1DB57420D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
 				8A1DB56A20CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
+				8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A1DB54C20CF83A30094CC95 /* DateHelper.swift in Sources */,
 				8AC4B0FC20B687EE001D98B1 /* Challenge.swift in Sources */,
 			);

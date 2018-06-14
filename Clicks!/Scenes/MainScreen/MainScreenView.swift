@@ -28,6 +28,7 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
     var router: (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
     
     //Commom variables
+    private let headerCellId = "headerCellId"
     private let openChallengesCellId = "OpenChallengesCell"
     private let lastWinnersCellId = "LastWinnersCell"
     private let nextChallengesCellId = "NextChallengesCell"
@@ -99,10 +100,13 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
             return
         }
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = AppColors.clearblack.color
+        tableView.backgroundColor = AppColors.darkwhite.color
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.register(OpenChallengesCell.self, forCellReuseIdentifier: self.openChallengesCellId)
+        tableView.register(OpenChallengesContainerCell.self, forCellReuseIdentifier: self.openChallengesCellId)
+        tableView.register(MainScreenTableHeaderView.self, forCellReuseIdentifier: headerCellId)
         tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         self.addSubview(tableView)
         
         tableView.dataSource = self
@@ -130,9 +134,36 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
         switch indexPath.section {
         case 0:
             return self.frame.height * 0.633
+        case 1:
+            return self.frame.height * 0.23
+        case 2:
+            return self.frame.height * 0.54
         default:
-            return 100
+            return 0
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableCell(withIdentifier: headerCellId) as! MainScreenTableHeaderView
+        switch section {
+        case 1:
+            header.title.text = NSLocalizedString("LAST WINNERS", comment: "")
+        case 2:
+            header.title.text = NSLocalizedString("NEXT CHALLENGES", comment: "")
+            
+        default:
+            header.title.text = ""
+        }
+        return header
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0.0
+        }
+        return self.frame.height * (68/592)
     }
     
     

@@ -5,6 +5,8 @@
   Created by Leonel Menezes on 25/05/2018.
   Copyright © 2018 Leonel Menezes. All rights reserved.
 */
+
+//Onboarding
 "Welcome to Clicks!" = "Welcome to Clicks!";
 "We're a social network made for people who love or will love to photograph" = "We're a social network made for people who love or will love to photograph";
 "Participate!" = "Participe!";
@@ -15,3 +17,9 @@
 "Don't be shy, during the competition all clicks are sent anonymously, only when the challenge ends the authors are revealed" = "Don't be shy, during the competition all clicks are sent anonymously, only when the challenge ends the authors are revealed";
 "LET'S GO" = "LET'S GO";
 "SKIP" = "SKIP";
+
+//Main Screen
+"NEXT CHALLENGES" = "NEXT CHALLENGES";
+"LAST WINNERS" = "LAST WINNERS";
+"See all" = "See all";
+"Votation Period" = "Votation Period";
