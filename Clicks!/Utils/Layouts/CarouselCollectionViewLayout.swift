@@ -8,7 +8,10 @@
 
 import Foundation
 import UIKit
-
+/**
+ Custom flow layout with a carousel effect
+ - TODO: Study this class, I got this code in the ray wenderlich lecture. But honestly, I didn't understand ir very well, so I can not test it right now.
+ */
 class CarouselCollectionViewLayout : UICollectionViewFlowLayout {
     var standartItemHeightScale = 0.87
     var standartItemWidthScale = 0.95

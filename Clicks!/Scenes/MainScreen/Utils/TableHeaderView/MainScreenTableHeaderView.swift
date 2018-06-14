@@ -20,20 +20,13 @@ class MainScreenTableHeaderView : UITableViewCell {
         return btn
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.frame = self.bounds
-        self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.backgroundColor = AppColors.darkwhite.color
-        setupTitle()
-        setupButton()
-    }
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.frame = self.bounds
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.backgroundColor = AppColors.darkwhite.color
+        setupTitle()
+        setupButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,17 +35,20 @@ class MainScreenTableHeaderView : UITableViewCell {
     
     ///Layout for button
     func setupButton() {
+        self.addSubview(self.button)
         self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -18).isActive = true
         self.button.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.addSubview(self.button)
     }
     
     ///Puts the title in the right place
     func setupTitle() {
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        title.leadingAnchor.constraint(equalTo: self.trailingAnchor, constant: 18)
-        title.backgroundColor = .clear
         self.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.font = UIFont(name: "Montserrat-Medium", size: 14)
+        title.textColor = UIColor(colorWithHexValue: 0x6B6B6B)
+        title.textAlignment = .left
+        title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 18).isActive = true
+        title.backgroundColor = .clear
     }
 }

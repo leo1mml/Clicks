@@ -149,15 +149,15 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
         switch section {
         case 1:
             header.title.text = NSLocalizedString("LAST WINNERS", comment: "")
+            break;
         case 2:
             header.title.text = NSLocalizedString("NEXT CHALLENGES", comment: "")
-            
+            break;
         default:
             header.title.text = ""
         }
         return header
     }
-    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {

@@ -8,12 +8,24 @@
 
 import Foundation
 import UIKit
-
+///Container to all the challenges
 class OpenChallengesContainerCell: UITableViewCell {
     
+    // MARK: - Screen Items
+    
+    ///Collection View to store the challenges view model
     private var openChallengesCollectionView : UICollectionView?
     
+    ///Page Control to track the current displayed challenge
+    private var pageControl : UIPageControl = {
+        let pageControl = UIPageControl()
+        return pageControl
+    }()
+    
+    // MARK: - Variables
     private let openChallengeCellId = "openChallengeCell"
+    
+    // MARK: - Object life cycle
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,6 +36,10 @@ class OpenChallengesContainerCell: UITableViewCell {
         return nil
     }
     
+    
+    // MARK: - CollectionView Configuration
+    
+    ///Initializes the collection view with all the preset configurations
     func initCollectionView () {
         self.openChallengesCollectionView = UICollectionView(frame: CGRect(origin: self.frame.origin, size: CGSize.zero), collectionViewLayout: UICollectionViewLayout())
         
@@ -34,10 +50,15 @@ class OpenChallengesContainerCell: UITableViewCell {
         configureFlowLayout(collectionView: collectionView)
     }
     
-    
+    /**
+     This method sets up the initial configurations of the collection view
+     - Parameters:
+        - collectionView: The collection view to be configured
+     */
     func setupCollectionView(collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = AppColors.darkwhite.color
         collectionView.register(OpenChallengeCell.self, forCellWithReuseIdentifier: openChallengeCellId)
@@ -47,10 +68,15 @@ class OpenChallengesContainerCell: UITableViewCell {
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16)
             ])
     }
     
+    /**
+     This method configures the custom flow layout of the collection view in order to display it correctly
+     - Parameters:
+        - collectionView: The collectionView which has the custom flow layout.
+     */
     func configureFlowLayout(collectionView: UICollectionView){
         if let layout = collectionView.collectionViewLayout as? CarouselCollectionViewLayout {
             layout.scrollDirection = .horizontal
@@ -62,6 +88,7 @@ class OpenChallengesContainerCell: UITableViewCell {
     }
 }
 
+// MARK: - Extension Collection View
 
 extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
