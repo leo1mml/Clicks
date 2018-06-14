@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import LXPageControl
+
 ///Container to all the challenges
 class OpenChallengesContainerCell: UITableViewCell {
     
@@ -17,8 +19,13 @@ class OpenChallengesContainerCell: UITableViewCell {
     private var openChallengesCollectionView : UICollectionView?
     
     ///Page Control to track the current displayed challenge
-    private var pageControl : UIPageControl = {
-        let pageControl = UIPageControl()
+    private var pageControl : LXPageControl = {
+        let pageControl = LXPageControl()
+        pageControl.inactiveColor = UIColor(colorWithHexValue: 0xD8D8D8)
+        pageControl.activeColor = AppColors.clearblack.color
+        pageControl.cornerRadius = 2
+        pageControl.spacing = 7
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
         return pageControl
     }()
     
@@ -29,13 +36,28 @@ class OpenChallengesContainerCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = AppColors.darkwhite.color
         initCollectionView()
+        setupPageControl()
     }
     
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
     
+    
+    // MARK: - Page Control
+    /**
+     Configure page control layout
+     */
+    func setupPageControl() {
+        self.addSubview(pageControl)
+        pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        pageControl.elementHeight = 4
+        pageControl.elementWidth = 15
+        pageControl.pages = 8
+    }
     
     // MARK: - CollectionView Configuration
     
@@ -68,7 +90,7 @@ class OpenChallengesContainerCell: UITableViewCell {
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16)
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
             ])
     }
     
@@ -109,6 +131,14 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.frame.width * (338/375), height: self.frame.height * (358/self.frame.height))
+    }
+    
+    // MARK: - Scroll View
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let cellWidth = self.frame.width * (338/375)
+        let pageIndex = Int(round(scrollView.contentOffset.x/cellWidth))
+        self.pageControl.currentPage = pageIndex
     }
 
 }
