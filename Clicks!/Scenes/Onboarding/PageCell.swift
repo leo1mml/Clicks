@@ -42,6 +42,13 @@ class PageCell: UICollectionViewCell {
         return textView
     }()
     
+    
+    override func awakeFromNib() {
+        self.backgroundColor = AppColors.darkwhite.color
+        setupTitle()
+        setupText()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = AppColors.darkwhite.color
@@ -53,7 +60,7 @@ class PageCell: UICollectionViewCell {
         return nil
     }
     
-    ///Sets up text constraints
+    ///Sets up title constraints
     func setupTitle() {
         addSubview(self.title)
         NSLayoutConstraint.activate([
@@ -62,7 +69,7 @@ class PageCell: UICollectionViewCell {
             self.title.topAnchor.constraint(equalTo: topAnchor, constant: frame.height * 0.65)
             ])
     }
-    
+    ///Sets Up the text constraints
     func setupText() {
         addSubview(self.text)
         NSLayoutConstraint.activate([

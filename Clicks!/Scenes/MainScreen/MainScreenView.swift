@@ -17,39 +17,52 @@ protocol MainScreenDisplayLogic: class
     func displaySomething(viewModel: MainScreen.Something.ViewModel)
 }
 
-class MainScreenView: UIView, MainScreenDisplayLogic
+class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
 {
-    @IBOutlet var contentView: UIView!
+    
+    // MARK: - Variables
+    
+    //Delegates
+    
     var interactor: MainScreenBusinessLogic?
     var router: (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
     
+    //Commom variables
+    private let headerCellId = "headerCellId"
+    private let openChallengesCellId = "OpenChallengesCell"
+    private let lastWinnersCellId = "LastWinnersCell"
+    private let nextChallengesCellId = "NextChallengesCell"
+    
+    //Screen Items
+    
+    ///Table view to store the current challenges, last winners and next challenges
+    var containerTableView : UITableView?
+    
     // MARK: Object lifecycle
     
-    override init(frame: CGRect)
-    {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupTableView()
+        setup()
+    }
+    
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        commomInit()
+        setupTableView()
         setup()
     }
     
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
-        commomInit()
         setup()
-    }
-    
-    func commomInit() {
-        Bundle.main.loadNibNamed("MainScreen", owner: self, options: nil)
-        addSubview(self.contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     // MARK: Setup
     
     private func setup()
     {
+        self.backgroundColor = AppColors.darkwhite.color
         let viewController = self
         let interactor = MainScreenInteractor()
         let presenter = MainScreenPresenter()
@@ -77,5 +90,83 @@ class MainScreenView: UIView, MainScreenDisplayLogic
     {
         //nameTextField.text = viewModel.name
     }
+    
+    //MARK: - Configure View
+    
+    ///Set up the initial configurations for the container table view
+    func setupTableView() {
+        self.containerTableView = UITableView(frame: self.frame, style: .grouped)
+        guard let tableView = self.containerTableView else {
+            return
+        }
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = AppColors.darkwhite.color
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(OpenChallengesContainerCell.self, forCellReuseIdentifier: self.openChallengesCellId)
+        tableView.register(MainScreenTableHeaderView.self, forCellReuseIdentifier: headerCellId)
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        self.addSubview(tableView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+}
+
+extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: openChallengesCellId)
+        return cell!
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return self.frame.height * 0.64
+        case 1:
+            return self.frame.height * 0.23
+        case 2:
+            return self.frame.height * 0.54
+        default:
+            return 0
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableCell(withIdentifier: headerCellId) as! MainScreenTableHeaderView
+        switch section {
+        case 1:
+            header.title.text = NSLocalizedString("LAST WINNERS", comment: "")
+            break;
+        case 2:
+            header.title.text = NSLocalizedString("NEXT CHALLENGES", comment: "")
+            break;
+        default:
+            header.title.text = ""
+        }
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0.0
+        }
+        return self.frame.height * (68/592)
+    }
+    
+    
+    
 }
 

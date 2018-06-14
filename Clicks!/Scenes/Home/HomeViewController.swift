@@ -16,6 +16,8 @@
  class HomeViewController: UIViewController
  {
     
+    // MARK: - Variables
+    
     ///last scroll offset value
     private var lastOffset : CGFloat = 0.0
     ///scale proportion per point moved in the scroll
@@ -32,14 +34,20 @@
     private var profileImageScale : CGSize = CGSize(width: 1.0, height: 1.0)
     ///Current home home scale
     private var homeImageScale : CGSize = CGSize(width: 1.0, height: 1.0)
+    ///Current container collection view page index
+    private var pageIndex = 0
+    ///Main Scren cell id
+    private let mainScreenCellId = "MainScreenCell"
+    ///Profile screen cell id
+    private let profileScreenCellId = "ProfileScreenCell"
     
     
     // MARK: - Outlets
     
-    //Control Views
-    @IBOutlet weak var leftControl: UIControl!
-    @IBOutlet weak var middleControl: UIControl!
-    @IBOutlet weak var rightControl: UIControl!
+    //Controls
+    @IBOutlet weak var leftControl: UIButton!
+    @IBOutlet weak var middleControl: UIButton!
+    @IBOutlet weak var rightControl: UIButton!
     
     //CollectionView
     @IBOutlet weak var containerCollectionView: UICollectionView!
@@ -68,6 +76,8 @@
     {
         super.viewDidLoad()
         setupImages()
+        self.containerCollectionView.register(MainScreenView.self, forCellWithReuseIdentifier: mainScreenCellId)
+        self.containerCollectionView.register(ProfileView.self, forCellWithReuseIdentifier: profileScreenCellId)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,15 +116,46 @@
         self.configImage.leadingAnchor.constraint(equalTo: self.profileImage.trailingAnchor, constant: view.frame.width * 0.33368).isActive = true
     }
     
+    /**
+     Switches the colors of the profile image and the home image if necessary
+     - Parameters:
+        - index: The current page index
+     */
+    func switchHeaderImagesColorsToIndex(index: Int) {
+        if(index == 0){
+            UIView.animate(withDuration: 0.2) {
+                self.homeImage.tintColor = AppColors.clearblack.color
+                self.profileImage.tintColor = AppColors.gray.color
+            }
+            
+        }else {
+            UIView.animate(withDuration: 0.2) {
+                self.homeImage.tintColor = AppColors.gray.color
+                self.profileImage.tintColor = AppColors.clearblack.color
+            }
+        }
+    }
+    
     @IBAction func leftButtonAction(_ sender: Any) {
+        scrollToMenuIndex(index: 0)
+        self.pageIndex = 0
+        switchHeaderImagesColorsToIndex(index: 0)
     }
     
     
     @IBAction func middleAction(_ sender: Any) {
+        
     }
     
     
     @IBAction func rightAction(_ sender: Any) {
+        if(pageIndex == 1) {
+            
+        }else {
+            scrollToMenuIndex(index: 1)
+            self.pageIndex = 1
+            switchHeaderImagesColorsToIndex(index: 1)
+        }
     }
     
  }
@@ -128,11 +169,14 @@
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppPage", for: indexPath)
-        if(indexPath.item % 2 == 0){
-            cell.contentView.addSubview(MainScreenView(frame: cell.frame))
+        if(indexPath.item == 0){
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainScreenCellId, for: indexPath)
+            return cell
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileScreenCellId, for: indexPath)
+            return cell
         }
-        return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -156,19 +200,19 @@
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageIndex = scrollView.contentOffset.x/view.frame.width
-        if(pageIndex == 0){
-            UIView.animate(withDuration: 0.3) {
-                self.homeImage.tintColor = AppColors.clearblack.color
-                self.profileImage.tintColor = AppColors.gray.color
-            }
-            
-        }else {
-            UIView.animate(withDuration: 0.3) {
-                self.homeImage.tintColor = AppColors.gray.color
-                self.profileImage.tintColor = AppColors.clearblack.color
-            }
-        }
+        self.pageIndex = Int(scrollView.contentOffset.x/view.frame.width)
+        switchHeaderImagesColorsToIndex(index: self.pageIndex)
+    }
+    
+    
+    /**
+     Scrolls the container collection view to a specific page
+     - Parameters:
+        - index: The desired page to be scrolled.
+     */
+    func scrollToMenuIndex(index: Int){
+        let indexPath = IndexPath(item: index, section: 0)
+        self.containerCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     
@@ -177,7 +221,8 @@
     /**
      Updates the images scale as the scrolling happens based on each image scaleFactor
      - Parameters:
-     - xDistance: The scroll offset variation
+        - xDistance: The scroll offset variation
+     
      - Attention: In this case we're using the scrolling distance to scale the items.
      */
     func updateImagesScale(xDistance: CGFloat) {

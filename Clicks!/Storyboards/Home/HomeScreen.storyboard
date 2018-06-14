@@ -18,6 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zvs-7x-Own">
+                                <rect key="frame" x="20" y="20" width="335" height="55"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiG-nz-zyv" customClass="UIButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="55"/>
+                                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="leftButtonAction:" destination="Afb-o1-QeI" eventType="touchUpInside" id="h4N-0e-jdb"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erh-Wn-5Kw" customClass="UIButton">
+                                        <rect key="frame" x="111.5" y="1" width="112" height="53"/>
+                                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="middleAction:" destination="Afb-o1-QeI" eventType="touchUpInside" id="Nux-F5-ZQb"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFW-M7-aCr" customClass="UIButton">
+                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="55"/>
+                                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="rightAction:" destination="Afb-o1-QeI" eventType="touchUpInside" id="XZN-ff-oh9"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="nDG-P3-3Ex"/>
+                                </constraints>
+                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ConfigImage" image="config-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ocl-s8-zli">
                                 <rect key="frame" x="326" y="33" width="29" height="29"/>
                                 <accessibility key="accessibilityConfiguration" identifier="ConfigImage">
@@ -48,38 +77,9 @@
                                     <constraint firstAttribute="width" priority="250" constant="27" id="qJ8-lk-gOX"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zvs-7x-Own">
-                                <rect key="frame" x="20" y="20" width="335" height="55"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiG-nz-zyv" customClass="UIControl">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <action selector="leftButtonAction:" destination="Afb-o1-QeI" eventType="touchUpInside" id="h4N-0e-jdb"/>
-                                        </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erh-Wn-5Kw" customClass="UIControl">
-                                        <rect key="frame" x="111.5" y="1" width="112" height="53"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <action selector="middleAction:" destination="Afb-o1-QeI" eventType="touchUpInside" id="Nux-F5-ZQb"/>
-                                        </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFW-M7-aCr" customClass="UIControl">
-                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <action selector="rightAction:" destination="Afb-o1-QeI" eventType="touchUpInside" id="XZN-ff-oh9"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="nDG-P3-3Ex"/>
-                                </constraints>
-                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q7q-le-eOj">
                                 <rect key="frame" x="0.0" y="75" width="375" height="592"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hn9-Wi-DxW">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -102,7 +102,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hWW-R3-muw" firstAttribute="leading" secondItem="CiG-nz-zyv" secondAttribute="leading" priority="250" id="3Jm-dx-m3u"/>
                             <constraint firstItem="hWW-R3-muw" firstAttribute="centerY" secondItem="CiG-nz-zyv" secondAttribute="centerY" priority="250" id="ILQ-50-XfR"/>
@@ -124,10 +124,10 @@
                         <outlet property="configImage" destination="Ocl-s8-zli" id="c5f-Dz-nsm"/>
                         <outlet property="containerCollectionView" destination="Q7q-le-eOj" id="aTX-3u-tfc"/>
                         <outlet property="homeImage" destination="hWW-R3-muw" id="kkQ-mb-2fj"/>
-                        <outlet property="leftControl" destination="CiG-nz-zyv" id="Da9-rv-mR4"/>
-                        <outlet property="middleControl" destination="erh-Wn-5Kw" id="GDd-EV-VG8"/>
+                        <outlet property="leftControl" destination="CiG-nz-zyv" id="vH5-Um-Xqz"/>
+                        <outlet property="middleControl" destination="erh-Wn-5Kw" id="RDV-Rc-p7f"/>
                         <outlet property="profileImage" destination="Xvh-yA-h11" id="fxC-GC-Z8n"/>
-                        <outlet property="rightControl" destination="JFW-M7-aCr" id="1ay-36-CdH"/>
+                        <outlet property="rightControl" destination="JFW-M7-aCr" id="8wa-JJ-Ib3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4T-IQ-CAd" userLabel="First Responder" sceneMemberID="firstResponder"/>

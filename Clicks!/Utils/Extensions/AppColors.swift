@@ -16,7 +16,7 @@ enum AppColors {
     case darkGradient
     case gray
     
-    private static let allValues = [darkwhite, clearblack, blue, darkgray]
+    private static let allValues = [darkwhite, clearblack, blue, darkgray, gray, darkGradient]
     
     
     var color: UIColor {
