@@ -24,22 +24,14 @@ protocol OnboardingDisplayLogic: class
 class OnboardingViewController: UICollectionViewController, OnboardingDisplayLogic
 {
     
-    
-    
     //MARK: - Variables
-    
-    
     
     ///Previous index of the collection view - It is used to define whether or not we should animate the image view
     private var prevIndex: Int = 0
     var presenter: OnboardingPresentationLogic?
     var router: (NSObjectProtocol & OnboardingRoutingLogic & OnboardingDataPassing)?
     
-    
-    
     //MARK: - Screen Items
-    
-    
     
     ///Imageview that shows the current onboard image
     let imageView : UIImageView = {
@@ -76,12 +68,8 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         prevButton.translatesAutoresizingMaskIntoConstraints = false
         return prevButton
     }()
-    
-    
-    
+
     // MARK: - Object lifecycle
-    
-    
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
@@ -94,10 +82,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         return nil
     }
     
-    
-    
     // MARK: - Setup
-    
     
     ///This method binds all the architecture classes together
     private func setup()
@@ -111,10 +96,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         router.dataStore = presenter
     }
     
-    
     // MARK: - View lifecycle
-    
-    
     
     override func viewDidLoad()
     {
@@ -123,7 +105,6 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         setupImageView()
         setupBottomControls()
         self.view.backgroundColor = AppColors.darkwhite.color
-//        UserDefaults.standard.set(true, forKey: "kOnboardingPresented")
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -132,22 +113,13 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
     
     //MARK: - Actions
     
-    
     ///This action is called when you wish to go to another viewcontroller
     @objc func handleSkip() {
         self.router?.skipOnboarding()
     }
     
-    
-    
-    
-    
-    
-    
     // MARK: - SCROLL VIEW
-    
-    
-    
+
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let x = targetContentOffset.pointee.x
         ///gets the current page index from 0 to n-1
@@ -166,11 +138,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         }
     }
     
-    
-    
     // MARK: - Collection View
-    
-    
     
     ///Configures the collectionview and changes it to its right size and color.
     func setupCollectionView() {
@@ -225,11 +193,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
             ])
     }
     
-    
-    
     // MARK: - Animations
-    
-    
     
     /**
      This animates the imageview as it changes the content image

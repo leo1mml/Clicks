@@ -1006,10 +1006,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Clicks!/Pods-Clicks!-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/LXPageControl/LXPageControl.framework",
+				"${BUILT_PRODUCTS_DIR}/ShadowView/ShadowView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LXPageControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ShadowView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

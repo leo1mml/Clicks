@@ -52,16 +52,14 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
         setup()
     }
     
     // MARK: Setup
     
-    private func setup()
-    {
+    private func setup(){
         self.backgroundColor = AppColors.darkwhite.color
         let viewController = self
         let interactor = MainScreenInteractor()
@@ -80,14 +78,12 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doSomething()
-    {
+    func doSomething(){
         let request = MainScreen.Something.Request()
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: MainScreen.Something.ViewModel)
-    {
+    func displaySomething(viewModel: MainScreen.Something.ViewModel){
         //nameTextField.text = viewModel.name
     }
     
@@ -120,7 +116,7 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,7 +129,7 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return self.frame.height * 0.64
+            return self.frame.height * (374/667)
         case 1:
             return self.frame.height * 0.23
         case 2:
@@ -142,7 +138,6 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
             return 0
         }
     }
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: headerCellId) as! MainScreenTableHeaderView
@@ -165,8 +160,5 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
         }
         return self.frame.height * (68/592)
     }
-    
-    
-    
 }
 
