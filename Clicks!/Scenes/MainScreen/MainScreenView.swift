@@ -129,7 +129,7 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return self.frame.height * (374/667)
+            return self.frame.height * (374/592)
         case 1:
             return self.frame.height * 0.23
         case 2:

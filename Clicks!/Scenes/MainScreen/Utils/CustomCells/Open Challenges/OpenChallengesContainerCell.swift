@@ -55,6 +55,7 @@ class OpenChallengesContainerCell: UITableViewCell {
         self.addSubview(pageControl)
         pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        pageControl.heightAnchor.constraint(equalToConstant: 4).isActive = true
         pageControl.elementHeight = 4
         pageControl.elementWidth = 15
         pageControl.pages = 8
@@ -86,12 +87,13 @@ class OpenChallengesContainerCell: UITableViewCell {
         collectionView.backgroundColor = AppColors.darkwhite.color
         collectionView.register(OpenChallengeCell.self, forCellWithReuseIdentifier: openChallengeCellId)
         collectionView.collectionViewLayout = CarouselCollectionViewLayout()
+        collectionView.clipsToBounds = false
         self.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15)
             ])
     }
     
@@ -139,7 +141,7 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
     // MARK: - Scroll View
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let cellWidth = self.frame.width * (338/375)
+        let cellWidth = self.frame.width * (335/375)
         let pageIndex = Int(round(scrollView.contentOffset.x/cellWidth))
         self.pageControl.currentPage = pageIndex
     }
