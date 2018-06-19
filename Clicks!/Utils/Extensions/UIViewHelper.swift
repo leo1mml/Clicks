@@ -57,4 +57,30 @@ extension UIView {
         }
         return nil
     }
+    
+    
+    /**
+     Aplly a grandient through the whole view
+     - Parameters:
+        - colours: the colors of the gradient.
+     */
+    func applyGradient(colours: [UIColor]) -> Void {
+        self.applyGradient(colours: colours, locations: nil)
+    }
+    
+    
+    /**
+     Applies a gradient to a view with determined colors and locations
+     - Parameters:
+        - colours: the colors of the gradient
+        - locations: the locations of the colors of the gradient
+     */
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> Void {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.cornerRadius = self.layer.cornerRadius
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.addSublayer(gradient)
+    }
 }

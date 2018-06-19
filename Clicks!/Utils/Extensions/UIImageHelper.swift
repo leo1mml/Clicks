@@ -15,30 +15,30 @@ extension UIImage {
      - view: view to be printed and apply blur effect.
      */
     func getImageWithBlurFrom(view: UIView) -> UIImage?{
-        guard var framedImage = UIView.image(from: view) else {
+        guard let framedImage = UIView.image(from: view) else {
             return nil
         }
-        applyGaussianBlurEffectToImage(image: &framedImage)
-        return framedImage
+        let framedImageWithBlur = framedImage.getImageWithBlur()
+        return framedImageWithBlur
     }
     
     /**
-     Applies the gaussian blur effect to an image
+     Get a new image with the gaussian blur effect applied to the current one
      - Parameters:
-     - image: the image reference to be modified
+        - image: the image reference to be modified
      */
-    func applyGaussianBlurEffectToImage( image: inout UIImage) {
+    func getImageWithBlur() -> UIImage?{
         let context = CIContext(options: nil)
         
-        guard let currentFilter = CIFilter(name: "CIGaussianBlue") else {
-            return
+        guard let currentFilter = CIFilter(name: "CIGaussianBlur") else {
+            return nil
         }
-        let beginImage = CIImage(image: image)
+        let beginImage = CIImage(image: self)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         currentFilter.setValue(6.5, forKey: "inputRadius")
         guard let output = currentFilter.outputImage, let cgimg = context.createCGImage(output, from: output.extent) else {
-            return
+            return nil
         }
-        image = UIImage(cgImage: cgimg)
+        return UIImage(cgImage: cgimg)
     }
 }
