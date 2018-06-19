@@ -17,6 +17,7 @@ class OpenChallengeCell : UICollectionViewCell {
         coverImage.contentMode = .scaleAspectFill
         coverImage.translatesAutoresizingMaskIntoConstraints = false
         coverImage.layer.cornerRadius = 10
+        coverImage.backgroundColor = UIColor(colorWithHexValue: 0xD8D8D8)
         return coverImage
         }()
     
@@ -42,10 +43,10 @@ class OpenChallengeCell : UICollectionViewCell {
     ///Set up the content view
     func setupSelfView() {
         self.layer.cornerRadius = 10
+        self.backgroundColor = .gray
         self.backgroundColor = AppColors.darkwhite.color
         self.dropShadow(color: .black, opacity: 0.5, offSet: CGSize(width: 2, height: 5), radius: 5, scale: true, cornerRadius: 10)
-        let startGradientPoint = NSNumber(value: (239/355))
-        self.applyGradient(colours: [.clear,AppColors.darkGradient.color], locations: [startGradientPoint , 1.0])
+        self.applyGradient(colours: [.clear,AppColors.darkGradient.color], locations: [0.325, 1.0])
     }
     
     ///Positions the cover image over the cell
