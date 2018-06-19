@@ -95,7 +95,9 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
         guard let tableView = self.containerTableView else {
             return
         }
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         tableView.backgroundColor = AppColors.darkwhite.color
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(OpenChallengesContainerCell.self, forCellReuseIdentifier: self.openChallengesCellId)
