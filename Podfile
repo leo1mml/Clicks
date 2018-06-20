@@ -8,6 +8,7 @@ target 'Clicks!' do
   # Pods for Clicks!
   
   pod 'LXPageControl'
+  pod 'ShadowView'
 
   target 'Clicks!Tests' do
     inherit! :search_paths

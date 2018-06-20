@@ -11,6 +11,8 @@
 		08DF49CA20BE53A3004D4057 /* HorizontalScrollFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DF49C920BE53A3004D4057 /* HorizontalScrollFlowLayout.swift */; };
 		0967BF24DA4471A4C0E1FE2B /* Pods_Clicks_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4526046AEAE74A132C92FB99 /* Pods_Clicks_.framework */; };
 		3F4256F4720577DB215EEE98 /* Pods_Clicks_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D22D313F3046253B6029926 /* Pods_Clicks_Tests.framework */; };
+		8A06D69E20D88A90000BC688 /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69D20D88A90000BC688 /* UIViewHelper.swift */; };
+		8A06D6A020D8B8A3000BC688 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */; };
 		8A1853BA20BDAFFE00DC179B /* OnboardingPresenter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853B920BDAFFE00DC179B /* OnboardingPresenter_Tests.swift */; };
 		8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853BC20BDC7E300DC179B /* AppColors_Tests.swift */; };
 		8A1853C020BDCDCD00DC179B /* Challenge_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853BF20BDCDCD00DC179B /* Challenge_Tests.swift */; };
@@ -242,6 +244,8 @@
 		42C3CCC80E2BA8C9285D449C /* Pods-Clicks!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clicks!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clicks!/Pods-Clicks!.release.xcconfig"; sourceTree = "<group>"; };
 		4526046AEAE74A132C92FB99 /* Pods_Clicks_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clicks_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A490F544EF61E2BC9FB991E /* Pods-Clicks!UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clicks!UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clicks!UITests/Pods-Clicks!UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8A06D69D20D88A90000BC688 /* UIViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewHelper.swift; sourceTree = "<group>"; };
+		8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
 		8A1853B920BDAFFE00DC179B /* OnboardingPresenter_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter_Tests.swift; sourceTree = "<group>"; };
 		8A1853BC20BDC7E300DC179B /* AppColors_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors_Tests.swift; sourceTree = "<group>"; };
 		8A1853BF20BDCDCD00DC179B /* Challenge_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_Tests.swift; sourceTree = "<group>"; };
@@ -412,6 +416,8 @@
 				8AE6BFE020B7B40C005E8FFC /* AppColors.swift */,
 				8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */,
 				8A1DB54920CF83A30094CC95 /* DateHelper.swift */,
+				8A06D69D20D88A90000BC688 /* UIViewHelper.swift */,
+				8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1006,10 +1012,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Clicks!/Pods-Clicks!-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/LXPageControl/LXPageControl.framework",
+				"${BUILT_PRODUCTS_DIR}/ShadowView/ShadowView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LXPageControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ShadowView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1059,12 +1067,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A06D6A020D8B8A3000BC688 /* UIImageHelper.swift in Sources */,
 				8A1DB57820D0EAB40094CC95 /* ProfileRouter.swift in Sources */,
 				8A1DB57520D0EAB40094CC95 /* ProfileWorker.swift in Sources */,
 				8A1DB59220D1D01F0094CC95 /* CarouselCollectionViewLayout.swift in Sources */,
 				8A1DB57220D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
 				8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */,
 				8A1DB55920CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
+				8A06D69E20D88A90000BC688 /* UIViewHelper.swift in Sources */,
 				8A1DB56220CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
 				8A6256BF20B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A6256AC20B690CB0032195E /* Photo.swift in Sources */,

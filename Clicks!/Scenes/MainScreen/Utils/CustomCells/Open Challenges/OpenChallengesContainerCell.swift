@@ -23,6 +23,7 @@ class OpenChallengesContainerCell: UITableViewCell {
         let pageControl = LXPageControl()
         pageControl.inactiveColor = UIColor(colorWithHexValue: 0xD8D8D8)
         pageControl.activeColor = AppColors.clearblack.color
+        pageControl.backgroundColor = .clear
         pageControl.cornerRadius = 2
         pageControl.spacing = 7
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +55,7 @@ class OpenChallengesContainerCell: UITableViewCell {
         self.addSubview(pageControl)
         pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        pageControl.heightAnchor.constraint(equalToConstant: 4).isActive = true
         pageControl.elementHeight = 4
         pageControl.elementWidth = 15
         pageControl.pages = 8
@@ -85,12 +87,13 @@ class OpenChallengesContainerCell: UITableViewCell {
         collectionView.backgroundColor = AppColors.darkwhite.color
         collectionView.register(OpenChallengeCell.self, forCellWithReuseIdentifier: openChallengeCellId)
         collectionView.collectionViewLayout = CarouselCollectionViewLayout()
+        collectionView.clipsToBounds = false
         self.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15)
             ])
     }
     
@@ -102,7 +105,7 @@ class OpenChallengesContainerCell: UITableViewCell {
     func configureFlowLayout(collectionView: UICollectionView){
         if let layout = collectionView.collectionViewLayout as? CarouselCollectionViewLayout {
             layout.scrollDirection = .horizontal
-            layout.itemSize = CGSize(width: self.frame.width * 0.605, height: self.frame.height * 0.9)
+            layout.itemSize = CGSize(width: self.frame.width * (335/375), height: self.frame.height * (355/374))
             layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             layout.minimumLineSpacing = 0
             layout.minimumInteritemSpacing = 0
@@ -125,18 +128,20 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
 
     // MARK: - Datasource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: openChallengeCellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: openChallengeCellId, for: indexPath) as! OpenChallengeCell
+        let image = #imageLiteral(resourceName: "testImage")
+        cell.setImage(image: image)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width * (338/375), height: self.frame.height * (358/self.frame.height))
+        return CGSize(width: self.frame.width * (335/375), height: self.frame.height * (355/374))
     }
     
     // MARK: - Scroll View
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let cellWidth = self.frame.width * (338/375)
+        let cellWidth = self.frame.width * (335/375)
         let pageIndex = Int(round(scrollView.contentOffset.x/cellWidth))
         self.pageControl.currentPage = pageIndex
     }

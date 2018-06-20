@@ -33,14 +33,14 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-        self.backgroundColor = .red
+        self.backgroundColor = AppColors.darkwhite.color
     }
   
   required init?(coder aDecoder: NSCoder)
   {
     super.init(coder: aDecoder)
     setup()
-    self.backgroundColor = .red
+    self.backgroundColor = AppColors.darkwhite.color
   }
   
   // MARK: Setup

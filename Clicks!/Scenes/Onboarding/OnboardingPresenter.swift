@@ -12,32 +12,28 @@
 
 import UIKit
 
-protocol OnboardingPresentationLogic
-{
-//  func doSomething(request: Onboarding.Something.Request)
+protocol OnboardingPresentationLogic{
     /**
-    This method allows the viewcontroller to access the data from the models
+     This method allows the viewcontroller to access the data from the models
      - Parameters:
-        - pageNumber: the page index which you wish to access the data
-        - completionHandler: The handler that you should use to use the data.
+     - pageNumber: the page index which you wish to access the data
+     - completionHandler: The handler that you should use to use the data.
      
      */
     func accessPageData(pageNumber: Int, completionHandler: @escaping (Onboarding.PageStructure.ViewModel.SinglePage) -> Void)
 }
 
-protocol OnboardingDataStore
-{
+protocol OnboardingDataStore{
     var pageStructure : Onboarding.PageStructure.ViewModel? { get set }
 }
 
-class OnboardingPresenter: OnboardingPresentationLogic, OnboardingDataStore
-{
+class OnboardingPresenter: OnboardingPresentationLogic, OnboardingDataStore{
     var pageStructure: Onboarding.PageStructure.ViewModel?
     
     init() {
         createPageStrutures()
     }
-  // MARK: Do something
+    // MARK: Do something
     
     func accessPageData(pageNumber: Int, completionHandler: @escaping (Onboarding.PageStructure.ViewModel.SinglePage) -> Void) {
         completionHandler((self.pageStructure?.pages[pageNumber])!)
@@ -52,3 +48,4 @@ class OnboardingPresenter: OnboardingPresentationLogic, OnboardingDataStore
         
     }
 }
+
