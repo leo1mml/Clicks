@@ -41,7 +41,7 @@ class OpenChallengeCell : UICollectionViewCell {
     }
     
     ///Set up the content view
-    func setupSelfView() {
+    private func setupSelfView() {
         self.layer.cornerRadius = 10
         self.backgroundColor = .gray
         self.backgroundColor = AppColors.darkwhite.color
@@ -50,7 +50,7 @@ class OpenChallengeCell : UICollectionViewCell {
     }
     
     ///Positions the cover image over the cell
-    func setupCoverImage() {
+    private func setupCoverImage() {
         self.addSubview(self.coverImage)
         NSLayoutConstraint.activate([
             coverImage.topAnchor.constraint(equalTo: self.topAnchor),
