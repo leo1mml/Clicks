@@ -1,20 +1,16 @@
 PODS:
   - LXPageControl (1.0.0)
-  - ShadowView (1.2)
 
 DEPENDENCIES:
   - LXPageControl
-  - ShadowView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - LXPageControl
-    - ShadowView
 
 SPEC CHECKSUMS:
   LXPageControl: 9da4a6318158faf7c472fb7bb80113d9ce8707ca
-  ShadowView: e686f2e27fc281c0118419b1fb314b6e534a4682
 
-PODFILE CHECKSUM: ca7238aaa9613466bb864dc6ae48f24b869791f1
+PODFILE CHECKSUM: 7bae2f5f40e60f13354d34ae6afc319112da5ca3
 
 COCOAPODS: 1.5.3
