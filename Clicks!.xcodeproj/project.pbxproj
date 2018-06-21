@@ -13,6 +13,12 @@
 		3F4256F4720577DB215EEE98 /* Pods_Clicks_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D22D313F3046253B6029926 /* Pods_Clicks_Tests.framework */; };
 		8A06D69E20D88A90000BC688 /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69D20D88A90000BC688 /* UIViewHelper.swift */; };
 		8A06D6A020D8B8A3000BC688 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */; };
+		8A06D6A920DB28C9000BC688 /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69D20D88A90000BC688 /* UIViewHelper.swift */; };
+		8A06D6AA20DB28CA000BC688 /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69D20D88A90000BC688 /* UIViewHelper.swift */; };
+		8A06D6AB20DB28CD000BC688 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */; };
+		8A06D6AC20DB28CE000BC688 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */; };
+		8A06D6AD20DB28F6000BC688 /* CarouselCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */; };
+		8A06D6AE20DB28F7000BC688 /* CarouselCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */; };
 		8A1853BA20BDAFFE00DC179B /* OnboardingPresenter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853B920BDAFFE00DC179B /* OnboardingPresenter_Tests.swift */; };
 		8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853BC20BDC7E300DC179B /* AppColors_Tests.swift */; };
 		8A1853C020BDCDCD00DC179B /* Challenge_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853BF20BDCDCD00DC179B /* Challenge_Tests.swift */; };
@@ -1113,6 +1119,7 @@
 				8A6256C920B790E40032195E /* OnboardingPresenter.swift in Sources */,
 				8A1853C020BDCDCD00DC179B /* Challenge_Tests.swift in Sources */,
 				8A1DB56920CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
+				8A06D6AB20DB28CD000BC688 /* UIImageHelper.swift in Sources */,
 				8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */,
 				8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */,
 				8ACD434D20C8BB7B00594046 /* OnboardingViewController_Tests.swift in Sources */,
@@ -1126,7 +1133,9 @@
 				8A1DB55A20CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
 				8A1DB56620CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
+				8A06D6AD20DB28F6000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
 				8A1853BA20BDAFFE00DC179B /* OnboardingPresenter_Tests.swift in Sources */,
+				8A06D6A920DB28C9000BC688 /* UIViewHelper.swift in Sources */,
 				8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A6256C020B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A1DB57320D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
@@ -1149,9 +1158,11 @@
 			files = (
 				8AE6BFE620B7BA4E005E8FFC /* OnboardingModels.swift in Sources */,
 				8A6256C720B790E40032195E /* OnboardingViewController.swift in Sources */,
+				8A06D6AE20DB28F7000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
 				8A6256CA20B790E40032195E /* OnboardingPresenter.swift in Sources */,
 				8A1DB55E20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */,
 				8A1DB57A20D0EAB40094CC95 /* ProfileRouter.swift in Sources */,
+				8A06D6AA20DB28CA000BC688 /* UIViewHelper.swift in Sources */,
 				8A1DB56420CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
 				8A1DB58020D0EAB40094CC95 /* ProfileView.swift in Sources */,
 				8A6256C120B790E40032195E /* OnboardingRouter.swift in Sources */,
@@ -1173,6 +1184,7 @@
 				8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A1DB54C20CF83A30094CC95 /* DateHelper.swift in Sources */,
 				8AC4B0FC20B687EE001D98B1 /* Challenge.swift in Sources */,
+				8A06D6AC20DB28CE000BC688 /* UIImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

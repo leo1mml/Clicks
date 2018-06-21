@@ -45,7 +45,7 @@ class OpenChallengeCell : UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.backgroundColor = .gray
         self.backgroundColor = AppColors.darkwhite.color
-        self.dropShadow(color: .black, opacity: 0.5, offSet: CGSize(width: 2, height: 5), radius: 5, scale: true, cornerRadius: 10)
+        self.dropShadow(color: .black, opacity: 0.3, offSet: CGSize(width: 2, height: 5), radius: 5, scale: true, cornerRadius: 10, borderColor: .gray)
         self.applyGradient(colours: [.clear,AppColors.darkGradient.color], locations: [0.325, 1.0])
     }
     
