@@ -29,6 +29,6 @@ class Photo: NSObject, Codable {
         self.ownerId = ownerId
         self.challengeId = challengeId
         self.votes = votes
-        self.hasWon = hasWon
+        self.hasWon = hasWon 
     }
 }
