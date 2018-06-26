@@ -81,7 +81,7 @@ extension UIView {
         gradient.cornerRadius = self.layer.cornerRadius
         gradient.colors = colours.map { $0.cgColor }
         gradient.locations = locations
-        gradient.zPosition = self.layer.zPosition + 5
+        gradient.zPosition = self.layer.zPosition + 1
         self.layer.addSublayer(gradient)
     }
 }

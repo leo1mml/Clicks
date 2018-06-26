@@ -14,18 +14,44 @@ import UIKit
 
 enum MainScreen
 {
-    // MARK: Use cases
+    enum OpenChallenges {
+        struct ViewModel {
+            struct OpenChallenges {
+                struct OpenChallenge {
+                    var title : String
+                    var numberOfPhotos : String
+                    var coverImage : UIImage
+                    var startDate : Date
+                }
+                var challenges: [OpenChallenge]
+            }
+        }
+    }
     
-    enum Something
-    {
-        struct Request
-        {
+    enum LastChallenges {
+        struct ViewModel {
+            struct LastChallenges {
+                struct PastChallenges{
+                    struct PastChallenge {
+                        var winnerProfileImage : UIImage
+                        var challengeWinnerImage: UIImage
+                        var winnerName : String
+                    }
+                    var challenges: [PastChallenges]
+                }
+            }
         }
-        struct Response
-        {
-        }
-        struct ViewModel
-        {
+    }
+    
+    enum NextChallenges {
+        struct ViewModel {
+            struct NextChallenges {
+                struct NextChallenge {
+                    var title: String
+                    var coverImage: UIImage
+                    var startDate: Date
+                }
+            }
         }
     }
 }

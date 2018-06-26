@@ -14,7 +14,7 @@ import UIKit
 
 protocol MainScreenBusinessLogic
 {
-    func doSomething(request: MainScreen.Something.Request)
+//    func doSomething(request: MainScreen.Something.Request)
 }
 
 protocol MainScreenDataStore
@@ -30,13 +30,13 @@ class MainScreenInteractor: MainScreenBusinessLogic, MainScreenDataStore
     
     // MARK: Do something
     
-    func doSomething(request: MainScreen.Something.Request)
-    {
-        worker = MainScreenWorker()
-        worker?.doSomeWork()
-        
-        let response = MainScreen.Something.Response()
-        presenter?.presentSomething(response: response)
-    }
+//    func doSomething(request: MainScreen.Something.Request)
+//    {
+//        worker = MainScreenWorker()
+//        worker?.doSomeWork()
+//        
+//        let response = MainScreen.Something.Response()
+//        presenter?.presentSomething(response: response)
+//    }
 }
 

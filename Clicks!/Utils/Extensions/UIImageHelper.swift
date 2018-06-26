@@ -9,18 +9,6 @@
 import UIKit
 
 extension UIImage {
-    /**
-     Get an image with gaussian blur effect from a view, this allows yout to create a shadow with colors for example.
-     - Parameters:
-     - view: view to be printed and apply blur effect.
-     */
-    func getImageWithBlurFrom(view: UIView) -> UIImage?{
-        guard let framedImage = UIView.image(from: view) else {
-            return nil
-        }
-        let framedImageWithBlur = framedImage.getImageWithBlur()
-        return framedImageWithBlur
-    }
     
     /**
      Get a new image with the gaussian blur effect applied to the current one

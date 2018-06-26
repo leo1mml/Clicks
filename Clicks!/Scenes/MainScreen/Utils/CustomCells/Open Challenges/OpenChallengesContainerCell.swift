@@ -18,6 +18,9 @@ class OpenChallengesContainerCell: UITableViewCell {
     ///Collection View to store the challenges view model
     private var openChallengesCollectionView : UICollectionView?
     
+    ///View model for the open challenges
+    private var openChallengesViewModel : MainScreen.NextChallenges.ViewModel?
+    
     ///Page Control to track the current displayed challenge
     private var pageControl : LXPageControl = {
         let pageControl = LXPageControl()
@@ -129,8 +132,8 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
     // MARK: - Datasource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: openChallengeCellId, for: indexPath) as! OpenChallengeCell
-        let image = #imageLiteral(resourceName: "testImage")
-        cell.setImage(image: image)
+        let data = MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Chrono Crossssss", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date())
+        cell.setCellData(data)
         return cell
     }
     

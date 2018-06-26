@@ -14,7 +14,7 @@ import UIKit
 
 protocol MainScreenDisplayLogic: class
 {
-    func displaySomething(viewModel: MainScreen.Something.ViewModel)
+//    func displaySomething(viewModel: MainScreen.Something.ViewModel)
 }
 
 class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
@@ -78,14 +78,14 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doSomething(){
-        let request = MainScreen.Something.Request()
-        interactor?.doSomething(request: request)
-    }
+//    func doSomething(){
+//        let request = MainScreen.Something.Request()
+//        interactor?.doSomething(request: request)
+//    }
     
-    func displaySomething(viewModel: MainScreen.Something.ViewModel){
-        //nameTextField.text = viewModel.name
-    }
+//    func displaySomething(viewModel: MainScreen.Something.ViewModel){
+//        //nameTextField.text = viewModel.name
+//    }
     
     //MARK: - Configure View
     

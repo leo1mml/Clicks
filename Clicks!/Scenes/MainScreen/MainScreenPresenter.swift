@@ -14,7 +14,7 @@ import UIKit
 
 protocol MainScreenPresentationLogic
 {
-    func presentSomething(response: MainScreen.Something.Response)
+//    func presentSomething(response: MainScreen.Something.Response)
 }
 
 class MainScreenPresenter: MainScreenPresentationLogic
@@ -23,10 +23,10 @@ class MainScreenPresenter: MainScreenPresentationLogic
     
     // MARK: Do something
     
-    func presentSomething(response: MainScreen.Something.Response)
-    {
-        let viewModel = MainScreen.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
-    }
+//    func presentSomething(response: MainScreen.Something.Response)
+//    {
+//        let viewModel = MainScreen.Something.ViewModel()
+//        viewController?.displaySomething(viewModel: viewModel)
+//    }
 }
 
