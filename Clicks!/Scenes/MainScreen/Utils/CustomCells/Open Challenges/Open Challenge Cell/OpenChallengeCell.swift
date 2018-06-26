@@ -42,6 +42,18 @@ class OpenChallengeCell : UICollectionViewCell {
         return numberLabel
     }()
     
+    private let timerView : TimerView = {
+        let timerView = TimerView()
+        timerView.translatesAutoresizingMaskIntoConstraints = false
+        return timerView
+    }()
+    
+    private let votationPeriodView : VotationPeriodView = {
+        let votationPeriodView = VotationPeriodView()
+        votationPeriodView.translatesAutoresizingMaskIntoConstraints = false
+        return votationPeriodView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -64,6 +76,11 @@ class OpenChallengeCell : UICollectionViewCell {
         self.coverImage.image = data.coverImage
         self.titleLabel.text = data.title
         self.numberOfPhotosLabel.text = data.numberOfPhotos + " "  + NSLocalizedString("Photos", comment: "")
+        self.timerView.endDate = data.startDate
+        if(!data.isOnVotationPeriod){
+            self.votationPeriodView.alpha = 0
+        }
+        
     }
     
     //MARK: - Setup methods
@@ -74,6 +91,8 @@ class OpenChallengeCell : UICollectionViewCell {
         setupCoverImage()
         setupTitleLabel()
         setupNumberOfPhotosLabel()
+        setupTimerView()
+        setupVotationPeriodView()
     }
     
     ///Set up the content view
@@ -115,6 +134,32 @@ class OpenChallengeCell : UICollectionViewCell {
             coverImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             coverImage.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])
+    }
+    
+    ///Setup the timer view
+    private func setupTimerView() {
+        self.addSubview(self.timerView)
+        NSLayoutConstraint.activate([
+            self.timerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            self.timerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.timerView.heightAnchor.constraint(equalToConstant: self.frame.height * (24/355)),
+            self.timerView.widthAnchor.constraint(equalToConstant: self.frame.width * (130/335))
+            ])
+        self.timerView.layer.zPosition = self.layer.zPosition + 5
+    }
+    
+    ///Adds constraints to the votation period view
+    private func setupVotationPeriodView() {
+        self.addSubview(self.votationPeriodView)
+        NSLayoutConstraint.activate([
+            self.votationPeriodView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            self.votationPeriodView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.votationPeriodView.heightAnchor.constraint(equalToConstant: 26),
+            self.votationPeriodView.widthAnchor.constraint(equalToConstant: 151)
+            ])
+        self.votationPeriodView.layer.zPosition = self.layer.zPosition + 5
+        self.votationPeriodView.titleLabel.text = NSLocalizedString("Votation Period", comment: "")
+        self.votationPeriodView.titleLabel.textColor = AppColors.clearblack.color
     }
     
 }

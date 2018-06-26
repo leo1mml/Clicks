@@ -86,9 +86,21 @@
 		8A4F8ED620E18D0F0005E1BF /* OnboardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6BFE320B7BA4D005E8FFC /* OnboardingModels.swift */; };
 		8A4F8ED720E18D0F0005E1BF /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B520B790E40032195E /* OnboardingRouter.swift */; };
 		8A4F8ED820E18D0F0005E1BF /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B820B790E40032195E /* OnboardingPresenter.swift */; };
-		8A4F8EE220E1CE600005E1BF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EE120E1CE600005E1BF /* TimerView.swift */; };
-		8A4F8EE320E1CE600005E1BF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EE120E1CE600005E1BF /* TimerView.swift */; };
-		8A4F8EE420E1CE600005E1BF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EE120E1CE600005E1BF /* TimerView.swift */; };
+		8A4F8EE620E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */; };
+		8A4F8EE720E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */; };
+		8A4F8EE820E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */; };
+		8A4F8EEF20E1ED910005E1BF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EEE20E1ED910005E1BF /* TimerView.swift */; };
+		8A4F8EF020E1ED910005E1BF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EEE20E1ED910005E1BF /* TimerView.swift */; };
+		8A4F8EF120E1ED910005E1BF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EEE20E1ED910005E1BF /* TimerView.swift */; };
+		8A4F8EF320E1EE7A0005E1BF /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F8EF220E1EE7A0005E1BF /* TimerView.xib */; };
+		8A4F8EF420E1EE7A0005E1BF /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F8EF220E1EE7A0005E1BF /* TimerView.xib */; };
+		8A4F8EF520E1EE7A0005E1BF /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F8EF220E1EE7A0005E1BF /* TimerView.xib */; };
+		8A4F8EF820E1F5A50005E1BF /* VotationPeriodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F8EF720E1F5A50005E1BF /* VotationPeriodView.xib */; };
+		8A4F8EF920E1F5A50005E1BF /* VotationPeriodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F8EF720E1F5A50005E1BF /* VotationPeriodView.xib */; };
+		8A4F8EFA20E1F5A50005E1BF /* VotationPeriodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F8EF720E1F5A50005E1BF /* VotationPeriodView.xib */; };
+		8A4F8EFC20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */; };
+		8A4F8EFD20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */; };
+		8A4F8EFE20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */; };
 		8A6256AC20B690CB0032195E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AB20B690CB0032195E /* Photo.swift */; };
 		8A6256AE20B691620032195E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AD20B691620032195E /* User.swift */; };
 		8A6256BF20B790E40032195E /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B520B790E40032195E /* OnboardingRouter.swift */; };
@@ -287,7 +299,11 @@
 		8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengeCell.swift; sourceTree = "<group>"; };
 		8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 		8A4F8EBD20E186C50005E1BF /* UIImageHelper_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper_Tests.swift; sourceTree = "<group>"; };
-		8A4F8EE120E1CE600005E1BF /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalHelper.swift; sourceTree = "<group>"; };
+		8A4F8EEE20E1ED910005E1BF /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		8A4F8EF220E1EE7A0005E1BF /* TimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
+		8A4F8EF720E1F5A50005E1BF /* VotationPeriodView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotationPeriodView.xib; sourceTree = "<group>"; };
+		8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotationPeriodView.swift; sourceTree = "<group>"; };
 		8A6256AB20B690CB0032195E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8A6256AD20B691620032195E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A6256B520B790E40032195E /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
@@ -438,6 +454,7 @@
 				8A1DB54920CF83A30094CC95 /* DateHelper.swift */,
 				8A06D69D20D88A90000BC688 /* UIViewHelper.swift */,
 				8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */,
+				8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -535,6 +552,7 @@
 		8A1DB59B20D1FD780094CC95 /* Open Challenge Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8A4F8EF620E1F53D0005E1BF /* VotationPeriod */,
 				8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */,
 			);
 			path = "Open Challenge Cell";
@@ -582,9 +600,27 @@
 		8A4F8EE020E1CE250005E1BF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				8A4F8EE120E1CE600005E1BF /* TimerView.swift */,
+				8A4F8EE920E1EA360005E1BF /* TimerView */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		8A4F8EE920E1EA360005E1BF /* TimerView */ = {
+			isa = PBXGroup;
+			children = (
+				8A4F8EEE20E1ED910005E1BF /* TimerView.swift */,
+				8A4F8EF220E1EE7A0005E1BF /* TimerView.xib */,
+			);
+			path = TimerView;
+			sourceTree = "<group>";
+		};
+		8A4F8EF620E1F53D0005E1BF /* VotationPeriod */ = {
+			isa = PBXGroup;
+			children = (
+				8A4F8EF720E1F5A50005E1BF /* VotationPeriodView.xib */,
+				8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */,
+			);
+			path = VotationPeriod;
 			sourceTree = "<group>";
 		};
 		8A6256B220B790BD0032195E /* Onboarding */ = {
@@ -943,9 +979,11 @@
 				8AE6C08020BCB8BF005E8FFC /* MontserratAlternates-Thin.otf in Resources */,
 				8AE6C02620BCB8BF005E8FFC /* Montserrat-ExtraLightItalic.otf in Resources */,
 				8AE6C04720BCB8BF005E8FFC /* MontserratAlternates-ThinItalic.otf in Resources */,
+				8A4F8EF820E1F5A50005E1BF /* VotationPeriodView.xib in Resources */,
 				8AE6C03820BCB8BF005E8FFC /* Montserrat-SemiBold.otf in Resources */,
 				8AE6C02C20BCB8BF005E8FFC /* Montserrat-Black.otf in Resources */,
 				8AE6C02F20BCB8BF005E8FFC /* Montserrat-Thin.otf in Resources */,
+				8A4F8EF320E1EE7A0005E1BF /* TimerView.xib in Resources */,
 				8AE6C01D20BCB8BF005E8FFC /* Montserrat-MediumItalic.otf in Resources */,
 				8AE6BFF020B7E078005E8FFC /* Localizable.strings in Resources */,
 				8AC4B0A820B3AE28001D98B1 /* Assets.xcassets in Resources */,
@@ -981,6 +1019,7 @@
 				8AE6C05D20BCB8BF005E8FFC /* Montserrat-LightItalic.otf in Resources */,
 				8AE6C06020BCB8BF005E8FFC /* Montserrat-Regular.otf in Resources */,
 				8AE6C04520BCB8BF005E8FFC /* Montserrat-Light.otf in Resources */,
+				8A4F8EF420E1EE7A0005E1BF /* TimerView.xib in Resources */,
 				8AE6C08720BCB8BF005E8FFC /* MontserratAlternates-SemiBoldItalic.otf in Resources */,
 				8AE6C02720BCB8BF005E8FFC /* Montserrat-ExtraLightItalic.otf in Resources */,
 				8AE6C06C20BCB8BF005E8FFC /* MontserratAlternates-LightItalic.otf in Resources */,
@@ -997,6 +1036,7 @@
 				8AE6C08120BCB8BF005E8FFC /* MontserratAlternates-Thin.otf in Resources */,
 				8AE6C02D20BCB8BF005E8FFC /* Montserrat-Black.otf in Resources */,
 				8AE6C03F20BCB8BF005E8FFC /* Montserrat-ExtraBoldItalic.otf in Resources */,
+				8A4F8EF920E1F5A50005E1BF /* VotationPeriodView.xib in Resources */,
 				8AE6C06320BCB8BF005E8FFC /* Montserrat-SemiBoldItalic.otf in Resources */,
 				8AE6C06F20BCB8BF005E8FFC /* MontserratAlternates-Regular.otf in Resources */,
 				8AE6C05A20BCB8BF005E8FFC /* MontserratAlternates-ExtraLight.otf in Resources */,
@@ -1026,6 +1066,7 @@
 				8AE6C05E20BCB8BF005E8FFC /* Montserrat-LightItalic.otf in Resources */,
 				8AE6C06120BCB8BF005E8FFC /* Montserrat-Regular.otf in Resources */,
 				8AE6C04620BCB8BF005E8FFC /* Montserrat-Light.otf in Resources */,
+				8A4F8EF520E1EE7A0005E1BF /* TimerView.xib in Resources */,
 				8AE6C08820BCB8BF005E8FFC /* MontserratAlternates-SemiBoldItalic.otf in Resources */,
 				8AE6C02820BCB8BF005E8FFC /* Montserrat-ExtraLightItalic.otf in Resources */,
 				8AE6C06D20BCB8BF005E8FFC /* MontserratAlternates-LightItalic.otf in Resources */,
@@ -1042,6 +1083,7 @@
 				8AE6C08220BCB8BF005E8FFC /* MontserratAlternates-Thin.otf in Resources */,
 				8AE6C02E20BCB8BF005E8FFC /* Montserrat-Black.otf in Resources */,
 				8AE6C04020BCB8BF005E8FFC /* Montserrat-ExtraBoldItalic.otf in Resources */,
+				8A4F8EFA20E1F5A50005E1BF /* VotationPeriodView.xib in Resources */,
 				8AE6C06420BCB8BF005E8FFC /* Montserrat-SemiBoldItalic.otf in Resources */,
 				8AE6C07020BCB8BF005E8FFC /* MontserratAlternates-Regular.otf in Resources */,
 				8AE6C05B20BCB8BF005E8FFC /* MontserratAlternates-ExtraLight.otf in Resources */,
@@ -1143,6 +1185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4F8EEF20E1ED910005E1BF /* TimerView.swift in Sources */,
 				8A06D6A020D8B8A3000BC688 /* UIImageHelper.swift in Sources */,
 				8A1DB57820D0EAB40094CC95 /* ProfileRouter.swift in Sources */,
 				8A1DB57520D0EAB40094CC95 /* ProfileWorker.swift in Sources */,
@@ -1150,6 +1193,7 @@
 				8A1DB57220D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
 				8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */,
 				8A1DB55920CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
+				8A4F8EE620E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8A06D69E20D88A90000BC688 /* UIViewHelper.swift in Sources */,
 				8A1DB56220CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
 				8A6256BF20B790E40032195E /* OnboardingRouter.swift in Sources */,
@@ -1166,8 +1210,8 @@
 				8AE6BFE420B7BA4E005E8FFC /* OnboardingModels.swift in Sources */,
 				8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A1DB55F20CF87FC0094CC95 /* MainScreenRouter.swift in Sources */,
+				8A4F8EFC20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
 				8A6256AE20B691620032195E /* User.swift in Sources */,
-				8A4F8EE220E1CE600005E1BF /* TimerView.swift in Sources */,
 				8AE6BFE120B7B40C005E8FFC /* AppColors.swift in Sources */,
 				8A1DB54A20CF83A30094CC95 /* DateHelper.swift in Sources */,
 				8AC4B0FA20B687EE001D98B1 /* Challenge.swift in Sources */,
@@ -1184,7 +1228,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A4F8EE320E1CE600005E1BF /* TimerView.swift in Sources */,
 				8A0D29F220E139E100DDAA16 /* UIViewHelper_Tests.swift in Sources */,
 				8A1DB56020CF87FC0094CC95 /* MainScreenRouter.swift in Sources */,
 				8AE6BFE520B7BA4E005E8FFC /* OnboardingModels.swift in Sources */,
@@ -1194,7 +1237,9 @@
 				8A1DB56920CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
 				8A06D6AB20DB28CD000BC688 /* UIImageHelper.swift in Sources */,
 				8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */,
+				8A4F8EFD20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
 				8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */,
+				8A4F8EE720E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8ACD434D20C8BB7B00594046 /* OnboardingViewController_Tests.swift in Sources */,
 				8A1DB54B20CF83A30094CC95 /* DateHelper.swift in Sources */,
 				8A1DB59820D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
@@ -1211,6 +1256,7 @@
 				8A1853BA20BDAFFE00DC179B /* OnboardingPresenter_Tests.swift in Sources */,
 				8A06D6A920DB28C9000BC688 /* UIViewHelper.swift in Sources */,
 				8A4F8EBF20E18BE60005E1BF /* Photo.swift in Sources */,
+				8A4F8EF020E1ED910005E1BF /* TimerView.swift in Sources */,
 				8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A6256C020B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A1DB57320D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
@@ -1239,11 +1285,12 @@
 				8A1DB58020D0EAB40094CC95 /* ProfileView.swift in Sources */,
 				8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */,
 				8A4F8ED420E18CEF0005E1BF /* MainScreenModels.swift in Sources */,
-				8A4F8EE420E1CE600005E1BF /* TimerView.swift in Sources */,
+				8A4F8EF120E1ED910005E1BF /* TimerView.swift in Sources */,
 				8A4F8ECB20E18CBA0005E1BF /* UIImageHelper.swift in Sources */,
 				8A4F8ECA20E18CBA0005E1BF /* UIViewHelper.swift in Sources */,
 				8A4F8ED220E18CEF0005E1BF /* MainScreenWorker.swift in Sources */,
 				8A4F8ECE20E18CE30005E1BF /* ProfileRouter.swift in Sources */,
+				8A4F8EFE20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
 				8A1DB59920D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
 				8A4F8EC420E18C9F0005E1BF /* Challenge.swift in Sources */,
 				8A4F8EC820E18CBA0005E1BF /* Formatter+iso8601.swift in Sources */,
@@ -1258,6 +1305,7 @@
 				8A4F8ED120E18CEF0005E1BF /* MainScreenPresenter.swift in Sources */,
 				8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A4F8EC520E18CA80005E1BF /* User.swift in Sources */,
+				8A4F8EE820E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8A1DB56720CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A4F8EC720E18CBA0005E1BF /* AppColors.swift in Sources */,
 				8A4F8ED720E18D0F0005E1BF /* OnboardingRouter.swift in Sources */,

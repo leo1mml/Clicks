@@ -22,6 +22,7 @@ enum MainScreen
                     var numberOfPhotos : String
                     var coverImage : UIImage
                     var startDate : Date
+                    var isOnVotationPeriod: Bool
                 }
                 var challenges: [OpenChallenge]
             }
