@@ -68,7 +68,8 @@ class OpenChallengeCell : UICollectionViewCell {
     
     
     override func prepareForReuse() {
-        
+        super.prepareForReuse()
+        self.coverImage.image = nil
     }
     
     /**
@@ -88,16 +89,16 @@ class OpenChallengeCell : UICollectionViewCell {
         if(!data.isOnVotationPeriod){
             self.votationPeriodView.alpha = 0
         }
+        self.shadowContainerView.updateShadow()
         
     }
     
     //MARK: - Setup methods
     
-
-    
     ///Calls the setup methods of all the subviews
     private func setup() {
         setupSelfView()
+        setupShadowView()
         setupCoverImage()
         setupTitleLabel()
         setupNumberOfPhotosLabel()
@@ -110,8 +111,16 @@ class OpenChallengeCell : UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.backgroundColor = .gray
         self.backgroundColor = AppColors.darkwhite.color
-//        self.dropShadow(color: .black, opacity: 0.3, offSet: CGSize(width: 2, height: 5), radius: 5, scale: true, cornerRadius: 10, borderColor: .gray)
         self.applyGradient(colours: [.clear,AppColors.darkGradient.color], locations: [0.325, 1.0])
+    }
+    
+    ///Setup the view which will generate the colored shadow
+    private func setupShadowView() {
+        self.shadowContainerView.frame = self.bounds
+        shadowContainerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        shadowContainerView.shadowOffset = CGSize(width: 0, height: 3)
+        shadowContainerView.shadowRadius = 5
+        addSubview(shadowContainerView)
     }
     
     ///Add constraints to the title
@@ -137,7 +146,7 @@ class OpenChallengeCell : UICollectionViewCell {
     
     ///Positions the cover image over the cell
     private func setupCoverImage() {
-        self.addSubview(self.coverImage)
+        self.shadowContainerView.addSubview(self.coverImage)
         NSLayoutConstraint.activate([
             coverImage.topAnchor.constraint(equalTo: self.topAnchor),
             coverImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),

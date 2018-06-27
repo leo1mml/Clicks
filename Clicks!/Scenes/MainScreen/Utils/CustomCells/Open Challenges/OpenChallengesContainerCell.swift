@@ -132,7 +132,9 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
     // MARK: - Datasource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: openChallengeCellId, for: indexPath) as! OpenChallengeCell
-        let data = MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Escritório", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date(), isOnVotationPeriod: true)
+        let data = indexPath.item % 2 == 0 ?
+            MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Chrono cross", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date(), isOnVotationPeriod: true) :
+            MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Devil May Cry", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage2"), startDate: Date(), isOnVotationPeriod: true)
         cell.setCellData(data)
         return cell
     }
