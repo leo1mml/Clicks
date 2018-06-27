@@ -19,7 +19,7 @@ class OpenChallengesContainerCell: UITableViewCell {
     private var openChallengesCollectionView : UICollectionView?
     
     ///View model for the open challenges
-    private var openChallengesViewModel : MainScreen.NextChallenges.ViewModel?
+    private var openChallengesViewModel : MainScreen.OpenChallenges.ViewModel.OpenChallenges?
     
     ///Page Control to track the current displayed challenge
     private var pageControl : LXPageControl = {
@@ -132,7 +132,7 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
     // MARK: - Datasource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: openChallengeCellId, for: indexPath) as! OpenChallengeCell
-        let data = MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Chrono Crossssss", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date(), isOnVotationPeriod: true)
+        let data = MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Escritório", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date(), isOnVotationPeriod: true)
         cell.setCellData(data)
         return cell
     }

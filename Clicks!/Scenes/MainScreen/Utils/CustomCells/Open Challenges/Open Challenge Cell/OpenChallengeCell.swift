@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import ShadowView
 
 class OpenChallengeCell : UICollectionViewCell {
+    
+    private let shadowContainerView = ShadowView()
     
     private let coverImage : UIImageView = {
         let coverImage = UIImageView()
@@ -63,6 +66,11 @@ class OpenChallengeCell : UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    override func prepareForReuse() {
+        
+    }
+    
     /**
      Set up all the data that the cell needs
      - Parameters:
@@ -85,6 +93,8 @@ class OpenChallengeCell : UICollectionViewCell {
     
     //MARK: - Setup methods
     
+
+    
     ///Calls the setup methods of all the subviews
     private func setup() {
         setupSelfView()
@@ -100,7 +110,7 @@ class OpenChallengeCell : UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.backgroundColor = .gray
         self.backgroundColor = AppColors.darkwhite.color
-        self.dropShadow(color: .black, opacity: 0.3, offSet: CGSize(width: 2, height: 5), radius: 5, scale: true, cornerRadius: 10, borderColor: .gray)
+//        self.dropShadow(color: .black, opacity: 0.3, offSet: CGSize(width: 2, height: 5), radius: 5, scale: true, cornerRadius: 10, borderColor: .gray)
         self.applyGradient(colours: [.clear,AppColors.darkGradient.color], locations: [0.325, 1.0])
     }
     

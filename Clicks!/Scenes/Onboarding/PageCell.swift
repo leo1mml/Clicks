@@ -26,6 +26,7 @@ class PageCell: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 1
         label.font = UIFont(name: "Montserrat-Bold", size: 30)
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = AppColors.clearblack.color
         return label
     }()
