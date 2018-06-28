@@ -32,14 +32,12 @@ enum MainScreen
     enum LastChallenges {
         struct ViewModel {
             struct LastChallenges {
-                struct PastChallenges{
-                    struct PastChallenge {
-                        var winnerProfileImage : UIImage
-                        var challengeWinnerImage: UIImage
-                        var winnerName : String
-                    }
-                    var challenges: [PastChallenges]
+                struct LastChallenge {
+                    var winnerProfileImage : UIImage
+                    var challengeWinnerImage: UIImage
+                    var winnerName : String
                 }
+                var challenges: [LastChallenge]
             }
         }
     }
@@ -52,6 +50,7 @@ enum MainScreen
                     var coverImage: UIImage
                     var startDate: Date
                 }
+                var challenges: [NextChallenges]
             }
         }
     }

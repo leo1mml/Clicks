@@ -106,19 +106,19 @@
                         <constraints>
                             <constraint firstItem="hWW-R3-muw" firstAttribute="leading" secondItem="CiG-nz-zyv" secondAttribute="leading" priority="250" id="3Jm-dx-m3u"/>
                             <constraint firstItem="hWW-R3-muw" firstAttribute="centerY" secondItem="CiG-nz-zyv" secondAttribute="centerY" priority="250" id="ILQ-50-XfR"/>
-                            <constraint firstItem="Zvs-7x-Own" firstAttribute="leading" secondItem="LMo-Qj-w6R" secondAttribute="leading" constant="20" id="OPs-t1-sTy"/>
+                            <constraint firstItem="Zvs-7x-Own" firstAttribute="leading" secondItem="KoZ-Js-6i3" secondAttribute="leading" constant="20" id="OPs-t1-sTy"/>
                             <constraint firstItem="Ocl-s8-zli" firstAttribute="centerY" secondItem="JFW-M7-aCr" secondAttribute="centerY" priority="250" id="Qce-pd-3d0"/>
-                            <constraint firstItem="Q7q-le-eOj" firstAttribute="leading" secondItem="LMo-Qj-w6R" secondAttribute="leading" id="VhT-Kq-KA3"/>
-                            <constraint firstItem="Zvs-7x-Own" firstAttribute="top" secondItem="LMo-Qj-w6R" secondAttribute="top" id="Xid-8u-P8S"/>
+                            <constraint firstItem="Q7q-le-eOj" firstAttribute="leading" secondItem="KoZ-Js-6i3" secondAttribute="leading" id="VhT-Kq-KA3"/>
+                            <constraint firstItem="Zvs-7x-Own" firstAttribute="top" secondItem="KoZ-Js-6i3" secondAttribute="top" id="Xid-8u-P8S"/>
                             <constraint firstItem="Q7q-le-eOj" firstAttribute="top" secondItem="Zvs-7x-Own" secondAttribute="bottom" id="YaB-BJ-W9p"/>
-                            <constraint firstItem="Q7q-le-eOj" firstAttribute="bottom" secondItem="LMo-Qj-w6R" secondAttribute="bottom" id="bv4-Ad-Clg"/>
+                            <constraint firstItem="Q7q-le-eOj" firstAttribute="bottom" secondItem="KoZ-Js-6i3" secondAttribute="bottom" id="bv4-Ad-Clg"/>
                             <constraint firstItem="Xvh-yA-h11" firstAttribute="centerY" secondItem="erh-Wn-5Kw" secondAttribute="centerY" priority="250" id="faY-ha-hmU"/>
                             <constraint firstItem="Xvh-yA-h11" firstAttribute="centerX" secondItem="erh-Wn-5Kw" secondAttribute="centerX" priority="250" id="gD0-KE-ToO"/>
-                            <constraint firstItem="LMo-Qj-w6R" firstAttribute="trailing" secondItem="Q7q-le-eOj" secondAttribute="trailing" id="kZj-CQ-jhj"/>
-                            <constraint firstItem="LMo-Qj-w6R" firstAttribute="trailing" secondItem="Zvs-7x-Own" secondAttribute="trailing" constant="20" id="ro7-rX-DPC"/>
+                            <constraint firstItem="KoZ-Js-6i3" firstAttribute="trailing" secondItem="Q7q-le-eOj" secondAttribute="trailing" id="kZj-CQ-jhj"/>
+                            <constraint firstItem="KoZ-Js-6i3" firstAttribute="trailing" secondItem="Zvs-7x-Own" secondAttribute="trailing" constant="20" id="ro7-rX-DPC"/>
                             <constraint firstItem="Ocl-s8-zli" firstAttribute="trailing" secondItem="JFW-M7-aCr" secondAttribute="trailing" priority="250" id="tRl-4R-k8e"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="LMo-Qj-w6R"/>
+                        <viewLayoutGuide key="safeArea" id="KoZ-Js-6i3"/>
                     </view>
                     <connections>
                         <outlet property="configImage" destination="Ocl-s8-zli" id="c5f-Dz-nsm"/>

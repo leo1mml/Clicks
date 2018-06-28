@@ -104,6 +104,9 @@
 		8A4F8F0720E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */; };
 		8A4F8F0820E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */; };
 		8A4F8F0920E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */; };
+		8A4F8F0C20E4437C0005E1BF /* LastChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */; };
+		8A4F8F0D20E4437C0005E1BF /* LastChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */; };
+		8A4F8F0E20E4437C0005E1BF /* LastChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */; };
 		8A6256AC20B690CB0032195E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AB20B690CB0032195E /* Photo.swift */; };
 		8A6256AE20B691620032195E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AD20B691620032195E /* User.swift */; };
 		8A6256BF20B790E40032195E /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B520B790E40032195E /* OnboardingRouter.swift */; };
@@ -113,6 +116,12 @@
 		8A6256C820B790E40032195E /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B820B790E40032195E /* OnboardingPresenter.swift */; };
 		8A6256C920B790E40032195E /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B820B790E40032195E /* OnboardingPresenter.swift */; };
 		8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A658F0E20C8CA990062F0C4 /* OnboardingViewController_UITests.swift */; };
+		8A664EAA20E4B4540030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
+		8A664EAC20E4B5E20030CFC9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
+		8A664EAD20E4B5E20030CFC9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
+		8A664EAE20E4B5E20030CFC9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
+		8A664EAF20E4B6600030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
+		8A664EB020E4B6620030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
 		8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */; };
 		8AAA2BD120BE4F19007F2EA4 /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
 		8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
@@ -248,6 +257,12 @@
 		8AE6C08B20BCB8BF005E8FFC /* MontserratAlternates-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6C01C20BCB8BF005E8FFC /* MontserratAlternates-Medium.otf */; };
 		8AE6C08C20BCD541005E8FFC /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6BFE020B7B40C005E8FFC /* AppColors.swift */; };
 		8AE6C09120BCFBB1005E8FFC /* PageCell_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6C09020BCFBB1005E8FFC /* PageCell_Tests.swift */; };
+		8AFED3EB20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
+		8AFED3EC20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
+		8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
+		8AFED3F020E4909900ABA0C7 /* NextChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */; };
+		8AFED3F120E4909900ABA0C7 /* NextChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */; };
+		8AFED3F220E4909900ABA0C7 /* NextChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */; };
 		AB7B5E36CBEA0F921AA69AAF /* Pods_Clicks_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EED820EA368DB63C133B8F9 /* Pods_Clicks_UITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -308,12 +323,15 @@
 		8A4F8EF720E1F5A50005E1BF /* VotationPeriodView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotationPeriodView.xib; sourceTree = "<group>"; };
 		8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotationPeriodView.swift; sourceTree = "<group>"; };
 		8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastChallengesContainerCell.swift; sourceTree = "<group>"; };
+		8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastChallengeCell.swift; sourceTree = "<group>"; };
 		8A6256AB20B690CB0032195E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8A6256AD20B691620032195E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A6256B520B790E40032195E /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		8A6256B720B790E40032195E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8A6256B820B790E40032195E /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		8A658F0E20C8CA990062F0C4 /* OnboardingViewController_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController_UITests.swift; sourceTree = "<group>"; };
+		8A664EA920E4B4540030CFC9 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
+		8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController_Tests.swift; sourceTree = "<group>"; };
 		8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+iso8601.swift"; sourceTree = "<group>"; };
 		8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengesContainerCell.swift; sourceTree = "<group>"; };
@@ -371,6 +389,8 @@
 		8AE6C01B20BCB8BE005E8FFC /* MontserratAlternates-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		8AE6C01C20BCB8BF005E8FFC /* MontserratAlternates-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Medium.otf"; sourceTree = "<group>"; };
 		8AE6C09020BCFBB1005E8FFC /* PageCell_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell_Tests.swift; sourceTree = "<group>"; };
+		8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextChallengesContainerCell.swift; sourceTree = "<group>"; };
+		8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextChallengeCell.swift; sourceTree = "<group>"; };
 		8EED820EA368DB63C133B8F9 /* Pods_Clicks_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clicks_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B99C5D30F80B59032971315 /* Pods-Clicks!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clicks!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clicks!/Pods-Clicks!.debug.xcconfig"; sourceTree = "<group>"; };
 		9ED30A8D9A4885F7CF963F21 /* Pods-Clicks!UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clicks!UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clicks!UITests/Pods-Clicks!UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -531,6 +551,7 @@
 		8A1DB58F20D1CBA10094CC95 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				8AFED3E920E48C4700ABA0C7 /* Next Challenges */,
 				8A4F8F0520E4039C0005E1BF /* Last Challenges */,
 				8A1DB59A20D1FD630094CC95 /* Open Challenges */,
 			);
@@ -600,9 +621,18 @@
 		8A4F8F0520E4039C0005E1BF /* Last Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				8A4F8F0A20E443420005E1BF /* Last Challenge Cell */,
 				8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */,
 			);
 			path = "Last Challenges";
+			sourceTree = "<group>";
+		};
+		8A4F8F0A20E443420005E1BF /* Last Challenge Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */,
+			);
+			path = "Last Challenge Cell";
 			sourceTree = "<group>";
 		};
 		8A6256B220B790BD0032195E /* Onboarding */ = {
@@ -799,6 +829,33 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		8AFED3E920E48C4700ABA0C7 /* Next Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				8AFED3EE20E4908200ABA0C7 /* Next Challenge Cell */,
+				8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */,
+			);
+			path = "Next Challenges";
+			sourceTree = "<group>";
+		};
+		8AFED3EE20E4908200ABA0C7 /* Next Challenge Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8AFED3F320E4A8D200ABA0C7 /* CalendarView */,
+				8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */,
+			);
+			path = "Next Challenge Cell";
+			sourceTree = "<group>";
+		};
+		8AFED3F320E4A8D200ABA0C7 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				8A664EA920E4B4540030CFC9 /* CalendarView.xib */,
+				8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 		EA47312F6DCC62E994A1D468 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,6 +1000,7 @@
 				8AE6C05920BCB8BF005E8FFC /* MontserratAlternates-ExtraLight.otf in Resources */,
 				8AE6C06820BCB8BF005E8FFC /* Montserrat-BoldItalic.otf in Resources */,
 				8AE6C02920BCB8BF005E8FFC /* Montserrat-ExtraLight.otf in Resources */,
+				8A664EAA20E4B4540030CFC9 /* CalendarView.xib in Resources */,
 				8AE6C02020BCB8BF005E8FFC /* Montserrat-Bold.otf in Resources */,
 				8AE6C05C20BCB8BF005E8FFC /* Montserrat-LightItalic.otf in Resources */,
 				8A2F559120C9819B007E29E8 /* HomeScreen.storyboard in Resources */,
@@ -981,6 +1039,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A664EAF20E4B6600030CFC9 /* CalendarView.xib in Resources */,
 				8AE6C07220BCB8BF005E8FFC /* MontserratAlternates-SemiBold.otf in Resources */,
 				8AE6C07E20BCB8BF005E8FFC /* MontserratAlternates-Italic.otf in Resources */,
 				8AE6C05120BCB8BF005E8FFC /* MontserratAlternates-ExtraBoldItalic.otf in Resources */,
@@ -1028,6 +1087,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A664EB020E4B6620030CFC9 /* CalendarView.xib in Resources */,
 				8AE6C07320BCB8BF005E8FFC /* MontserratAlternates-SemiBold.otf in Resources */,
 				8AE6C07F20BCB8BF005E8FFC /* MontserratAlternates-Italic.otf in Resources */,
 				8AE6C05220BCB8BF005E8FFC /* MontserratAlternates-ExtraBoldItalic.otf in Resources */,
@@ -1179,14 +1239,17 @@
 				8A4F8EE620E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8A06D69E20D88A90000BC688 /* UIViewHelper.swift in Sources */,
 				8A1DB56220CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
+				8A664EAC20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
 				8A4F8F0720E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */,
 				8A6256BF20B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A6256AC20B690CB0032195E /* Photo.swift in Sources */,
+				8AFED3F020E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
 				8A1DB56520CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8AE6BFE820B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8A1DB57E20D0EAB40094CC95 /* ProfileView.swift in Sources */,
 				8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8A1DB56820CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
+				8A4F8F0C20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
 				8A6256C520B790E40032195E /* OnboardingViewController.swift in Sources */,
 				8A1DB57B20D0EAB40094CC95 /* ProfileModels.swift in Sources */,
 				8AB603B520D2020000C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
@@ -1199,6 +1262,7 @@
 				8AE6BFE120B7B40C005E8FFC /* AppColors.swift in Sources */,
 				8A1DB54A20CF83A30094CC95 /* DateHelper.swift in Sources */,
 				8AC4B0FA20B687EE001D98B1 /* Challenge.swift in Sources */,
+				8AFED3EB20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
 				8AAA2BD120BE4F19007F2EA4 /* Formatter+iso8601.swift in Sources */,
 				08DF49CA20BE53A3004D4057 /* HorizontalScrollFlowLayout.swift in Sources */,
 				8A6256C820B790E40032195E /* OnboardingPresenter.swift in Sources */,
@@ -1234,6 +1298,7 @@
 				8A1853C320BDCE3D00DC179B /* User_Tests.swift in Sources */,
 				8A4F8EC020E18BEA0005E1BF /* User.swift in Sources */,
 				8A1DB55A20CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
+				8AFED3EC20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
 				8A1DB56620CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A06D6AD20DB28F6000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
@@ -1243,15 +1308,18 @@
 				8A4F8EBF20E18BE60005E1BF /* Photo.swift in Sources */,
 				8A4F8EF020E1ED910005E1BF /* TimerView.swift in Sources */,
 				8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
+				8A4F8F0D20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
 				8A6256C020B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A1DB57320D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
 				8A1DB57C20D0EAB40094CC95 /* ProfileModels.swift in Sources */,
 				8A4F8EBE20E186C50005E1BF /* UIImageHelper_Tests.swift in Sources */,
 				8AE6BFE920B7BFC1005E8FFC /* PageCell.swift in Sources */,
+				8AFED3F120E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
 				8A1DB58220D0EAB40094CC95 /* ProfileInteractor.swift in Sources */,
 				8A1DB55D20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */,
 				8A0D29F020E1374E00DDAA16 /* DateHelper_Tests.swift in Sources */,
 				8A1DB57920D0EAB40094CC95 /* ProfileRouter.swift in Sources */,
+				8A664EAD20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
 				8A1DB57620D0EAB40094CC95 /* ProfileWorker.swift in Sources */,
 				8AC4B0F420B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8AE6C08C20BCD541005E8FFC /* AppColors.swift in Sources */,
@@ -1273,6 +1341,7 @@
 				8A4F8EF120E1ED910005E1BF /* TimerView.swift in Sources */,
 				8A4F8ECB20E18CBA0005E1BF /* UIImageHelper.swift in Sources */,
 				8A4F8ECA20E18CBA0005E1BF /* UIViewHelper.swift in Sources */,
+				8A4F8F0E20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
 				8A4F8ED220E18CEF0005E1BF /* MainScreenWorker.swift in Sources */,
 				8A4F8ECE20E18CE30005E1BF /* ProfileRouter.swift in Sources */,
 				8A4F8EFE20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
@@ -1281,6 +1350,7 @@
 				8A4F8EC820E18CBA0005E1BF /* Formatter+iso8601.swift in Sources */,
 				8A4F8ED020E18CE30005E1BF /* ProfileInteractor.swift in Sources */,
 				8AE6BFEA20B7BFC1005E8FFC /* PageCell.swift in Sources */,
+				8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
 				8A4F8EC620E18CAD0005E1BF /* Photo.swift in Sources */,
 				8AC4B0F520B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8A4F8ECF20E18CE30005E1BF /* ProfileModels.swift in Sources */,
@@ -1294,8 +1364,10 @@
 				8A1DB56720CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A4F8EC720E18CBA0005E1BF /* AppColors.swift in Sources */,
 				8A4F8ED720E18D0F0005E1BF /* OnboardingRouter.swift in Sources */,
+				8A664EAE20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
 				8A4F8F0920E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */,
 				8A4F8EC320E18C710005E1BF /* OnboardingViewController.swift in Sources */,
+				8AFED3F220E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
 				8A4F8ED620E18D0F0005E1BF /* OnboardingModels.swift in Sources */,
 				8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A4F8ED320E18CEF0005E1BF /* MainScreenRouter.swift in Sources */,

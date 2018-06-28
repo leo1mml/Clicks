@@ -41,7 +41,6 @@
     ///Profile screen cell id
     private let profileScreenCellId = "ProfileScreenCell"
     
-    
     // MARK: - Outlets
     
     //Controls
@@ -185,6 +184,10 @@
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: containerCollectionView.frame.width, height: containerCollectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     

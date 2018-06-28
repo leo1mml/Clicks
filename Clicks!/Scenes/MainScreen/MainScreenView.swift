@@ -97,15 +97,20 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
         }
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(tableView)
+        //Appearance
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         tableView.backgroundColor = AppColors.darkwhite.color
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.register(OpenChallengesContainerCell.self, forCellReuseIdentifier: self.openChallengesCellId)
-        tableView.register(MainScreenTableHeaderView.self, forCellReuseIdentifier: headerCellId)
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-        self.addSubview(tableView)
+        
+        //Register
+        tableView.register(MainScreenTableHeaderView.self, forCellReuseIdentifier: headerCellId)
+        tableView.register(OpenChallengesContainerCell.self, forCellReuseIdentifier: self.openChallengesCellId)
+        tableView.register(LastChallengesContainerCell.self, forCellReuseIdentifier: self.lastWinnersCellId)
+        tableView.register(NextChallengesContainerCell.self, forCellReuseIdentifier: self.nextChallengesCellId)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -118,12 +123,25 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: openChallengesCellId)
+        var cell : UITableViewCell?
+        switch indexPath.section {
+        case 0:
+            cell = tableView.dequeueReusableCell(withIdentifier: openChallengesCellId)
+            break;
+        case 1:
+            cell = tableView.dequeueReusableCell(withIdentifier: lastWinnersCellId)
+            break;
+        case 2:
+            cell = tableView.dequeueReusableCell(withIdentifier: nextChallengesCellId)
+            break;
+        default:
+            return UITableViewCell()
+        }
         return cell!
         
     }
@@ -133,9 +151,9 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
         case 0:
             return self.frame.height * (374/592)
         case 1:
-            return self.frame.height * 0.23
+            return self.frame.height * (136/592)
         case 2:
-            return self.frame.height * 0.54
+            return self.frame.height * (336/592)
         default:
             return 0
         }

@@ -30,7 +30,7 @@ class OpenChallengeCell : UICollectionViewCell {
         titleLabel.textColor = .white
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.numberOfLines = 1
-        titleLabel.contentMode = .left
+        titleLabel.textAlignment = .left
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
