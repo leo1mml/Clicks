@@ -51,6 +51,7 @@ class NextChallengeCell: UICollectionViewCell {
     func setData(data: MainScreen.NextChallenges.ViewModel.NextChallenges.NextChallenge) {
         self.coverImage.image = data.coverImage
         self.titleLabel.text = data.title
+        self.calendarView.dateLabel.text = data.startDate
     }
     
     

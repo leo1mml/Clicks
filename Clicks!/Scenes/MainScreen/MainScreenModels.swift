@@ -48,7 +48,7 @@ enum MainScreen
                 struct NextChallenge {
                     var title: String
                     var coverImage: UIImage
-                    var startDate: Date
+                    var startDate: String
                 }
                 var challenges: [NextChallenges]
             }

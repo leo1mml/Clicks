@@ -84,8 +84,8 @@ extension NextChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.nextChallengeCellId, for: indexPath) as! NextChallengeCell
         
         let data = indexPath.item % 2 == 0 ?
-        MainScreen.NextChallenges.ViewModel.NextChallenges.NextChallenge.init(title: "Chrono Cross", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date()) :
-        MainScreen.NextChallenges.ViewModel.NextChallenges.NextChallenge.init(title: "Devil May Cry", coverImage: #imageLiteral(resourceName: "testImage2"), startDate: Date())
+        MainScreen.NextChallenges.ViewModel.NextChallenges.NextChallenge.init(title: "Chrono Cross", coverImage: #imageLiteral(resourceName: "testImage"), startDate: "12/12") :
+        MainScreen.NextChallenges.ViewModel.NextChallenges.NextChallenge.init(title: "Devil May Cry", coverImage: #imageLiteral(resourceName: "testImage2"), startDate: "12/12")
         
         cell.setData(data: data)
         
