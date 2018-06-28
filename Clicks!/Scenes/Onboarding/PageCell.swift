@@ -25,7 +25,7 @@ class PageCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 1
-        label.font = UIFont(name: "Montserrat-Bold", size: 30)
+        label.font = UIFont(name: "Montserrat-ExtraBold", size: 30)
         label.adjustsFontSizeToFitWidth = true
         label.textColor = AppColors.clearblack.color
         return label
@@ -37,7 +37,7 @@ class PageCell: UICollectionViewCell {
         textView.isEditable = false
         textView.textAlignment = .center
         textView.isScrollEnabled = false
-        textView.font = UIFont(name: "Montserrat-Light", size: 15)
+        textView.font = UIFont(name: "Montserrat-Regular", size: 15)
         textView.textColor = AppColors.gray.color
         textView.backgroundColor = AppColors.darkwhite.color
         return textView

@@ -35,7 +35,7 @@ class LastChallengeCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
-        label.font = UIFont(name: "Montserrat-Regular", size: 13)
+        label.font = UIFont(name: "Montserrat-Medium", size: 13)
         label.textColor = AppColors.clearblack.color
         label.textAlignment = .center
         return label

@@ -44,7 +44,7 @@ class MainScreenTableHeaderView : UITableViewCell {
     func setupTitle() {
         self.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont(name: "Montserrat-Medium", size: 14)
+        title.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         title.textColor = UIColor(colorWithHexValue: 0x6B6B6B)
         title.textAlignment = .left
         title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true

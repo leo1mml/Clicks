@@ -56,7 +56,7 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         let skipButton = UIButton()
         skipButton.setTitle(NSLocalizedString("SKIP", comment: ""), for: .normal)
         skipButton.setTitleColor(AppColors.clearblack.color, for: .normal)
-        skipButton.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 13)
+        skipButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 13)
         skipButton.accessibilityIdentifier = "SKIP BUTTON"
         skipButton.addTarget(self, action: #selector(handleSkip), for: .touchUpInside)
         skipButton.translatesAutoresizingMaskIntoConstraints = false

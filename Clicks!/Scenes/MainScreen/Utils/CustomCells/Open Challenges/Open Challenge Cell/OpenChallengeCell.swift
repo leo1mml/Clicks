@@ -26,7 +26,7 @@ class OpenChallengeCell : UICollectionViewCell {
     
     private let titleLabel : UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont(name: "Montserrat-Bold", size: 42)
+        titleLabel.font = UIFont(name: "Montserrat-ExtraBold", size: 42)
         titleLabel.textColor = .white
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.numberOfLines = 1
@@ -37,7 +37,7 @@ class OpenChallengeCell : UICollectionViewCell {
     
     private let numberOfPhotosLabel : UILabel = {
         let numberLabel = UILabel()
-        numberLabel.font = UIFont(name: "Montserrat-Light", size: 15)
+        numberLabel.font = UIFont(name: "Montserrat-Medium", size: 15)
         numberLabel.textColor = .white
         numberLabel.numberOfLines = 1
         numberLabel.contentMode = .left

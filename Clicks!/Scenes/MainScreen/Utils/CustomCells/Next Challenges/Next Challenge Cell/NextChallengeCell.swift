@@ -28,7 +28,7 @@ class NextChallengeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Montserrat-SemiBold", size: 18)
+        label.font = UIFont(name: "Montserrat-Bold", size: 18)
         label.textColor = .white
         label.adjustsFontSizeToFitWidth = true
         label.text = ""
