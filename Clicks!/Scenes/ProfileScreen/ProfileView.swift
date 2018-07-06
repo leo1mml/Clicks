@@ -40,7 +40,9 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-        self.backgroundColor = AppColors.darkwhite.color
+        initCollectionView()
+        setupCollectionView()
+//        self.backgroundColor = AppColors.darkwhite.color
     }
     
     required init?(coder aDecoder: NSCoder)
@@ -100,6 +102,19 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
         
         addSubview(collectionView)
     }
+    
+    ///Setup the collectionview adding constraints to it
+    private func setupCollectionView() {
+        guard let collectionView = self.containerCollectionView else {
+            return
+        }
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
+    }
 }
 
 extension ProfileView : UICollectionViewDelegate {
@@ -115,11 +130,23 @@ extension ProfileView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath)
         
+        cell.backgroundColor = .red
+        
         return cell
     }
 }
 
 extension ProfileView : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: 80)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
 }
 
