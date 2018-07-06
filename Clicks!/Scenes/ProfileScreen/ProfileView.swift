@@ -20,7 +20,7 @@ protocol ProfileDisplayLogic: class
 class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     
     // MARK: - Variables
-    var containerCollectionView : UICollectionView?
+    var containerCollectionView = ContainerCollectionView()
     
     //IDs
     let photoCellID = "photoCellID"
@@ -40,9 +40,7 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-        initCollectionView()
         setupCollectionView()
-//        self.backgroundColor = AppColors.darkwhite.color
     }
     
     required init?(coder aDecoder: NSCoder)
@@ -86,67 +84,26 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     
     // MARK: - Configure CollectionView
     
-    ///Initiates the collectionview
-    private func initCollectionView() {
-        self.containerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        guard let collectionView = containerCollectionView else {
-            return
-        }
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(ProfilePhotoCell.self, forCellWithReuseIdentifier: self.photoCellID)
-        collectionView.backgroundColor = AppColors.darkwhite.color
-        
-        addSubview(collectionView)
-    }
-    
     ///Setup the collectionview adding constraints to it
     private func setupCollectionView() {
-        guard let collectionView = self.containerCollectionView else {
-            return
-        }
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            ])
-    }
-}
-
-extension ProfileView : UICollectionViewDelegate {
-    
-    
-}
-
-extension ProfileView : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath)
         
-        cell.backgroundColor = .red
+        // Delegate & Datasource
+        containerCollectionView.delegate = self
+        containerCollectionView.dataSource = self
         
-        return cell
+        // Register
+        containerCollectionView.register(ProfilePhotoCell.self, forCellWithReuseIdentifier: self.photoCellID)
+        
+        //Appearance
+        containerCollectionView.backgroundColor = AppColors.darkwhite.color
+        
+        
+        addSubview(containerCollectionView)
+        
+        //Constraints
+        containerCollectionView.makeItFillSuperView()
     }
 }
 
-extension ProfileView : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
-}
+
 

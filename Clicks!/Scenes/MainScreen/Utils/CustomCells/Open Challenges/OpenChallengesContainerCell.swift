@@ -34,7 +34,7 @@ class OpenChallengesContainerCell: UITableViewCell {
     }()
     
     // MARK: - Variables
-    private let openChallengeCellId = "openChallengeCell"
+    let openChallengeCellId = "openChallengeCell"
     
     // MARK: - Object life cycle
     
@@ -114,34 +114,6 @@ class OpenChallengesContainerCell: UITableViewCell {
             layout.minimumInteritemSpacing = 0
         }
     }
-}
-
-// MARK: - Extension Collection View
-
-extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    // MARK: - Delegate
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    // MARK: - Datasource
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: openChallengeCellId, for: indexPath) as! OpenChallengeCell
-        let data = indexPath.item % 2 == 0 ?
-            MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Chrono cross", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date(), isOnVotationPeriod: true) :
-            MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Devil May Cry", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage2"), startDate: Date(), isOnVotationPeriod: true)
-        cell.setCellData(data)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width * (335/375), height: self.frame.height * (355/374))
-    }
     
     // MARK: - Scroll View
     
@@ -150,5 +122,4 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
         let pageIndex = Int(round(scrollView.contentOffset.x/cellWidth))
         self.pageControl.currentPage = pageIndex
     }
-
 }
