@@ -14,16 +14,23 @@ import UIKit
 
 protocol ProfileDisplayLogic: class
 {
-  func displaySomething(viewModel: Profile.Something.ViewModel)
+    func displaySomething(viewModel: Profile.Something.ViewModel)
 }
 
-class ProfileView: UICollectionViewCell, ProfileDisplayLogic
-{
-  var interactor: ProfileBusinessLogic?
-  var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
-
-  // MARK: Object lifecycle
-  
+class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
+    
+    // MARK: - Variables
+    var containerCollectionView : UICollectionView?
+    
+    //IDs
+    let photoCellID = "photoCellID"
+    let headerCellID = "headerCellID"
+    
+    var interactor: ProfileBusinessLogic?
+    var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
+    
+    // MARK: Object lifecycle
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,42 +42,84 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic
         setup()
         self.backgroundColor = AppColors.darkwhite.color
     }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-    self.backgroundColor = AppColors.darkwhite.color
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = ProfileInteractor()
-    let presenter = ProfilePresenter()
-    let router = ProfileRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = Profile.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Profile.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+        self.backgroundColor = AppColors.darkwhite.color
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = ProfileInteractor()
+        let presenter = ProfilePresenter()
+        let router = ProfileRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
+    
+    func doSomething()
+    {
+        let request = Profile.Something.Request()
+        interactor?.doSomething(request: request)
+    }
+    
+    func displaySomething(viewModel: Profile.Something.ViewModel)
+    {
+        //nameTextField.text = viewModel.name
+    }
+    
+    
+    // MARK: - Configure CollectionView
+    
+    ///Initiates the collectionview
+    private func initCollectionView() {
+        self.containerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        guard let collectionView = containerCollectionView else {
+            return
+        }
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(ProfilePhotoCell.self, forCellWithReuseIdentifier: self.photoCellID)
+        collectionView.backgroundColor = AppColors.darkwhite.color
+        
+        addSubview(collectionView)
+    }
 }
+
+extension ProfileView : UICollectionViewDelegate {
+    
+    
+}
+
+extension ProfileView : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath)
+        
+        return cell
+    }
+}
+
+extension ProfileView : UICollectionViewDelegateFlowLayout {
+    
+}
+

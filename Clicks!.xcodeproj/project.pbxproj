@@ -124,6 +124,9 @@
 		8A664EB020E4B6620030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
 		8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */; };
 		8AAA2BD120BE4F19007F2EA4 /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
+		8AB2E08820EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
+		8AB2E08920EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
+		8AB2E08A20EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
 		8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
 		8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
 		8AB603B520D2020000C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
@@ -334,6 +337,7 @@
 		8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController_Tests.swift; sourceTree = "<group>"; };
 		8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+iso8601.swift"; sourceTree = "<group>"; };
+		8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoCell.swift; sourceTree = "<group>"; };
 		8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengesContainerCell.swift; sourceTree = "<group>"; };
 		8AC4B09D20B3AE26001D98B1 /* Clicks!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clicks!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -529,6 +533,7 @@
 		8A1DB56B20D0EA990094CC95 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8AB2E08320EF220F0047CB00 /* Utils */,
 				8A1DB56C20D0EAB40094CC95 /* ProfilePresenter.swift */,
 				8A1DB56D20D0EAB40094CC95 /* ProfileWorker.swift */,
 				8A1DB56E20D0EAB40094CC95 /* ProfileRouter.swift */,
@@ -661,6 +666,30 @@
 				8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8AB2E08320EF220F0047CB00 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8AB2E08420EF22330047CB00 /* CustomCells */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8AB2E08420EF22330047CB00 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				8AB2E08620EF22480047CB00 /* PhotoCell */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		8AB2E08620EF22480047CB00 /* PhotoCell */ = {
+			isa = PBXGroup;
+			children = (
+				8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */,
+			);
+			path = PhotoCell;
 			sourceTree = "<group>";
 		};
 		8AC4B09420B3AE26001D98B1 = {
@@ -1258,6 +1287,7 @@
 				8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A1DB55F20CF87FC0094CC95 /* MainScreenRouter.swift in Sources */,
 				8A4F8EFC20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
+				8AB2E08820EF22960047CB00 /* ProfilePhotoCell.swift in Sources */,
 				8A6256AE20B691620032195E /* User.swift in Sources */,
 				8AE6BFE120B7B40C005E8FFC /* AppColors.swift in Sources */,
 				8A1DB54A20CF83A30094CC95 /* DateHelper.swift in Sources */,
@@ -1294,6 +1324,7 @@
 				8AE6C09120BCFBB1005E8FFC /* PageCell_Tests.swift in Sources */,
 				8A1853C520BDCE7B00DC179B /* Photo_Tests.swift in Sources */,
 				8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */,
+				8AB2E08920EF22960047CB00 /* ProfilePhotoCell.swift in Sources */,
 				8A1DB57F20D0EAB40094CC95 /* ProfileView.swift in Sources */,
 				8A1853C320BDCE3D00DC179B /* User_Tests.swift in Sources */,
 				8A4F8EC020E18BEA0005E1BF /* User.swift in Sources */,
@@ -1360,6 +1391,7 @@
 				8A4F8ED120E18CEF0005E1BF /* MainScreenPresenter.swift in Sources */,
 				8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A4F8EC520E18CA80005E1BF /* User.swift in Sources */,
+				8AB2E08A20EF22960047CB00 /* ProfilePhotoCell.swift in Sources */,
 				8A4F8EE820E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8A1DB56720CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A4F8EC720E18CBA0005E1BF /* AppColors.swift in Sources */,
