@@ -14,7 +14,7 @@ import UIKit
 
 protocol ProfileDisplayLogic: class
 {
-    func displaySomething(viewModel: Profile.Something.ViewModel)
+    
 }
 
 class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
@@ -23,8 +23,8 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     var containerCollectionView = ContainerCollectionView()
     
     //IDs
-    let photoCellID = "photoCellID"
-    let headerCellID = "headerCellID"
+    let photoCellID = "profilePhotoCellID"
+    let headerCellID = "profileHeaderCellID"
     
     var interactor: ProfileBusinessLogic?
     var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
@@ -66,22 +66,6 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething()
-    {
-        let request = Profile.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-    
-    func displaySomething(viewModel: Profile.Something.ViewModel)
-    {
-        //nameTextField.text = viewModel.name
-    }
-    
-    
     // MARK: - Configure CollectionView
     
     ///Setup the collectionview adding constraints to it
@@ -93,6 +77,7 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
         
         // Register
         containerCollectionView.register(ProfilePhotoCell.self, forCellWithReuseIdentifier: self.photoCellID)
+        containerCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: self.headerCellID)
         
         //Appearance
         containerCollectionView.backgroundColor = AppColors.darkwhite.color
@@ -104,6 +89,3 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
         containerCollectionView.makeItFillSuperView()
     }
 }
-
-
-

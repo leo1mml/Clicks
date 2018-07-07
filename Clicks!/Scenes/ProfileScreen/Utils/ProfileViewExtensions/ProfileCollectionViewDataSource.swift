@@ -14,10 +14,21 @@ extension ProfileView : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath)
-        
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath) as! ProfilePhotoCell
+        let data = indexPath.item % 2 == 0 ? Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "testImage"), hasTrophy: true) : Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "testImage2"), hasTrophy: true)
+        cell.setData(data: data)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: self.headerCellID, for: indexPath) as! ProfileHeaderView
+        let data = Profile.FetchUser.ViewModel.User(profileImage: #imageLiteral(resourceName: "testImage"), name: "Serge", nickName: "serge", numberOfPhotos: "44", numberOfTrophies: "44")
+        headerView.setData(data: data)
+        return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.frame.width, height: self.frame.height * (290/653))
     }
 }
