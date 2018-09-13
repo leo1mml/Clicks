@@ -82,6 +82,17 @@ extension UIView {
         gradient.colors = colours.map { $0.cgColor }
         gradient.locations = locations
         gradient.zPosition = self.layer.zPosition + 1
+        gradient.name = "gradient"
         self.layer.addSublayer(gradient)
+    }
+    
+    func removeChallengeGradientLayer(){
+        if self.layer.sublayers != nil {
+            for layer in self.layer.sublayers! {
+                if layer.name == "gradient" {
+                    layer.removeFromSuperlayer()
+                }
+            }
+        }
     }
 }

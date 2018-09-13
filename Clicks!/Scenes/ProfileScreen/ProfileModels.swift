@@ -35,6 +35,7 @@ enum Profile
             }
             struct Photo {
                 var image: UIImage
+                var theme: String
                 var hasTrophy: Bool
             }
             var photos: [Photo]
