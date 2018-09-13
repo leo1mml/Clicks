@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import LXPageControl
+//import LXPageControl
 
 ///Container to all the challenges
 class OpenChallengesContainerCell: UITableViewCell {
@@ -22,19 +22,19 @@ class OpenChallengesContainerCell: UITableViewCell {
     private var openChallengesViewModel : MainScreen.OpenChallenges.ViewModel.OpenChallenges?
     
     ///Page Control to track the current displayed challenge
-    private var pageControl : LXPageControl = {
-        let pageControl = LXPageControl()
-        pageControl.inactiveColor = UIColor(colorWithHexValue: 0xD8D8D8)
-        pageControl.activeColor = AppColors.clearblack.color
+    private var pageControl : UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.tintColor = UIColor(colorWithHexValue: 0xD8D8D8)
+        pageControl.currentPageIndicatorTintColor = AppColors.clearblack.color
         pageControl.backgroundColor = .clear
-        pageControl.cornerRadius = 2
-        pageControl.spacing = 7
+//        pageControl.cornerRadius = 2
+//        pageControl.spacing = 7
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         return pageControl
     }()
     
     // MARK: - Variables
-    private let openChallengeCellId = "openChallengeCell"
+    let openChallengeCellId = "openChallengeCell"
     
     // MARK: - Object life cycle
     
@@ -59,9 +59,9 @@ class OpenChallengesContainerCell: UITableViewCell {
         pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         pageControl.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        pageControl.elementHeight = 4
-        pageControl.elementWidth = 15
-        pageControl.pages = 8
+//        pageControl.elementHeight = 4
+//        pageControl.elementWidth = 15
+//        pageControl.pages = 8
     }
     
     // MARK: - CollectionView Configuration
@@ -114,34 +114,6 @@ class OpenChallengesContainerCell: UITableViewCell {
             layout.minimumInteritemSpacing = 0
         }
     }
-}
-
-// MARK: - Extension Collection View
-
-extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    // MARK: - Delegate
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    // MARK: - Datasource
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: openChallengeCellId, for: indexPath) as! OpenChallengeCell
-        let data = indexPath.item % 2 == 0 ?
-            MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Chrono cross", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage"), startDate: Date(), isOnVotationPeriod: true) :
-            MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge(title: "Devil May Cry", numberOfPhotos: "44", coverImage: #imageLiteral(resourceName: "testImage2"), startDate: Date(), isOnVotationPeriod: true)
-        cell.setCellData(data)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width * (335/375), height: self.frame.height * (355/374))
-    }
     
     // MARK: - Scroll View
     
@@ -150,5 +122,4 @@ extension OpenChallengesContainerCell : UICollectionViewDelegate, UICollectionVi
         let pageIndex = Int(round(scrollView.contentOffset.x/cellWidth))
         self.pageControl.currentPage = pageIndex
     }
-
 }

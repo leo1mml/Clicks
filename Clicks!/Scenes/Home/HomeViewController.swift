@@ -81,7 +81,7 @@
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.maxDistanceTransformations = self.profileImage.center.x - homeImage.center.x
+        self.maxDistanceTransformations = self.profileImage.center.x - view.frame.width/2
         setFactors()
     }
     

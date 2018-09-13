@@ -14,16 +14,23 @@ import UIKit
 
 protocol ProfileDisplayLogic: class
 {
-  func displaySomething(viewModel: Profile.Something.ViewModel)
+    
 }
 
-class ProfileView: UICollectionViewCell, ProfileDisplayLogic
-{
-  var interactor: ProfileBusinessLogic?
-  var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
-
-  // MARK: Object lifecycle
-  
+class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
+    
+    // MARK: - Variables
+    var containerCollectionView = ContainerCollectionView()
+    
+    //IDs
+    let photoCellID = "profilePhotoCellID"
+    let headerCellID = "profileHeaderCellID"
+    
+    var interactor: ProfileBusinessLogic?
+    var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
+    
+    // MARK: Object lifecycle
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,44 +40,52 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        setupCollectionView()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
         self.backgroundColor = AppColors.darkwhite.color
     }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-    self.backgroundColor = AppColors.darkwhite.color
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = ProfileInteractor()
-    let presenter = ProfilePresenter()
-    let router = ProfileRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = Profile.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Profile.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = ProfileInteractor()
+        let presenter = ProfilePresenter()
+        let router = ProfileRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: - Configure CollectionView
+    
+    ///Setup the collectionview adding constraints to it
+    private func setupCollectionView() {
+        
+        // Delegate & Datasource
+        containerCollectionView.delegate = self
+        containerCollectionView.dataSource = self
+        
+        // Register
+        containerCollectionView.register(ProfilePhotoCell.self, forCellWithReuseIdentifier: self.photoCellID)
+        containerCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: self.headerCellID)
+        
+        //Appearance
+        containerCollectionView.backgroundColor = AppColors.darkwhite.color
+        
+        
+        addSubview(containerCollectionView)
+        
+        //Constraints
+        containerCollectionView.makeItFillSuperView()
+    }
 }

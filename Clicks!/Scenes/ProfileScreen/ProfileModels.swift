@@ -14,18 +14,51 @@ import UIKit
 
 enum Profile
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum FetchPhotos
     {
+        struct Request
+        {
+        }
+        struct Response
+        {
+        }
+        struct ViewModel
+        {
+            struct User {
+                var profileImage : UIImage
+                var name: String
+                var nickName: String
+                var numberOfPhotos: String
+                var numberOfTrophies : String
+            }
+            struct Photo {
+                var image: UIImage
+                var hasTrophy: Bool
+            }
+            var photos: [Photo]
+        }
     }
-    struct Response
+    
+    enum FetchUser
     {
+        struct Request
+        {
+        }
+        struct Response
+        {
+        }
+        struct ViewModel
+        {
+            struct User {
+                var profileImage : UIImage
+                var name: String
+                var nickName: String
+                var numberOfPhotos: String
+                var numberOfTrophies : String
+            }
+        }
     }
-    struct ViewModel
-    {
-    }
-  }
 }
+

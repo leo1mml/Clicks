@@ -1,6 +1,0 @@
-framework module LXPageControl {
-  umbrella header "LXPageControl-umbrella.h"
-
-  export *
-  module * { export * }
-}
