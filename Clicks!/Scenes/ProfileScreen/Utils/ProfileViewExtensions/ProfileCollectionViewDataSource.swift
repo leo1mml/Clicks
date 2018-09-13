@@ -15,7 +15,7 @@ extension ProfileView : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath) as! ProfilePhotoCell
-        let data = indexPath.item % 2 == 0 ? Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "chronoimg"), hasTrophy: true) : Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "dmcimg"), hasTrophy: true)
+        let data = indexPath.item % 2 == 0 ? Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "chronoimg"), theme: "Chrono Cross", hasTrophy: true) : Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "dmcimg"), theme: "Devil May Cry", hasTrophy: false)
         cell.setData(data: data)
         
         return cell
