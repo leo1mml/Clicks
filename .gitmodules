@@ -1,2 +1,4 @@
 [submodule "Frameworks/ShadowView"]
 	url = https://github.com/PierrePerrin/ShadowView.git
+[submodule "Frameworks/CHIPageControl"]
+	url = https://github.com/ChiliLabs/CHIPageControl.git
