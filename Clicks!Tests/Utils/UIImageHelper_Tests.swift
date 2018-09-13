@@ -13,14 +13,14 @@ import XCTest
 
 class UIImageHelper_Tests: XCTestCase {
     
-    var view : UIImageView?
+//    var view : UIImageView?
     
-    override func setUp() {
-        self.view = UIImageView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 10, height: 10)))
-    }
-    
-    func testGetImageFromView() {
-        let image = UIImage(named: "testImage")?.getImageWithBlur()
-        XCTAssertNotNil(image)
-    }
+//    override func setUp() {
+//        self.view = UIImageView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 10, height: 10)))
+//    }
+//
+//    func testGetImageFromView() {
+//        let image = UIImage(named: "testImage")?.getImageWithBlur()
+//        XCTAssertNotNil(image)
+//    }
 }
