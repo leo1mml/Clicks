@@ -19,9 +19,9 @@ extension LastChallengesContainerCell : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! LastChallengeCell
-        let data = indexPath.item % 2 == 0 ? MainScreen.LastChallenges.ViewModel.LastChallenges.LastChallenge.init(winnerProfileImage: #imageLiteral(resourceName: "testImage"), challengeWinnerImage: #imageLiteral(resourceName: "testImage2"), winnerName: "Serge")
+        let data = indexPath.item % 2 == 0 ? MainScreen.LastChallenges.ViewModel.LastChallenges.LastChallenge.init(winnerProfileImage: #imageLiteral(resourceName: "chronoimg"), challengeWinnerImage: #imageLiteral(resourceName: "dmcimg"), winnerName: "Serge")
             :
-            MainScreen.LastChallenges.ViewModel.LastChallenges.LastChallenge.init(winnerProfileImage: #imageLiteral(resourceName: "testImage2"), challengeWinnerImage: #imageLiteral(resourceName: "testImage"), winnerName: "Dante")
+            MainScreen.LastChallenges.ViewModel.LastChallenges.LastChallenge.init(winnerProfileImage: #imageLiteral(resourceName: "dmcimg"), challengeWinnerImage: #imageLiteral(resourceName: "chronoimg"), winnerName: "Dante")
         
         cell.setCellData(data: data)
         

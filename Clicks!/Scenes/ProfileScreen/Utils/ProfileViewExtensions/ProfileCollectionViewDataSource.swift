@@ -10,12 +10,12 @@ import UIKit
 
 extension ProfileView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 44
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath) as! ProfilePhotoCell
-        let data = indexPath.item % 2 == 0 ? Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "testImage"), hasTrophy: true) : Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "testImage2"), hasTrophy: true)
+        let data = indexPath.item % 2 == 0 ? Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "chronoimg"), hasTrophy: true) : Profile.FetchPhotos.ViewModel.Photo(image: #imageLiteral(resourceName: "dmcimg"), hasTrophy: true)
         cell.setData(data: data)
         
         return cell
@@ -23,7 +23,7 @@ extension ProfileView : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: self.headerCellID, for: indexPath) as! ProfileHeaderView
-        let data = Profile.FetchUser.ViewModel.User(profileImage: #imageLiteral(resourceName: "testImage"), name: "Serge", nickName: "serge", numberOfPhotos: "44", numberOfTrophies: "44")
+        let data = Profile.FetchUser.ViewModel.User(profileImage: #imageLiteral(resourceName: "chronoimg"), name: "Serge", nickName: "serge", numberOfPhotos: "44", numberOfTrophies: "44")
         headerView.setData(data: data)
         return headerView
     }

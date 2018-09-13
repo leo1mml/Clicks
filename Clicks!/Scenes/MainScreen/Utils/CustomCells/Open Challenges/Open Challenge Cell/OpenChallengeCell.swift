@@ -119,7 +119,7 @@ class OpenChallengeCell : UICollectionViewCell {
         self.shadowContainerView.frame = self.bounds
         shadowContainerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         shadowContainerView.shadowOffset = CGSize(width: 0, height: 3)
-        shadowContainerView.shadowRadius = 5
+        shadowContainerView.shadowRadius = 2
         addSubview(shadowContainerView)
     }
     
