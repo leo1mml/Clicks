@@ -120,10 +120,11 @@
 		8A664EAE20E4B5E20030CFC9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
 		8A664EAF20E4B6600030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
 		8A664EB020E4B6620030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
+		8A68E5CB214A092C001D7259 /* CHIPageControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A68E5C9214A090E001D7259 /* CHIPageControl.framework */; };
+		8A68E5CC214A092C001D7259 /* CHIPageControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A68E5C9214A090E001D7259 /* CHIPageControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */; };
 		8AAA2BD120BE4F19007F2EA4 /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
 		8AB11FE72149F793004B9235 /* ShadowView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB11FE22149F767004B9235 /* ShadowView.framework */; };
-		8AB11FE82149F819004B9235 /* ShadowView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB11FE22149F767004B9235 /* ShadowView.framework */; };
 		8AB11FE92149F819004B9235 /* ShadowView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB11FE22149F767004B9235 /* ShadowView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AB2E08820EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
 		8AB2E08920EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
@@ -306,6 +307,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8A68E5C8214A090E001D7259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A68E5C4214A090E001D7259 /* CHIPageControl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4313A78C1E7A831E0015A568;
+			remoteInfo = CHIPageControl;
+		};
+		8A68E5CD214A092C001D7259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A68E5C4214A090E001D7259 /* CHIPageControl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4313A78B1E7A831E0015A568;
+			remoteInfo = CHIPageControl;
+		};
 		8AB11FE12149F767004B9235 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8AB11FDB2149F766004B9235 /* ShadowView.xcodeproj */;
@@ -357,6 +372,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8A68E5CC214A092C001D7259 /* CHIPageControl.framework in Embed Frameworks */,
 				8AB11FE92149F819004B9235 /* ShadowView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -409,6 +425,7 @@
 		8A658F0E20C8CA990062F0C4 /* OnboardingViewController_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController_UITests.swift; sourceTree = "<group>"; };
 		8A664EA920E4B4540030CFC9 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		8A68E5C4214A090E001D7259 /* CHIPageControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CHIPageControl.xcodeproj; path = Frameworks/CHIPageControl/CHIPageControl.xcodeproj; sourceTree = "<group>"; };
 		8A6EF3E320CA160F0006C80A /* HomeViewController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController_Tests.swift; sourceTree = "<group>"; };
 		8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+iso8601.swift"; sourceTree = "<group>"; };
 		8AB11FDB2149F766004B9235 /* ShadowView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShadowView.xcodeproj; path = Frameworks/ShadowView/ShadowView/ShadowView.xcodeproj; sourceTree = "<group>"; };
@@ -489,8 +506,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A68E5CB214A092C001D7259 /* CHIPageControl.framework in Frameworks */,
 				8AB11FE72149F793004B9235 /* ShadowView.framework in Frameworks */,
-				8AB11FE82149F819004B9235 /* ShadowView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +760,14 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		8A68E5C5214A090E001D7259 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A68E5C9214A090E001D7259 /* CHIPageControl.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8A6EF3E220CA15F60006C80A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -754,6 +779,7 @@
 		8AB11FDA2149F766004B9235 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A68E5C4214A090E001D7259 /* CHIPageControl.xcodeproj */,
 				8AB11FDB2149F766004B9235 /* ShadowView.xcodeproj */,
 			);
 			name = Frameworks;
@@ -1059,6 +1085,7 @@
 			);
 			dependencies = (
 				8AB11FEB2149F819004B9235 /* PBXTargetDependency */,
+				8A68E5CE214A092C001D7259 /* PBXTargetDependency */,
 			);
 			name = "Clicks!";
 			productName = "Clicks!";
@@ -1139,6 +1166,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 8A68E5C5214A090E001D7259 /* Products */;
+					ProjectRef = 8A68E5C4214A090E001D7259 /* CHIPageControl.xcodeproj */;
+				},
+				{
 					ProductGroup = 8AB11FDC2149F766004B9235 /* Products */;
 					ProjectRef = 8AB11FDB2149F766004B9235 /* ShadowView.xcodeproj */;
 				},
@@ -1153,6 +1184,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		8A68E5C9214A090E001D7259 /* CHIPageControl.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CHIPageControl.framework;
+			remoteRef = 8A68E5C8214A090E001D7259 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8AB11FE22149F767004B9235 /* ShadowView.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1534,6 +1572,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8A68E5CE214A092C001D7259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CHIPageControl;
+			targetProxy = 8A68E5CD214A092C001D7259 /* PBXContainerItemProxy */;
+		};
 		8AB11FEB2149F819004B9235 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ShadowView;

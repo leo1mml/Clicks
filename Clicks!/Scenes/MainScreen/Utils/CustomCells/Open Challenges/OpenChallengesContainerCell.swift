@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//import LXPageControl
+import CHIPageControl
 
 ///Container to all the challenges
 class OpenChallengesContainerCell: UITableViewCell {
@@ -22,13 +22,10 @@ class OpenChallengesContainerCell: UITableViewCell {
     private var openChallengesViewModel : MainScreen.OpenChallenges.ViewModel.OpenChallenges?
     
     ///Page Control to track the current displayed challenge
-    private var pageControl : UIPageControl = {
-        let pageControl = UIPageControl()
+    private var pageControl : CHIPageControlJaloro = {
+        let pageControl = CHIPageControlJaloro()
         pageControl.tintColor = UIColor(colorWithHexValue: 0xD8D8D8)
-        pageControl.currentPageIndicatorTintColor = AppColors.clearblack.color
-        pageControl.backgroundColor = .clear
-//        pageControl.cornerRadius = 2
-//        pageControl.spacing = 7
+        pageControl.currentPageTintColor = AppColors.clearblack.color
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         return pageControl
     }()
@@ -59,9 +56,10 @@ class OpenChallengesContainerCell: UITableViewCell {
         pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         pageControl.heightAnchor.constraint(equalToConstant: 4).isActive = true
-//        pageControl.elementHeight = 4
-//        pageControl.elementWidth = 15
-//        pageControl.pages = 8
+        pageControl.elementHeight = 4
+        pageControl.elementWidth = 15
+        pageControl.numberOfPages = 8
+        pageControl.radius = 2
     }
     
     // MARK: - CollectionView Configuration
@@ -119,7 +117,7 @@ class OpenChallengesContainerCell: UITableViewCell {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let cellWidth = self.frame.width * (335/375)
-        let pageIndex = Int(round(scrollView.contentOffset.x/cellWidth))
-        self.pageControl.currentPage = pageIndex
+        let pageIndex = /*Int(round(*/scrollView.contentOffset.x/cellWidth/*))*/
+        self.pageControl.progress = Double(pageIndex)
     }
 }
