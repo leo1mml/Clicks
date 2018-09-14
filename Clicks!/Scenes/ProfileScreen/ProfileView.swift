@@ -21,6 +21,7 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     
     // MARK: - Variables
     var containerCollectionView = ContainerCollectionView()
+    var navigationController : UINavigationController?
     
     //IDs
     let photoCellID = "profilePhotoCellID"
@@ -54,15 +55,15 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     
     private func setup()
     {
-        let viewController = self
+        let mainView = self
         let interactor = ProfileInteractor()
         let presenter = ProfilePresenter()
         let router = ProfileRouter()
-        viewController.interactor = interactor
-        viewController.router = router
+        mainView.interactor = interactor
+        mainView.router = router
         interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
+        presenter.viewController = mainView
+        router.mainView = mainView
         router.dataStore = interactor
     }
     

@@ -22,6 +22,8 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
     
     // MARK: - Variables
     
+    var navigationController : UINavigationController?
+    
     //Delegates
     
     var interactor: MainScreenBusinessLogic?

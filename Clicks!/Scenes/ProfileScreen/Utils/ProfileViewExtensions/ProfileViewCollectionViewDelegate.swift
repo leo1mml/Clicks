@@ -10,5 +10,7 @@ import UIKit
 
 extension ProfileView : UICollectionViewDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router?.routeToPhotoView(photoScreen: PhotosSlideScreenViewController(), photoIndex: indexPath.item)
+    }
 }

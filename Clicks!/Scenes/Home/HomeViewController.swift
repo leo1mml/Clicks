@@ -77,6 +77,11 @@
         setupImages()
         self.containerCollectionView.register(MainScreenView.self, forCellWithReuseIdentifier: mainScreenCellId)
         self.containerCollectionView.register(ProfileView.self, forCellWithReuseIdentifier: profileScreenCellId)
+        if(self.navigationController == nil){
+            
+//            self.navigationController = UINavigationController(rootViewController: self)
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -169,13 +174,14 @@
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(indexPath.item == 0){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainScreenCellId, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainScreenCellId, for: indexPath) as! MainScreenView
+            cell.navigationController = self.navigationController
             return cell
         }else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileScreenCellId, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileScreenCellId, for: indexPath) as! ProfileView
+            cell.navigationController = self.navigationController
             return cell
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

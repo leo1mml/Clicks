@@ -38,18 +38,11 @@
 		8A1DB56820CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55820CF87FC0094CC95 /* MainScreenInteractor.swift */; };
 		8A1DB56920CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55820CF87FC0094CC95 /* MainScreenInteractor.swift */; };
 		8A1DB57220D0EAB40094CC95 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56C20D0EAB40094CC95 /* ProfilePresenter.swift */; };
-		8A1DB57320D0EAB40094CC95 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56C20D0EAB40094CC95 /* ProfilePresenter.swift */; };
 		8A1DB57520D0EAB40094CC95 /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56D20D0EAB40094CC95 /* ProfileWorker.swift */; };
-		8A1DB57620D0EAB40094CC95 /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56D20D0EAB40094CC95 /* ProfileWorker.swift */; };
 		8A1DB57820D0EAB40094CC95 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56E20D0EAB40094CC95 /* ProfileRouter.swift */; };
-		8A1DB57920D0EAB40094CC95 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56E20D0EAB40094CC95 /* ProfileRouter.swift */; };
 		8A1DB57B20D0EAB40094CC95 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56F20D0EAB40094CC95 /* ProfileModels.swift */; };
-		8A1DB57C20D0EAB40094CC95 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56F20D0EAB40094CC95 /* ProfileModels.swift */; };
 		8A1DB57E20D0EAB40094CC95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57020D0EAB40094CC95 /* ProfileView.swift */; };
-		8A1DB57F20D0EAB40094CC95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57020D0EAB40094CC95 /* ProfileView.swift */; };
-		8A1DB58020D0EAB40094CC95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57020D0EAB40094CC95 /* ProfileView.swift */; };
 		8A1DB58120D0EAB40094CC95 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */; };
-		8A1DB58220D0EAB40094CC95 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */; };
 		8A1DB59220D1D01F0094CC95 /* CarouselCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */; };
 		8A1DB59720D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
 		8A1DB59820D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
@@ -59,6 +52,12 @@
 		8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
 		8A2F559120C9819B007E29E8 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */; };
 		8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
+		8A30FCE2214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDC214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift */; };
+		8A30FCE3214B70D3002D12B6 /* PhotosSlideScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDD214B70D3002D12B6 /* PhotosSlideScreenWorker.swift */; };
+		8A30FCE4214B70D3002D12B6 /* PhotosSlideScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDE214B70D3002D12B6 /* PhotosSlideScreenRouter.swift */; };
+		8A30FCE5214B70D3002D12B6 /* PhotosSlideScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDF214B70D3002D12B6 /* PhotosSlideScreenModels.swift */; };
+		8A30FCE6214B70D3002D12B6 /* PhotosSlideScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCE0214B70D3002D12B6 /* PhotosSlideScreenViewController.swift */; };
+		8A30FCE7214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCE1214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift */; };
 		8A4F8EBE20E186C50005E1BF /* UIImageHelper_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EBD20E186C50005E1BF /* UIImageHelper_Tests.swift */; };
 		8A4F8EBF20E18BE60005E1BF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AB20B690CB0032195E /* Photo.swift */; };
 		8A4F8EC020E18BEA0005E1BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AD20B691620032195E /* User.swift */; };
@@ -71,11 +70,6 @@
 		8A4F8EC920E18CBA0005E1BF /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB54920CF83A30094CC95 /* DateHelper.swift */; };
 		8A4F8ECA20E18CBA0005E1BF /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69D20D88A90000BC688 /* UIViewHelper.swift */; };
 		8A4F8ECB20E18CBA0005E1BF /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */; };
-		8A4F8ECC20E18CE30005E1BF /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56C20D0EAB40094CC95 /* ProfilePresenter.swift */; };
-		8A4F8ECD20E18CE30005E1BF /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56D20D0EAB40094CC95 /* ProfileWorker.swift */; };
-		8A4F8ECE20E18CE30005E1BF /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56E20D0EAB40094CC95 /* ProfileRouter.swift */; };
-		8A4F8ECF20E18CE30005E1BF /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56F20D0EAB40094CC95 /* ProfileModels.swift */; };
-		8A4F8ED020E18CE30005E1BF /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */; };
 		8A4F8ED120E18CEF0005E1BF /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55320CF87FC0094CC95 /* MainScreenPresenter.swift */; };
 		8A4F8ED220E18CEF0005E1BF /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55420CF87FC0094CC95 /* MainScreenWorker.swift */; };
 		8A4F8ED320E18CEF0005E1BF /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55520CF87FC0094CC95 /* MainScreenRouter.swift */; };
@@ -409,6 +403,12 @@
 		8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableHeaderView.swift; sourceTree = "<group>"; };
 		8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengeCell.swift; sourceTree = "<group>"; };
 		8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
+		8A30FCDC214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenPresenter.swift; sourceTree = "<group>"; };
+		8A30FCDD214B70D3002D12B6 /* PhotosSlideScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenWorker.swift; sourceTree = "<group>"; };
+		8A30FCDE214B70D3002D12B6 /* PhotosSlideScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenRouter.swift; sourceTree = "<group>"; };
+		8A30FCDF214B70D3002D12B6 /* PhotosSlideScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenModels.swift; sourceTree = "<group>"; };
+		8A30FCE0214B70D3002D12B6 /* PhotosSlideScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenViewController.swift; sourceTree = "<group>"; };
+		8A30FCE1214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenInteractor.swift; sourceTree = "<group>"; };
 		8A4F8EBD20E186C50005E1BF /* UIImageHelper_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper_Tests.swift; sourceTree = "<group>"; };
 		8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalHelper.swift; sourceTree = "<group>"; };
 		8A4F8EEE20E1ED910005E1BF /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -696,6 +696,19 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		8A30FCD9214B706C002D12B6 /* PhotosSlideScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8A30FCDC214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift */,
+				8A30FCDD214B70D3002D12B6 /* PhotosSlideScreenWorker.swift */,
+				8A30FCDE214B70D3002D12B6 /* PhotosSlideScreenRouter.swift */,
+				8A30FCDF214B70D3002D12B6 /* PhotosSlideScreenModels.swift */,
+				8A30FCE0214B70D3002D12B6 /* PhotosSlideScreenViewController.swift */,
+				8A30FCE1214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift */,
+			);
+			path = PhotosSlideScreen;
+			sourceTree = "<group>";
+		};
 		8A4F8EE020E1CE250005E1BF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,6 +945,7 @@
 		8AC4B0D020B67ABE001D98B1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8A30FCD9214B706C002D12B6 /* PhotosSlideScreen */,
 				8A1DB56B20D0EA990094CC95 /* ProfileScreen */,
 				8A1DB55220CF87740094CC95 /* MainScreen */,
 				8A6256B220B790BD0032195E /* Onboarding */,
@@ -1374,17 +1388,21 @@
 				8AB91CF720EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */,
 				8A1DB57520D0EAB40094CC95 /* ProfileWorker.swift in Sources */,
 				8A1DB59220D1D01F0094CC95 /* CarouselCollectionViewLayout.swift in Sources */,
+				8A30FCE7214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift in Sources */,
 				8A1DB57220D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
+				8A30FCE3214B70D3002D12B6 /* PhotosSlideScreenWorker.swift in Sources */,
 				8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */,
 				8A1DB55920CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
 				8A4F8EE620E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8A06D69E20D88A90000BC688 /* UIViewHelper.swift in Sources */,
 				8AB91D1120EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */,
+				8A30FCE2214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift in Sources */,
 				8A1DB56220CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
 				8A664EAC20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
 				8AB91D1F20EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
 				8AB91D1620EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A4F8F0720E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */,
+				8A30FCE6214B70D3002D12B6 /* PhotosSlideScreenViewController.swift in Sources */,
 				8A6256BF20B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A6256AC20B690CB0032195E /* Photo.swift in Sources */,
 				8AB91D2320EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
@@ -1395,6 +1413,7 @@
 				8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8A1DB56820CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
 				8A4F8F0C20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
+				8A30FCE4214B70D3002D12B6 /* PhotosSlideScreenRouter.swift in Sources */,
 				8A6256C520B790E40032195E /* OnboardingViewController.swift in Sources */,
 				8A1DB57B20D0EAB40094CC95 /* ProfileModels.swift in Sources */,
 				8AB603B520D2020000C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
@@ -1408,6 +1427,7 @@
 				8A6256AE20B691620032195E /* User.swift in Sources */,
 				8AB91D0D20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */,
 				8AE6BFE120B7B40C005E8FFC /* AppColors.swift in Sources */,
+				8A30FCE5214B70D3002D12B6 /* PhotosSlideScreenModels.swift in Sources */,
 				8A1DB54A20CF83A30094CC95 /* DateHelper.swift in Sources */,
 				8AC4B0FA20B687EE001D98B1 /* Challenge.swift in Sources */,
 				8AFED3EB20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
@@ -1453,7 +1473,6 @@
 				8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */,
 				8AB2E08920EF22960047CB00 /* ProfilePhotoCell.swift in Sources */,
 				8AB91CFD20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift in Sources */,
-				8A1DB57F20D0EAB40094CC95 /* ProfileView.swift in Sources */,
 				8A1853C320BDCE3D00DC179B /* User_Tests.swift in Sources */,
 				8A4F8EC020E18BEA0005E1BF /* User.swift in Sources */,
 				8A1DB55A20CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
@@ -1470,20 +1489,15 @@
 				8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A4F8F0D20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
 				8A6256C020B790E40032195E /* OnboardingRouter.swift in Sources */,
-				8A1DB57320D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
-				8A1DB57C20D0EAB40094CC95 /* ProfileModels.swift in Sources */,
 				8A4F8EBE20E186C50005E1BF /* UIImageHelper_Tests.swift in Sources */,
 				8AE6BFE920B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8AFED3F120E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
-				8A1DB58220D0EAB40094CC95 /* ProfileInteractor.swift in Sources */,
 				8AB91D0120EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift in Sources */,
 				8A1DB55D20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */,
 				8A0D29F020E1374E00DDAA16 /* DateHelper_Tests.swift in Sources */,
 				8AB91D1720EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
 				8AB91D1220EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */,
-				8A1DB57920D0EAB40094CC95 /* ProfileRouter.swift in Sources */,
 				8A664EAD20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
-				8A1DB57620D0EAB40094CC95 /* ProfileWorker.swift in Sources */,
 				8AC4B0F420B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8AE6C08C20BCD541005E8FFC /* AppColors.swift in Sources */,
 				8A1DB56320CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
@@ -1499,8 +1513,6 @@
 			files = (
 				8A06D6AE20DB28F7000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
 				8A4F8ED520E18CEF0005E1BF /* MainScreenInteractor.swift in Sources */,
-				8A4F8ECD20E18CE30005E1BF /* ProfileWorker.swift in Sources */,
-				8A1DB58020D0EAB40094CC95 /* ProfileView.swift in Sources */,
 				8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */,
 				8AB91D1820EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A4F8ED420E18CEF0005E1BF /* MainScreenModels.swift in Sources */,
@@ -1510,23 +1522,19 @@
 				8A4F8ECA20E18CBA0005E1BF /* UIViewHelper.swift in Sources */,
 				8A4F8F0E20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
 				8A4F8ED220E18CEF0005E1BF /* MainScreenWorker.swift in Sources */,
-				8A4F8ECE20E18CE30005E1BF /* ProfileRouter.swift in Sources */,
 				8A4F8EFE20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
 				8A1DB59920D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
 				8A4F8EC420E18C9F0005E1BF /* Challenge.swift in Sources */,
 				8A4F8EC820E18CBA0005E1BF /* Formatter+iso8601.swift in Sources */,
-				8A4F8ED020E18CE30005E1BF /* ProfileInteractor.swift in Sources */,
 				8AB91D2A20EFF46F006446F6 /* ProfileHeaderView.swift in Sources */,
 				8AE6BFEA20B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
 				8A4F8EC620E18CAD0005E1BF /* Photo.swift in Sources */,
 				8AC4B0F520B683F0001D98B1 /* HomeViewController.swift in Sources */,
-				8A4F8ECF20E18CE30005E1BF /* ProfileModels.swift in Sources */,
 				8AB91CF920EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */,
 				8AB91D2120EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
 				8AB91D0B20EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A4F8ED820E18D0F0005E1BF /* OnboardingPresenter.swift in Sources */,
-				8A4F8ECC20E18CE30005E1BF /* ProfilePresenter.swift in Sources */,
 				8AB91D0220EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift in Sources */,
 				8AB91D1C20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8AB91D0F20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */,
@@ -1712,7 +1720,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8J2K4KEX2;
+				DEVELOPMENT_TEAM = JC4QT73C9E;
 				INFOPLIST_FILE = "$(SRCROOT)/Clicks!/Core/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1731,7 +1739,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8J2K4KEX2;
+				DEVELOPMENT_TEAM = JC4QT73C9E;
 				INFOPLIST_FILE = "$(SRCROOT)/Clicks!/Core/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1750,7 +1758,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8J2K4KEX2;
+				DEVELOPMENT_TEAM = JC4QT73C9E;
 				INFOPLIST_FILE = "Clicks!Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1771,7 +1779,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8J2K4KEX2;
+				DEVELOPMENT_TEAM = JC4QT73C9E;
 				INFOPLIST_FILE = "Clicks!Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1791,7 +1799,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8J2K4KEX2;
+				DEVELOPMENT_TEAM = JC4QT73C9E;
 				INFOPLIST_FILE = "Clicks!UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1811,7 +1819,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J8J2K4KEX2;
+				DEVELOPMENT_TEAM = JC4QT73C9E;
 				INFOPLIST_FILE = "Clicks!UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
