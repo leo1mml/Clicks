@@ -54,7 +54,7 @@ enum AppDelegateHelper {
     // TODO: Implement
     /// Creates the home root view controller
     private static func createHomeRootViewController() -> UIViewController {
-        return UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "Home")
+        return UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigation")
     }
     
     /// Creates the app root view controller

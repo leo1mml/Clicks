@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="Vn1-6z-owt">
             <objects>
-                <viewController id="Afb-o1-QeI" customClass="HomeViewController" customModule="Clicks_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Home" storyboardIdentifier="Home" id="Afb-o1-QeI" customClass="HomeViewController" customModule="Clicks_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qRy-KW-6rj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,7 @@
         <!--Navigation Controller-->
         <scene sceneID="6AP-Pu-jRz">
             <objects>
-                <navigationController restorationIdentifier="Home" storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="miV-7p-EVB" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="HomeNavigation" storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="miV-7p-EVB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W8e-NB-Pd2">
                         <autoresizingMask key="autoresizingMask"/>
