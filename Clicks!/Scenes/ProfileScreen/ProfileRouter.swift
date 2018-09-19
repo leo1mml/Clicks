@@ -15,7 +15,7 @@ import UIKit
 @objc protocol ProfileRoutingLogic
 {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
-    func routeToPhotoView(photoScreen: PhotosSlideScreenViewController, photoIndex: Int)
+    func routeToPhotoView(photoScreen: PhotosSlideScreenCollectionViewController, photoIndex: Int)
 }
 
 protocol ProfileDataPassing
@@ -32,7 +32,7 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing
   
   // MARK: Routing
   
-    func routeToPhotoView(photoScreen: PhotosSlideScreenViewController, photoIndex: Int) {
+    func routeToPhotoView(photoScreen: PhotosSlideScreenCollectionViewController, photoIndex: Int) {
 //        print(mainView?.navigationController)
         mainView?.navigationController?.pushViewController(photoScreen, animated: true)
     }

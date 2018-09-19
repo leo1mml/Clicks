@@ -14,18 +14,11 @@ import UIKit
 
 protocol PhotosSlideScreenPresentationLogic
 {
-  func presentSomething(response: PhotosSlideScreen.Something.Response)
+
 }
 
 class PhotosSlideScreenPresenter: PhotosSlideScreenPresentationLogic
 {
   weak var viewController: PhotosSlideScreenDisplayLogic?
   
-  // MARK: Do something
-  
-  func presentSomething(response: PhotosSlideScreen.Something.Response)
-  {
-    let viewModel = PhotosSlideScreen.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
 }

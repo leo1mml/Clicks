@@ -111,6 +111,14 @@ class OnboardingViewController: UICollectionViewController, OnboardingDisplayLog
         return true
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     //MARK: - Actions
     
     ///This action is called when you wish to go to another viewcontroller

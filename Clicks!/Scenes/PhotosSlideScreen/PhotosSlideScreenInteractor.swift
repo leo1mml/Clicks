@@ -14,7 +14,7 @@ import UIKit
 
 protocol PhotosSlideScreenBusinessLogic
 {
-  func doSomething(request: PhotosSlideScreen.Something.Request)
+//  func doSomething(request: PhotosSlideScreen.Something.Request)
 }
 
 protocol PhotosSlideScreenDataStore
@@ -29,13 +29,13 @@ class PhotosSlideScreenInteractor: PhotosSlideScreenBusinessLogic, PhotosSlideSc
   //var name: String = ""
   
   // MARK: Do something
-  
-  func doSomething(request: PhotosSlideScreen.Something.Request)
-  {
-    worker = PhotosSlideScreenWorker()
-    worker?.doSomeWork()
-    
-    let response = PhotosSlideScreen.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+//  
+//  func doSomething(request: PhotosSlideScreen.Something.Request)
+//  {
+//    worker = PhotosSlideScreenWorker()
+//    worker?.doSomeWork()
+//    
+////    let response = PhotosSlideScreen.Something.Response()
+////    presenter?.presentSomething(response: response)
+//  }
 }

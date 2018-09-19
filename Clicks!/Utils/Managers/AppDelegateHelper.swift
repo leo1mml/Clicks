@@ -40,10 +40,8 @@ enum AppDelegateHelper {
     private static func createOnboardingRootViewController() -> UIViewController {
         
         return {
-            let navigationController = UINavigationController(
-                rootViewController: OnboardingViewController(
-                    collectionViewLayout: HorizontalScrollFlowLayout()
-                )
+            let navigationController = FreeRotationNavController(rootViewController:
+                OnboardingViewController(collectionViewLayout: HorizontalScrollFlowLayout())
             )
             navigationController.isNavigationBarHidden = true
             
@@ -54,7 +52,7 @@ enum AppDelegateHelper {
     // TODO: Implement
     /// Creates the home root view controller
     private static func createHomeRootViewController() -> UIViewController {
-        return UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigation")
+        return FreeRotationNavController(rootViewController: UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "Home"))
     }
     
     /// Creates the app root view controller

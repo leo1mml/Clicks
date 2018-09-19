@@ -90,6 +90,14 @@
         setFactors()
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     ///Sets the initial values for the move and scale factors
     func setFactors() {
         self.moveFactor = (maxDistanceTransformations)/view.frame.width

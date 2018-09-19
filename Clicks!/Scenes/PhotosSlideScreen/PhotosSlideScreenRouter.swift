@@ -24,7 +24,7 @@ protocol PhotosSlideScreenDataPassing
 
 class PhotosSlideScreenRouter: NSObject, PhotosSlideScreenRoutingLogic, PhotosSlideScreenDataPassing
 {
-  weak var viewController: PhotosSlideScreenViewController?
+  weak var viewController: PhotosSlideScreenCollectionViewController?
   var dataStore: PhotosSlideScreenDataStore?
   
   // MARK: Routing

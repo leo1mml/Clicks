@@ -16,7 +16,7 @@ enum PhotosSlideScreen
 {
   // MARK: Use cases
   
-  enum Something
+  enum FetchPhotos
   {
     struct Request
     {
@@ -26,6 +26,12 @@ enum PhotosSlideScreen
     }
     struct ViewModel
     {
+        struct Photo {
+            var isMyShot: Bool
+            var isVoted: Bool
+            var photo: UIImage
+        }
+        var photos: [Photo]
     }
   }
 }

@@ -17,7 +17,7 @@ protocol PhotosSlideScreenDisplayLogic: class
     //  func displaySomething(viewModel: PhotosSlideScreen.Something.ViewModel)
 }
 
-class PhotosSlideScreenViewController: UICollectionViewController, PhotosSlideScreenDisplayLogic
+class PhotosSlideScreenCollectionViewController: UICollectionViewController, PhotosSlideScreenDisplayLogic
 {
     
     // MARK: - Delegates
@@ -26,15 +26,22 @@ class PhotosSlideScreenViewController: UICollectionViewController, PhotosSlideSc
     
     // MARK: - VARIABLES
     private let photoCellID = "photoCellID"
+    private var prevIndex : Int = 0;
+    private var currentIndex: Int = 0;
     
     
     // MARK: Object lifecycle
     
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
+    override init(collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(collectionViewLayout: layout)
         self.collectionView?.register(ImageViewCell.self, forCellWithReuseIdentifier: self.photoCellID)
         setup()
+        setupCollectionView()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        return nil
     }
     
     // MARK: Setup
@@ -53,11 +60,78 @@ class PhotosSlideScreenViewController: UICollectionViewController, PhotosSlideSc
         router.dataStore = interactor
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout()
+        let indexPath = IndexPath(item: currentIndex, section: 0)
+        DispatchQueue.main.async {
+            self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
+    
     // MARK: View lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.view.backgroundColor = .red
+    }
+    
+    
+    // MARK: - Collection View
+    
+    ///Configures the collectionview and changes it to its right size and color.
+    func setupCollectionView() {
+        collectionView?.backgroundColor = AppColors.clearblack.color
+        collectionView?.isPagingEnabled = true
+        collectionView?.showsHorizontalScrollIndicator = false
+        //Registers the collection view page cells
+        collectionView?.register(ImageViewCell.self, forCellWithReuseIdentifier: self.photoCellID)
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath) as! ImageViewCell
+        indexPath.item % 2 == 0 ?
+            cell.setData(data: PhotosSlideScreen.FetchPhotos.ViewModel.Photo(isMyShot: true, isVoted: true, photo: UIImage(named: "dmcimg")!))
+        :
+            cell.setData(data: PhotosSlideScreen.FetchPhotos.ViewModel.Photo(isMyShot: true, isVoted: true, photo: UIImage(named: "chronoimg")!))
+        return cell
+    }
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    // MARK: - SCROLL VIEW
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        ///gets the current page index from 0 to n-1
+        currentIndex = Int(x/view.frame.width)
+        if(self.prevIndex != currentIndex){
+            prevIndex = currentIndex
+        }
     }
 }
 
