@@ -93,6 +93,7 @@ public class ScaleAspectFitImageView : UIImageView
     }
     
     /// Removes any pre-existing aspect ratio constraint, and adds a new one based on the current image
+    /// - Important: The image is full screen!
     func updateAspectRatioConstraint() {
         // remove any existing aspect ratio constraint
         if let widthConst = self.widthConstraint, let heightConst = self.heightConstraint {
