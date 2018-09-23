@@ -46,7 +46,10 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
     
     override func layoutSubviews() {
         self.photoView.updateAspectRatioConstraint()
-        self.scrollViewToZoom.contentSize = photoView.frame.size
+    }
+    
+    override func prepareForReuse() {
+        self.photoView.image = nil
     }
     
     // MARK: - SETUP THE VIEWS
@@ -58,6 +61,7 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
     
     private func setupScrollView() {
         self.addSubview(self.scrollViewToZoom)
+        self.scrollViewToZoom.removeConstraints(self.scrollViewToZoom.constraints)
         NSLayoutConstraint.activate([
                 self.scrollViewToZoom.topAnchor.constraint(equalTo: self.topAnchor),
                 self.scrollViewToZoom.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -71,7 +75,7 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
     
     @objc func handleDoubleTap (recognizer: UITapGestureRecognizer) {
         if scrollViewToZoom.zoomScale == 1 {
-            scrollViewToZoom.zoom(to: zoomRectForScale(scale: self.scrollViewToZoom.maximumZoomScale/2, center: recognizer.location(in: recognizer.view)), animated: true)
+            scrollViewToZoom.zoom(to: zoomRectForScale(scale: self.scrollViewToZoom.maximumZoomScale/3, center: recognizer.location(in: recognizer.view)), animated: true)
         } else {
             scrollViewToZoom.setZoomScale(1, animated: true)
         }

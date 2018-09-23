@@ -61,6 +61,7 @@
 		8A30FCEA214B84A9002D12B6 /* LoadScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A30FCE9214B84A9002D12B6 /* LoadScreen.storyboard */; };
 		8A3B13A2215202EF000E38EB /* FreeRotationNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B13A1215202EF000E38EB /* FreeRotationNavController.swift */; };
 		8A4E017E2154A2CB00FE8013 /* ScaleAspectFitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4E017D2154A2CB00FE8013 /* ScaleAspectFitImageView.swift */; };
+		8A4E018221582A9D00FE8013 /* UIImageViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4E018121582A9D00FE8013 /* UIImageViewHelper.swift */; };
 		8A4F8EBE20E186C50005E1BF /* UIImageHelper_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EBD20E186C50005E1BF /* UIImageHelper_Tests.swift */; };
 		8A4F8EBF20E18BE60005E1BF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AB20B690CB0032195E /* Photo.swift */; };
 		8A4F8EC020E18BEA0005E1BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AD20B691620032195E /* User.swift */; };
@@ -417,6 +418,7 @@
 		8A30FCE9214B84A9002D12B6 /* LoadScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoadScreen.storyboard; sourceTree = "<group>"; };
 		8A3B13A1215202EF000E38EB /* FreeRotationNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeRotationNavController.swift; sourceTree = "<group>"; };
 		8A4E017D2154A2CB00FE8013 /* ScaleAspectFitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAspectFitImageView.swift; sourceTree = "<group>"; };
+		8A4E018121582A9D00FE8013 /* UIImageViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewHelper.swift; sourceTree = "<group>"; };
 		8A4F8EBD20E186C50005E1BF /* UIImageHelper_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper_Tests.swift; sourceTree = "<group>"; };
 		8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalHelper.swift; sourceTree = "<group>"; };
 		8A4F8EEE20E1ED910005E1BF /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				8A06D69D20D88A90000BC688 /* UIViewHelper.swift */,
 				8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */,
 				8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */,
+				8A4E018121582A9D00FE8013 /* UIImageViewHelper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1447,6 +1450,7 @@
 				8AB91D1120EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */,
 				8A30FCE2214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift in Sources */,
 				8A1DB56220CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
+				8A4E018221582A9D00FE8013 /* UIImageViewHelper.swift in Sources */,
 				8A664EAC20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
 				8AB91D1F20EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
 				8AB91D1620EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,

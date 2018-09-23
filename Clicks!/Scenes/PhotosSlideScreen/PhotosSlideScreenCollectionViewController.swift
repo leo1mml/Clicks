@@ -75,9 +75,16 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView?.collectionViewLayout.invalidateLayout()
         let indexPath = IndexPath(item: currentIndex, section: 0)
+        let cell = self.collectionView?.cellForItem(at: indexPath) as! ImageViewCell
         DispatchQueue.main.async {
             self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            cell.scrollViewToZoom.contentSize = cell.photoView.calculateFrameSize(for: self.view.frame.size)
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell = cell as! ImageViewCell
+        cell.scrollViewToZoom.contentSize = cell.photoView.calculateFrameSize(for: self.view.frame.size)
     }
     
     // MARK: View lifecycle

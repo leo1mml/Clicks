@@ -33,7 +33,6 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing
   // MARK: Routing
   
     func routeToPhotoView(photoScreen: PhotosSlideScreenCollectionViewController, photoIndex: Int) {
-//        print(mainView?.navigationController)
         mainView?.navigationController?.pushViewController(photoScreen, animated: true)
     }
     
