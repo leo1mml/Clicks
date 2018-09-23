@@ -20,15 +20,18 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
         scrollView.zoomScale = 1.0
         scrollView.isUserInteractionEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.clipsToBounds = true
         return scrollView
     }()
     
-    let photoView: UIImageView = {
-        let imageView = UIImageView()
+    let photoView: ScaleAspectFitImageView = {
+        let imageView = ScaleAspectFitImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        imageView.clipsToBounds = true
         return imageView
-    }()
+        }()
     
     // MARK: - OBJECT LIFE CYCLE
     override init(frame: CGRect) {
@@ -39,6 +42,11 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         return nil
+    }
+    
+    override func layoutSubviews() {
+        self.photoView.updateAspectRatioConstraint()
+        self.scrollViewToZoom.contentSize = photoView.frame.size
     }
     
     // MARK: - SETUP THE VIEWS
@@ -58,12 +66,12 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
             ])
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(recognizer:)))
         doubleTapGesture.numberOfTapsRequired = 2
-        self.scrollViewToZoom.addGestureRecognizer(doubleTapGesture)
+        self.photoView.addGestureRecognizer(doubleTapGesture)
     }
     
     @objc func handleDoubleTap (recognizer: UITapGestureRecognizer) {
         if scrollViewToZoom.zoomScale == 1 {
-            scrollViewToZoom.zoom(to: zoomRectForScale(scale: self.scrollViewToZoom.maximumZoomScale, center: recognizer.location(in: recognizer.view)), animated: true)
+            scrollViewToZoom.zoom(to: zoomRectForScale(scale: self.scrollViewToZoom.maximumZoomScale/2, center: recognizer.location(in: recognizer.view)), animated: true)
         } else {
             scrollViewToZoom.setZoomScale(1, animated: true)
         }
@@ -82,10 +90,6 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
     private func setupPhotoView() {
         self.scrollViewToZoom.addSubview(self.photoView)
         NSLayoutConstraint.activate([
-                self.photoView.topAnchor.constraint(equalTo: self.scrollViewToZoom.topAnchor),
-                self.photoView.leadingAnchor.constraint(equalTo: self.scrollViewToZoom.leadingAnchor),
-                self.photoView.trailingAnchor.constraint(equalTo: self.scrollViewToZoom.trailingAnchor),
-                self.photoView.bottomAnchor.constraint(equalTo: self.scrollViewToZoom.bottomAnchor),
                 self.photoView.centerXAnchor.constraint(equalTo: self.scrollViewToZoom.centerXAnchor),
                 self.photoView.centerYAnchor.constraint(equalTo: self.scrollViewToZoom.centerYAnchor)
             ])
@@ -95,6 +99,7 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
     
     func setData(data: PhotosSlideScreen.FetchPhotos.ViewModel.Photo){
         self.photoView.image = data.photo
+        self.photoView.backgroundColor = .red
     }
     
     // MARK: - SETUP DELEGATES

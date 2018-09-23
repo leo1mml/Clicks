@@ -76,7 +76,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         collectionView?.collectionViewLayout.invalidateLayout()
         let indexPath = IndexPath(item: currentIndex, section: 0)
         DispatchQueue.main.async {
-            self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
     }
     
