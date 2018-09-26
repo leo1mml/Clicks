@@ -33,7 +33,9 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing
   // MARK: Routing
   
     func routeToPhotoView(photoScreen: PhotosSlideScreenCollectionViewController, photoIndex: Int) {
-        mainView?.navigationController?.pushViewController(photoScreen, animated: true)
+        photoScreen.modalPresentationStyle = .overCurrentContext
+        mainView?.homeInteractionDelegate?.hideStatusBar()
+        mainView?.navigationController?.pushViewController(photoScreen, animated: false)
     }
     
   //func routeToSomewhere(segue: UIStoryboardSegue?)

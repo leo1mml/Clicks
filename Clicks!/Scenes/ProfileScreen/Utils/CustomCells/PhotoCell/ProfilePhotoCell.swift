@@ -63,7 +63,7 @@ class ProfilePhotoCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         //If the cell is reused then we should clean all the previous ui and show only what matters
-        self.removeChallengeGradientLayer()
+        self.removeGradientLayer()
         self.coverImageView.image = nil
         self.trophyImage.alpha = 0
         self.themeLabel.alpha = 0

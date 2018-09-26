@@ -22,6 +22,7 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     // MARK: - Variables
     var containerCollectionView = ContainerCollectionView()
     var navigationController : UINavigationController?
+    var homeInteractionDelegate: HomeVCInteraction?
     
     //IDs
     let photoCellID = "profilePhotoCellID"

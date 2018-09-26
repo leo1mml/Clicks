@@ -86,7 +86,7 @@ extension UIView {
         self.layer.addSublayer(gradient)
     }
     
-    func removeChallengeGradientLayer(){
+    func removeGradientLayer(){
         if self.layer.sublayers != nil {
             for layer in self.layer.sublayers! {
                 if layer.name == "gradient" {

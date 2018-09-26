@@ -11,7 +11,7 @@ import UIKit
 extension ProfileView : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let slider = PhotosSlideScreenCollectionViewController(collectionViewLayout: HorizontalScrollFlowLayout())
+        let slider = PhotosSlideScreenCollectionViewController(layout: HorizontalScrollFlowLayout(), index: indexPath.item)
         
         router?.routeToPhotoView(photoScreen: slider, photoIndex: indexPath.item)
     }

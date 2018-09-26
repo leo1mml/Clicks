@@ -60,7 +60,6 @@
 		8A30FCE7214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCE1214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift */; };
 		8A30FCEA214B84A9002D12B6 /* LoadScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A30FCE9214B84A9002D12B6 /* LoadScreen.storyboard */; };
 		8A3B13A2215202EF000E38EB /* FreeRotationNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B13A1215202EF000E38EB /* FreeRotationNavController.swift */; };
-		8A4E017E2154A2CB00FE8013 /* ScaleAspectFitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4E017D2154A2CB00FE8013 /* ScaleAspectFitImageView.swift */; };
 		8A4E018221582A9D00FE8013 /* UIImageViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4E018121582A9D00FE8013 /* UIImageViewHelper.swift */; };
 		8A4F8EBE20E186C50005E1BF /* UIImageHelper_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EBD20E186C50005E1BF /* UIImageHelper_Tests.swift */; };
 		8A4F8EBF20E18BE60005E1BF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AB20B690CB0032195E /* Photo.swift */; };
@@ -171,8 +170,6 @@
 		8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */; };
 		8AC4B0A820B3AE28001D98B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A720B3AE28001D98B1 /* Assets.xcassets */; };
 		8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0E520B683F0001D98B1 /* HomeViewController.swift */; };
-		8AC4B0F420B683F0001D98B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0E520B683F0001D98B1 /* HomeViewController.swift */; };
-		8AC4B0F520B683F0001D98B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0E520B683F0001D98B1 /* HomeViewController.swift */; };
 		8AC4B0FA20B687EE001D98B1 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0F920B687EE001D98B1 /* Challenge.swift */; };
 		8AC4B0FB20B687EE001D98B1 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0F920B687EE001D98B1 /* Challenge.swift */; };
 		8ACD434D20C8BB7B00594046 /* OnboardingViewController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACD434C20C8BB7A00594046 /* OnboardingViewController_Tests.swift */; };
@@ -417,7 +414,6 @@
 		8A30FCE1214B70D3002D12B6 /* PhotosSlideScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenInteractor.swift; sourceTree = "<group>"; };
 		8A30FCE9214B84A9002D12B6 /* LoadScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoadScreen.storyboard; sourceTree = "<group>"; };
 		8A3B13A1215202EF000E38EB /* FreeRotationNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeRotationNavController.swift; sourceTree = "<group>"; };
-		8A4E017D2154A2CB00FE8013 /* ScaleAspectFitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAspectFitImageView.swift; sourceTree = "<group>"; };
 		8A4E018121582A9D00FE8013 /* UIImageViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewHelper.swift; sourceTree = "<group>"; };
 		8A4F8EBD20E186C50005E1BF /* UIImageHelper_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper_Tests.swift; sourceTree = "<group>"; };
 		8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalHelper.swift; sourceTree = "<group>"; };
@@ -745,7 +741,6 @@
 			isa = PBXGroup;
 			children = (
 				8A4F8EE920E1EA360005E1BF /* TimerView */,
-				8A4E017D2154A2CB00FE8013 /* ScaleAspectFitImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1466,7 +1461,6 @@
 				8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8A1DB56820CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
 				8A4F8F0C20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
-				8A4E017E2154A2CB00FE8013 /* ScaleAspectFitImageView.swift in Sources */,
 				8A30FCE4214B70D3002D12B6 /* PhotosSlideScreenRouter.swift in Sources */,
 				8A6256C520B790E40032195E /* OnboardingViewController.swift in Sources */,
 				8A1DB57B20D0EAB40094CC95 /* ProfileModels.swift in Sources */,
@@ -1554,7 +1548,6 @@
 				8AB91D1720EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
 				8AB91D1220EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */,
 				8A664EAD20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
-				8AC4B0F420B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8AE6C08C20BCD541005E8FFC /* AppColors.swift in Sources */,
 				8A1DB56320CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
 				8AB91D0520EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift in Sources */,
@@ -1586,7 +1579,6 @@
 				8AE6BFEA20B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
 				8A4F8EC620E18CAD0005E1BF /* Photo.swift in Sources */,
-				8AC4B0F520B683F0001D98B1 /* HomeViewController.swift in Sources */,
 				8AB91CF920EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */,
 				8AB91D2120EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
 				8AB91D0B20EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift in Sources */,

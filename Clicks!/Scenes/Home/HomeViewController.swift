@@ -13,6 +13,11 @@
  
  import UIKit
  
+ protocol HomeVCInteraction {
+    func hideStatusBar()
+    func showStatusBar()
+ }
+ 
  class HomeViewController: UIViewController
  {
     
@@ -40,6 +45,8 @@
     private let mainScreenCellId = "MainScreenCell"
     ///Profile screen cell id
     private let profileScreenCellId = "ProfileScreenCell"
+    
+    private var shouldHideStatusBar = false
     
     // MARK: - Outlets
     
@@ -88,12 +95,22 @@
         super.viewDidAppear(animated)
         self.maxDistanceTransformations = self.profileImage.center.x - view.frame.width/2
         setFactors()
+        if(pageIndex == 0){
+            self.homeImage.center.x = self.view.center.x
+            self.profileImage.center.x = self.homeImage.center.x + self.maxDistanceTransformations
+        }else {
+            self.profileImage.center.x = self.view.center.x
+            self.homeImage.center.x = self.homeImage.center.x - self.maxDistanceTransformations
+        }
     }
     
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return self.shouldHideStatusBar
+    }
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -187,6 +204,7 @@
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileScreenCellId, for: indexPath) as! ProfileView
+            cell.homeInteractionDelegate = self
             cell.navigationController = self.navigationController
             return cell
         }
@@ -294,3 +312,19 @@
     }
  }
 
+ extension HomeViewController: HomeVCInteraction {
+    func hideStatusBar() {
+        shouldHideStatusBar = true
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    func showStatusBar() {
+        shouldHideStatusBar = false
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+ }

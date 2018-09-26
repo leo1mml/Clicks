@@ -18,7 +18,6 @@ class NextChallengeCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-        imageView.backgroundColor = .red
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
