@@ -16,6 +16,7 @@
  protocol HomeVCInteraction {
     func hideStatusBar()
     func showStatusBar()
+    func rotateToPortrait()
  }
  
  class HomeViewController: UIViewController
@@ -47,6 +48,8 @@
     private let profileScreenCellId = "ProfileScreenCell"
     
     private var shouldHideStatusBar = false
+    
+    
     
     // MARK: - Outlets
     
@@ -325,6 +328,11 @@
         UIView.animate(withDuration: 0.25) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
+    }
+    
+    func rotateToPortrait() {
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
     
  }

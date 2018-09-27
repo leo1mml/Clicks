@@ -35,6 +35,7 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing
     func routeToPhotoView(photoScreen: PhotosSlideScreenCollectionViewController, photoIndex: Int) {
         photoScreen.modalPresentationStyle = .overCurrentContext
         mainView?.homeInteractionDelegate?.hideStatusBar()
+        photoScreen.homeInteractorDelegate = mainView?.homeInteractionDelegate
         mainView?.navigationController?.pushViewController(photoScreen, animated: false)
     }
     

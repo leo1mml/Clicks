@@ -25,18 +25,11 @@
 		8A1DB54A20CF83A30094CC95 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB54920CF83A30094CC95 /* DateHelper.swift */; };
 		8A1DB54B20CF83A30094CC95 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB54920CF83A30094CC95 /* DateHelper.swift */; };
 		8A1DB55920CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55320CF87FC0094CC95 /* MainScreenPresenter.swift */; };
-		8A1DB55A20CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55320CF87FC0094CC95 /* MainScreenPresenter.swift */; };
 		8A1DB55C20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55420CF87FC0094CC95 /* MainScreenWorker.swift */; };
-		8A1DB55D20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55420CF87FC0094CC95 /* MainScreenWorker.swift */; };
 		8A1DB55F20CF87FC0094CC95 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55520CF87FC0094CC95 /* MainScreenRouter.swift */; };
-		8A1DB56020CF87FC0094CC95 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55520CF87FC0094CC95 /* MainScreenRouter.swift */; };
 		8A1DB56220CF87FC0094CC95 /* MainScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55620CF87FC0094CC95 /* MainScreenModels.swift */; };
-		8A1DB56320CF87FC0094CC95 /* MainScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55620CF87FC0094CC95 /* MainScreenModels.swift */; };
 		8A1DB56520CF87FC0094CC95 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55720CF87FC0094CC95 /* MainScreenView.swift */; };
-		8A1DB56620CF87FC0094CC95 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55720CF87FC0094CC95 /* MainScreenView.swift */; };
-		8A1DB56720CF87FC0094CC95 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55720CF87FC0094CC95 /* MainScreenView.swift */; };
 		8A1DB56820CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55820CF87FC0094CC95 /* MainScreenInteractor.swift */; };
-		8A1DB56920CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55820CF87FC0094CC95 /* MainScreenInteractor.swift */; };
 		8A1DB57220D0EAB40094CC95 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56C20D0EAB40094CC95 /* ProfilePresenter.swift */; };
 		8A1DB57520D0EAB40094CC95 /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56D20D0EAB40094CC95 /* ProfileWorker.swift */; };
 		8A1DB57820D0EAB40094CC95 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB56E20D0EAB40094CC95 /* ProfileRouter.swift */; };
@@ -45,8 +38,6 @@
 		8A1DB58120D0EAB40094CC95 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB57120D0EAB40094CC95 /* ProfileInteractor.swift */; };
 		8A1DB59220D1D01F0094CC95 /* CarouselCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */; };
 		8A1DB59720D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
-		8A1DB59820D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
-		8A1DB59920D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
 		8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
 		8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
 		8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
@@ -73,11 +64,6 @@
 		8A4F8EC920E18CBA0005E1BF /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB54920CF83A30094CC95 /* DateHelper.swift */; };
 		8A4F8ECA20E18CBA0005E1BF /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69D20D88A90000BC688 /* UIViewHelper.swift */; };
 		8A4F8ECB20E18CBA0005E1BF /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */; };
-		8A4F8ED120E18CEF0005E1BF /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55320CF87FC0094CC95 /* MainScreenPresenter.swift */; };
-		8A4F8ED220E18CEF0005E1BF /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55420CF87FC0094CC95 /* MainScreenWorker.swift */; };
-		8A4F8ED320E18CEF0005E1BF /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55520CF87FC0094CC95 /* MainScreenRouter.swift */; };
-		8A4F8ED420E18CEF0005E1BF /* MainScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55620CF87FC0094CC95 /* MainScreenModels.swift */; };
-		8A4F8ED520E18CEF0005E1BF /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB55820CF87FC0094CC95 /* MainScreenInteractor.swift */; };
 		8A4F8ED620E18D0F0005E1BF /* OnboardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6BFE320B7BA4D005E8FFC /* OnboardingModels.swift */; };
 		8A4F8ED720E18D0F0005E1BF /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B520B790E40032195E /* OnboardingRouter.swift */; };
 		8A4F8ED820E18D0F0005E1BF /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B820B790E40032195E /* OnboardingPresenter.swift */; };
@@ -113,8 +99,6 @@
 		8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A658F0E20C8CA990062F0C4 /* OnboardingViewController_UITests.swift */; };
 		8A664EAA20E4B4540030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
 		8A664EAC20E4B5E20030CFC9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
-		8A664EAD20E4B5E20030CFC9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
-		8A664EAE20E4B5E20030CFC9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
 		8A664EAF20E4B6600030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
 		8A664EB020E4B6620030CFC9 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A664EA920E4B4540030CFC9 /* CalendarView.xib */; };
 		8A68E5CB214A092C001D7259 /* CHIPageControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A68E5C9214A090E001D7259 /* CHIPageControl.framework */; };
@@ -126,8 +110,6 @@
 		8AB11FE72149F793004B9235 /* ShadowView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB11FE22149F767004B9235 /* ShadowView.framework */; };
 		8AB11FE92149F819004B9235 /* ShadowView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB11FE22149F767004B9235 /* ShadowView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AB2E08820EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
-		8AB2E08920EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
-		8AB2E08A20EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
 		8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
 		8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
 		8AB603B520D2020000C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
@@ -135,23 +117,11 @@
 		8AB91CF820EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CF620EFDBA5006446F6 /* ContainerCollectionView.swift */; };
 		8AB91CF920EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CF620EFDBA5006446F6 /* ContainerCollectionView.swift */; };
 		8AB91CFC20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CFB20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift */; };
-		8AB91CFD20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CFB20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift */; };
-		8AB91CFE20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CFB20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift */; };
 		8AB91D0020EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CFF20EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift */; };
-		8AB91D0120EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CFF20EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift */; };
-		8AB91D0220EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CFF20EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift */; };
 		8AB91D0420EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0320EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift */; };
-		8AB91D0520EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0320EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift */; };
-		8AB91D0620EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0320EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift */; };
 		8AB91D0920EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0820EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift */; };
-		8AB91D0A20EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0820EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift */; };
-		8AB91D0B20EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0820EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift */; };
 		8AB91D0D20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0C20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift */; };
-		8AB91D0E20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0C20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift */; };
-		8AB91D0F20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0C20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift */; };
 		8AB91D1120EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1020EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift */; };
-		8AB91D1220EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1020EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift */; };
-		8AB91D1320EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1020EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift */; };
 		8AB91D1620EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1520EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift */; };
 		8AB91D1720EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1520EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift */; };
 		8AB91D1820EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1520EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift */; };
@@ -165,8 +135,6 @@
 		8AB91D2420EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2220EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift */; };
 		8AB91D2520EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2220EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift */; };
 		8AB91D2820EFF46F006446F6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2720EFF46F006446F6 /* ProfileHeaderView.swift */; };
-		8AB91D2920EFF46F006446F6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2720EFF46F006446F6 /* ProfileHeaderView.swift */; };
-		8AB91D2A20EFF46F006446F6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2720EFF46F006446F6 /* ProfileHeaderView.swift */; };
 		8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */; };
 		8AC4B0A820B3AE28001D98B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A720B3AE28001D98B1 /* Assets.xcassets */; };
 		8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0E520B683F0001D98B1 /* HomeViewController.swift */; };
@@ -1499,16 +1467,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A0D29F220E139E100DDAA16 /* UIViewHelper_Tests.swift in Sources */,
-				8A1DB56020CF87FC0094CC95 /* MainScreenRouter.swift in Sources */,
-				8AB91D0E20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */,
 				8AE6BFE520B7BA4E005E8FFC /* OnboardingModels.swift in Sources */,
 				8A6256C620B790E40032195E /* OnboardingViewController.swift in Sources */,
 				8AB91D1B20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8A6256C920B790E40032195E /* OnboardingPresenter.swift in Sources */,
 				8A1853C020BDCDCD00DC179B /* Challenge_Tests.swift in Sources */,
 				8AB91D2420EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
-				8AB91D2920EFF46F006446F6 /* ProfileHeaderView.swift in Sources */,
-				8A1DB56920CF87FC0094CC95 /* MainScreenInteractor.swift in Sources */,
 				8A06D6AB20DB28CD000BC688 /* UIImageHelper.swift in Sources */,
 				8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */,
 				8A4F8EFD20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
@@ -1517,17 +1481,12 @@
 				8ACD434D20C8BB7B00594046 /* OnboardingViewController_Tests.swift in Sources */,
 				8AB91D2020EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A1DB54B20CF83A30094CC95 /* DateHelper.swift in Sources */,
-				8A1DB59820D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
 				8AE6C09120BCFBB1005E8FFC /* PageCell_Tests.swift in Sources */,
 				8A1853C520BDCE7B00DC179B /* Photo_Tests.swift in Sources */,
 				8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */,
-				8AB2E08920EF22960047CB00 /* ProfilePhotoCell.swift in Sources */,
-				8AB91CFD20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift in Sources */,
 				8A1853C320BDCE3D00DC179B /* User_Tests.swift in Sources */,
 				8A4F8EC020E18BEA0005E1BF /* User.swift in Sources */,
-				8A1DB55A20CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
 				8AFED3EC20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
-				8A1DB56620CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A06D6AD20DB28F6000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
 				8A4F8F0820E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */,
@@ -1542,17 +1501,10 @@
 				8A4F8EBE20E186C50005E1BF /* UIImageHelper_Tests.swift in Sources */,
 				8AE6BFE920B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8AFED3F120E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
-				8AB91D0120EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift in Sources */,
-				8A1DB55D20CF87FC0094CC95 /* MainScreenWorker.swift in Sources */,
 				8A0D29F020E1374E00DDAA16 /* DateHelper_Tests.swift in Sources */,
 				8AB91D1720EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
-				8AB91D1220EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */,
-				8A664EAD20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
 				8AE6C08C20BCD541005E8FFC /* AppColors.swift in Sources */,
-				8A1DB56320CF87FC0094CC95 /* MainScreenModels.swift in Sources */,
-				8AB91D0520EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift in Sources */,
 				8AC4B0FB20B687EE001D98B1 /* Challenge.swift in Sources */,
-				8AB91D0A20EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1561,50 +1513,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A06D6AE20DB28F7000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
-				8A4F8ED520E18CEF0005E1BF /* MainScreenInteractor.swift in Sources */,
 				8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */,
 				8AB91D1820EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
-				8A4F8ED420E18CEF0005E1BF /* MainScreenModels.swift in Sources */,
 				8A4F8EF120E1ED910005E1BF /* TimerView.swift in Sources */,
 				8A4F8ECB20E18CBA0005E1BF /* UIImageHelper.swift in Sources */,
-				8AB91D0620EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift in Sources */,
 				8A4F8ECA20E18CBA0005E1BF /* UIViewHelper.swift in Sources */,
 				8A4F8F0E20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
-				8A4F8ED220E18CEF0005E1BF /* MainScreenWorker.swift in Sources */,
 				8A4F8EFE20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
-				8A1DB59920D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */,
 				8A4F8EC420E18C9F0005E1BF /* Challenge.swift in Sources */,
 				8A4F8EC820E18CBA0005E1BF /* Formatter+iso8601.swift in Sources */,
-				8AB91D2A20EFF46F006446F6 /* ProfileHeaderView.swift in Sources */,
 				8AE6BFEA20B7BFC1005E8FFC /* PageCell.swift in Sources */,
 				8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
 				8A4F8EC620E18CAD0005E1BF /* Photo.swift in Sources */,
 				8AB91CF920EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */,
 				8AB91D2120EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
-				8AB91D0B20EFE85E006446F6 /* NextChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A4F8ED820E18D0F0005E1BF /* OnboardingPresenter.swift in Sources */,
-				8AB91D0220EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift in Sources */,
 				8AB91D1C20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
-				8AB91D0F20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */,
 				8A4F8EC920E18CBA0005E1BF /* DateHelper.swift in Sources */,
-				8A4F8ED120E18CEF0005E1BF /* MainScreenPresenter.swift in Sources */,
-				8AB91CFE20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift in Sources */,
 				8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A4F8EC520E18CA80005E1BF /* User.swift in Sources */,
-				8AB91D1320EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */,
-				8AB2E08A20EF22960047CB00 /* ProfilePhotoCell.swift in Sources */,
 				8A4F8EE820E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
-				8A1DB56720CF87FC0094CC95 /* MainScreenView.swift in Sources */,
 				8A4F8EC720E18CBA0005E1BF /* AppColors.swift in Sources */,
 				8A4F8ED720E18D0F0005E1BF /* OnboardingRouter.swift in Sources */,
-				8A664EAE20E4B5E20030CFC9 /* CalendarView.swift in Sources */,
 				8A4F8F0920E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */,
 				8AB91D2520EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8A4F8EC320E18C710005E1BF /* OnboardingViewController.swift in Sources */,
 				8AFED3F220E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
 				8A4F8ED620E18D0F0005E1BF /* OnboardingModels.swift in Sources */,
 				8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
-				8A4F8ED320E18CEF0005E1BF /* MainScreenRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
