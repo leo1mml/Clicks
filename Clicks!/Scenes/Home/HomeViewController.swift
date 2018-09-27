@@ -61,6 +61,7 @@
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.bounces = false
         collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = AppColors.darkwhite.color
         return collectionView
     }()
     
@@ -142,6 +143,11 @@
         super.viewDidAppear(animated)
         self.maxDistanceTransformations = self.profileImage.center.x - view.frame.width/2
         setFactors()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.containerCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     override var shouldAutorotate: Bool {
@@ -271,7 +277,7 @@
         NSLayoutConstraint.activate([
                 self.containerCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                 self.containerCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                self.containerCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                self.containerCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
                 self.containerCollectionView.topAnchor.constraint(equalTo: self.stackControl.bottomAnchor)
             ])
     }
@@ -301,9 +307,9 @@
         return CGSize(width: containerCollectionView.frame.width, height: containerCollectionView.frame.height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
     
     
     // MARK: - CollectionView ScrollView
@@ -410,15 +416,21 @@
     
     func hideStatusBar() {
         shouldHideStatusBar = true
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
             self.setNeedsStatusBarAppearanceUpdate()
+        }) { (complete) in
+            self.containerCollectionView.setNeedsLayout()
+            self.containerCollectionView.layoutIfNeeded()
         }
     }
     
     func showStatusBar() {
         shouldHideStatusBar = false
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
             self.setNeedsStatusBarAppearanceUpdate()
+        }) { (complete) in
+            self.containerCollectionView.setNeedsLayout()
+            self.containerCollectionView.layoutIfNeeded()
         }
     }
     

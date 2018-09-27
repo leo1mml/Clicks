@@ -37,15 +37,31 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = UIStackViewAlignment.center
         stack.axis = .horizontal
-        stack.distribution = .equalSpacing
+        stack.distribution = .fillEqually
         stack.layer.zPosition = 6
         return stack
     }()
     
-    private let xButton : UIButton = {
+    private let leftControl: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setImage(UIImage(named: "x-btn"), for: .normal)
+        btn.layer.zPosition = 6
+//        btn.backgroundColor = .red
+        return btn
+    }()
+    private let rightControl: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+//        btn.backgroundColor = .green
+        btn.layer.zPosition = 6
+        return btn
+    }()
+    
+    private let xButton : UIImageView = {
+        let btn = UIImageView()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.image = UIImage(named: "x-btn")
+        btn.layer.zPosition = 5
         return btn
     }()
     
@@ -54,22 +70,24 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Montserrat-Medium", size: 15)
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
     
-    private let flagButton: UIButton = {
-        let button = UIButton()
+    private let flagButton: UIImageView = {
+        let button = UIImageView()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "flag"), for: .normal)
+        button.image = UIImage(named: "flag")
+        button.layer.zPosition = 5
         return button
     }()
     
     private let gradientLayer : CAGradientLayer = {
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [AppColors.darkGradient.color.cgColor, UIColor.clear.cgColor]
-        gradient.locations = [0.0, 0.2]
+        gradient.colors = [AppColors.clearblack.color.cgColor, UIColor.clear.cgColor]
+        gradient.locations = [0.0, 0.4]
         gradient.name = "gradient"
-        gradient.zPosition = 5
+        gradient.zPosition = 4
         return gradient
     }()
 
@@ -124,11 +142,13 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     {
         super.viewDidLoad()
         self.indexLabel.text = "\(currentIndex + 1)/\(String(describing: collectionView!.numberOfItems(inSection: 0)))"
-        self.xButton.addTarget(self, action: #selector(xButtonAction), for: .touchUpInside)
+        self.leftControl.addTarget(self, action: #selector(xButtonAction), for: .touchUpInside)
         setupTopStackView()
         gradientLayer.frame = self.view.bounds
         view.layer.addSublayer(self.gradientLayer)
-        setNeedsStatusBarAppearanceUpdate()
+        let toggleControlsGesture = UITapGestureRecognizer(target: self, action: #selector(toggleControls))
+        toggleControlsGesture.numberOfTapsRequired = 1
+        self.collectionView?.addGestureRecognizer(toggleControlsGesture)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -154,9 +174,24 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
                 self.flagButton.heightAnchor.constraint(equalToConstant: 24)
             ])
         
-        self.topStack.addArrangedSubview(self.xButton)
+        self.topStack.addArrangedSubview(self.leftControl)
         self.topStack.addArrangedSubview(self.indexLabel)
-        self.topStack.addArrangedSubview(self.flagButton)
+        self.topStack.addArrangedSubview(self.rightControl)
+        
+        // Configure the buttons
+        self.view.addSubview(self.xButton)
+        self.view.addSubview(self.flagButton)
+        NSLayoutConstraint.activate([
+                self.xButton.heightAnchor.constraint(equalToConstant: 16),
+                self.xButton.widthAnchor.constraint(equalToConstant: 16),
+                self.xButton.leadingAnchor.constraint(equalTo: self.leftControl.leadingAnchor),
+                self.xButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
+                
+                self.flagButton.heightAnchor.constraint(equalToConstant: 24),
+                self.flagButton.widthAnchor.constraint(equalToConstant: 16),
+                self.flagButton.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor),
+                self.flagButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
+            ])
     }
     
     // MARK: - Collection View
@@ -218,6 +253,29 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         DispatchQueue.main.async {
             self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
+    }
+    
+    // MARK: - Interaction UI Functions
+    
+    @objc private func toggleControls() {
+        if(self.leftControl.isEnabled){
+            UIView.animate(withDuration: 0.5) {
+                self.gradientLayer.opacity = 0
+                self.topStack.alpha = 0
+                self.indexLabel.alpha = 0
+                self.flagButton.alpha = 0
+                self.xButton.alpha = 0
+            }
+        }else {
+            UIView.animate(withDuration: 0.5) {
+                self.gradientLayer.opacity = 1
+                self.topStack.alpha = 1
+                self.indexLabel.alpha = 1
+                self.flagButton.alpha = 1
+                self.xButton.alpha = 1
+            }
+        }
+        self.leftControl.isEnabled = !self.leftControl.isEnabled
     }
     
     @objc private func xButtonAction(sender: UIButton){
