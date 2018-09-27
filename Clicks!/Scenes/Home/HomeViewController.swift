@@ -17,6 +17,7 @@
     func hideStatusBar()
     func showStatusBar()
     func rotateToPortrait()
+    func scrollToIndex(index: Int)
  }
  
  class HomeViewController: UIViewController
@@ -49,22 +50,66 @@
     
     private var shouldHideStatusBar = false
     
-    
-    
-    // MARK: - Outlets
-    
-    //Controls
-    @IBOutlet weak var leftControl: UIButton!
-    @IBOutlet weak var middleControl: UIButton!
-    @IBOutlet weak var rightControl: UIButton!
+    //Constraints
+    private var homeImageCenterXConstraint : NSLayoutConstraint?
+    private var profileImageTrailingConstraint: NSLayoutConstraint?
+    private var configImageLeadingConstraint : NSLayoutConstraint?
     
     //CollectionView
-    @IBOutlet weak var containerCollectionView: UICollectionView!
+    private var containerCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: HorizontalScrollFlowLayout())
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.bounces = false
+        collectionView.isPagingEnabled = true
+        return collectionView
+    }()
     
     //Images
-    @IBOutlet weak var configImage: UIImageView!
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var homeImage: UIImageView!
+    private var configImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "config-icon")
+        return image
+    }()
+    
+    private var profileImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "profile-icon")
+        return image
+    }()
+    private var homeImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "home-icon")
+        return image
+    }()
+    
+    // Stack Control
+    private var stackControl : UIStackView = {
+        let stack = UIStackView()
+        stack.alignment = .center
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    private var leftControl : UIButton = {
+        let control = UIButton()
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
+    private var middleControl : UIButton = {
+        let control = UIButton()
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
+    private var rightControl : UIButton = {
+        let control = UIButton()
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
     
     
     // MARK: - Object lifecycle
@@ -84,13 +129,12 @@
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.view.backgroundColor = AppColors.darkwhite.color
+        setupStack()
+        setupCollectionView()
         setupImages()
         self.containerCollectionView.register(MainScreenView.self, forCellWithReuseIdentifier: mainScreenCellId)
         self.containerCollectionView.register(ProfileView.self, forCellWithReuseIdentifier: profileScreenCellId)
-        if(self.navigationController == nil){
-            
-//            self.navigationController = UINavigationController(rootViewController: self)
-        }
         
     }
     
@@ -98,13 +142,6 @@
         super.viewDidAppear(animated)
         self.maxDistanceTransformations = self.profileImage.center.x - view.frame.width/2
         setFactors()
-        if(pageIndex == 0){
-            self.homeImage.center.x = self.view.center.x
-            self.profileImage.center.x = self.homeImage.center.x + self.maxDistanceTransformations
-        }else {
-            self.profileImage.center.x = self.view.center.x
-            self.homeImage.center.x = self.homeImage.center.x - self.maxDistanceTransformations
-        }
     }
     
     override var shouldAutorotate: Bool {
@@ -125,27 +162,58 @@
         self.profileImageScaleFactor = getItemScaleRate(distance: view.frame.width, from: profileImage.frame.size, to: CGSize(width: profileImage.frame.width * 1.066, height: profileImage.frame.height * 1.066))
     }
     
+    
+    // MARK: - UI CONFIGURATION
+    
+    func setupStack() {
+        self.view.addSubview(self.stackControl)
+        NSLayoutConstraint.activate([
+                self.stackControl.heightAnchor.constraint(equalToConstant: 50),
+                self.stackControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+                self.stackControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+                self.stackControl.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
+            ])
+        self.stackControl.addArrangedSubview(self.leftControl)
+        self.stackControl.addArrangedSubview(self.middleControl)
+        self.stackControl.addArrangedSubview(self.rightControl)
+        self.leftControl.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
+        self.middleControl.addTarget(self, action: #selector(middleAction), for: .touchUpInside)
+        self.rightControl.addTarget(self, action: #selector(rightAction), for: .touchUpInside)
+    }
+    
     ///Configures the initial position of images
     func setupImages() {
         
         //Home Image
-        
-        self.homeImage.translatesAutoresizingMaskIntoConstraints = false
-        self.homeImage.centerXAnchor.constraint(equalTo: self.middleControl.centerXAnchor).isActive = true
+        self.view.addSubview(self.homeImage)
+        self.homeImageCenterXConstraint = self.homeImage.centerXAnchor.constraint(equalTo: self.middleControl.centerXAnchor)
+        self.homeImage.centerYAnchor.constraint(equalTo: self.middleControl.centerYAnchor).isActive = true
         self.homeImage.widthAnchor.constraint(equalToConstant: view.frame.width * 0.094).isActive = true
         self.homeImage.heightAnchor.constraint(equalToConstant: view.frame.height * 0.06).isActive = true
         self.homeImage.tintColor = AppColors.clearblack.color
         
         //Profile Image
-        self.profileImage.translatesAutoresizingMaskIntoConstraints = false
-        self.profileImage.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor).isActive = true
+        self.view.addSubview(self.profileImage)
+        self.profileImageTrailingConstraint = self.profileImage.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor)
+        self.profileImage.centerYAnchor.constraint(equalTo: self.rightControl.centerYAnchor).isActive = true
         self.profileImage.widthAnchor.constraint(equalToConstant: view.frame.width * 0.07).isActive = true
         self.profileImage.heightAnchor.constraint(equalToConstant: view.frame.height * 0.045).isActive = true
         self.profileImage.tintColor = AppColors.gray.color
         
         //Config Image
-        self.configImage.translatesAutoresizingMaskIntoConstraints = false
-        self.configImage.leadingAnchor.constraint(equalTo: self.profileImage.trailingAnchor, constant: view.frame.width * 0.33368).isActive = true
+        self.view.addSubview(self.configImage)
+        self.configImage.widthAnchor.constraint(equalToConstant: 29).isActive = true
+        self.configImage.heightAnchor.constraint(equalToConstant: 29).isActive = true
+        self.configImage.centerYAnchor.constraint(equalTo: self.stackControl.centerYAnchor).isActive = true
+        self.configImageLeadingConstraint = self.configImage.leadingAnchor.constraint(equalTo: self.profileImage.trailingAnchor, constant: view.frame.width * 0.33368)
+
+        activateConstraints()
+    }
+    
+    private func activateConstraints() {
+        self.configImageLeadingConstraint!.isActive = true
+        self.profileImageTrailingConstraint!.isActive = true
+        self.homeImageCenterXConstraint!.isActive = true
     }
     
     /**
@@ -168,19 +236,19 @@
         }
     }
     
-    @IBAction func leftButtonAction(_ sender: Any) {
+    @objc private func leftButtonAction(_ sender: Any) {
         scrollToMenuIndex(index: 0)
         self.pageIndex = 0
         switchHeaderImagesColorsToIndex(index: 0)
     }
     
     
-    @IBAction func middleAction(_ sender: Any) {
+    @objc private func middleAction(_ sender: Any) {
         
     }
     
     
-    @IBAction func rightAction(_ sender: Any) {
+    @objc private func rightAction(_ sender: Any) {
         if(pageIndex == 1) {
             
         }else {
@@ -195,6 +263,18 @@
  extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     // MARK: - Collectionview configuration
+    
+    func setupCollectionView() {
+        self.view.addSubview(self.containerCollectionView)
+        self.containerCollectionView.delegate = self
+        self.containerCollectionView.dataSource = self
+        NSLayoutConstraint.activate([
+                self.containerCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                self.containerCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                self.containerCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                self.containerCollectionView.topAnchor.constraint(equalTo: self.stackControl.bottomAnchor)
+            ])
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
@@ -270,6 +350,7 @@
         self.homeImageScale.height += (homeImageScaleFactor.height * xDistance)
         self.profileImage.transform = CGAffineTransform(scaleX: self.profileImageScale.width, y: self.profileImageScale.height)
         self.homeImage.transform = CGAffineTransform(scaleX: self.homeImageScale.width, y: self.homeImageScale.height)
+        self.view.layoutIfNeeded()
     }
     
     
@@ -279,9 +360,12 @@
      - xDistance: The distance value to be applied to the images center.
      */
     func updateImagesCenterX(xDistance: CGFloat){
-        self.configImage.center.x += xDistance
-        self.profileImage.center.x += xDistance
-        self.homeImage.center.x += xDistance
+        self.profileImageTrailingConstraint?.constant += xDistance
+        self.homeImageCenterXConstraint?.constant += xDistance
+        self.homeImage.setNeedsLayout()
+        self.homeImage.layoutIfNeeded()
+        self.homeImage.setNeedsUpdateConstraints()
+        self.homeImage.updateConstraints()
     }
     
     /**
@@ -316,6 +400,14 @@
  }
 
  extension HomeViewController: HomeVCInteraction {
+    func scrollToIndex(index: Int) {
+        containerCollectionView.collectionViewLayout.invalidateLayout()
+        let indexPath = IndexPath(item: index, section: 0)
+        DispatchQueue.main.async {
+            self.containerCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        }
+    }
+    
     func hideStatusBar() {
         shouldHideStatusBar = true
         UIView.animate(withDuration: 0.25) {
@@ -334,5 +426,4 @@
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
-    
  }

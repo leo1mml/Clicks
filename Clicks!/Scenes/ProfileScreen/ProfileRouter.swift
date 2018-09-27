@@ -36,7 +36,7 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing
         photoScreen.modalPresentationStyle = .overCurrentContext
         mainView?.homeInteractionDelegate?.hideStatusBar()
         photoScreen.homeInteractorDelegate = mainView?.homeInteractionDelegate
-        mainView?.navigationController?.pushViewController(photoScreen, animated: false)
+        mainView?.navigationController?.present(photoScreen, animated: false, completion: nil)
     }
     
   //func routeToSomewhere(segue: UIStoryboardSegue?)

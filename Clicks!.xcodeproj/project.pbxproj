@@ -41,7 +41,6 @@
 		8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
 		8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
 		8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
-		8A2F559120C9819B007E29E8 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */; };
 		8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
 		8A30FCE2214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDC214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift */; };
 		8A30FCE3214B70D3002D12B6 /* PhotosSlideScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDD214B70D3002D12B6 /* PhotosSlideScreenWorker.swift */; };
@@ -373,7 +372,6 @@
 		8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewLayout.swift; sourceTree = "<group>"; };
 		8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableHeaderView.swift; sourceTree = "<group>"; };
 		8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChallengeCell.swift; sourceTree = "<group>"; };
-		8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 		8A30FCDC214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenPresenter.swift; sourceTree = "<group>"; };
 		8A30FCDD214B70D3002D12B6 /* PhotosSlideScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenWorker.swift; sourceTree = "<group>"; };
 		8A30FCDE214B70D3002D12B6 /* PhotosSlideScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSlideScreenRouter.swift; sourceTree = "<group>"; };
@@ -525,7 +523,6 @@
 			isa = PBXGroup;
 			children = (
 				8A30FCE8214B847D002D12B6 /* LoadScreen */,
-				8A2F558F20C98164007E29E8 /* Home */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -664,14 +661,6 @@
 				8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */,
 			);
 			path = "Open Challenge Cell";
-			sourceTree = "<group>";
-		};
-		8A2F558F20C98164007E29E8 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				8A2F559020C9819B007E29E8 /* HomeScreen.storyboard */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		8A30FCD9214B706C002D12B6 /* PhotosSlideScreen */ = {
@@ -1259,7 +1248,6 @@
 				8A664EAA20E4B4540030CFC9 /* CalendarView.xib in Resources */,
 				8AE6C02020BCB8BF005E8FFC /* Montserrat-Bold.otf in Resources */,
 				8AE6C05C20BCB8BF005E8FFC /* Montserrat-LightItalic.otf in Resources */,
-				8A2F559120C9819B007E29E8 /* HomeScreen.storyboard in Resources */,
 				8AE6C04A20BCB8BF005E8FFC /* Montserrat-ExtraBold.otf in Resources */,
 				8AE6C08920BCB8BF005E8FFC /* MontserratAlternates-Medium.otf in Resources */,
 				8AE6C07720BCB8BF005E8FFC /* MontserratAlternates-Bold.otf in Resources */,

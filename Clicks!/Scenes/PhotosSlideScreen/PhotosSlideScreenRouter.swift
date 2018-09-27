@@ -34,7 +34,8 @@ class PhotosSlideScreenRouter: NSObject, PhotosSlideScreenRoutingLogic, PhotosSl
     func dismissSelf() {
         viewController?.homeInteractorDelegate?.showStatusBar()
         viewController?.homeInteractorDelegate?.rotateToPortrait()
-        self.viewController?.navigationController?.popViewController(animated: false)
+        viewController?.homeInteractorDelegate?.scrollToIndex(index: 1)
+        self.viewController?.dismiss(animated: false, completion: nil)
     }
     
     //func routeToSomewhere(segue: UIStoryboardSegue?)
