@@ -46,13 +46,11 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.zPosition = 6
-//        btn.backgroundColor = .red
         return btn
     }()
     private let rightControl: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-//        btn.backgroundColor = .green
         btn.layer.zPosition = 6
         return btn
     }()
@@ -82,7 +80,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         return button
     }()
     
-    private let gradientLayer : CAGradientLayer = {
+    private let topGradientLayer : CAGradientLayer = {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.colors = [AppColors.clearblack.color.cgColor, UIColor.clear.cgColor]
         gradient.locations = [0.0, 0.4]
@@ -90,10 +88,63 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         gradient.zPosition = 4
         return gradient
     }()
-
     
+    private let bottomGradientLayer : CAGradientLayer = {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = [UIColor.clear.cgColor, AppColors.clearblack.color.cgColor]
+        gradient.locations = [0.6, 1]
+        gradient.name = "gradient"
+        gradient.zPosition = 4
+        return gradient
+    }()
     
-    // MARK: Object lifecycle
+    private let voteButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 16)
+        button.setTitleColor(AppColors.clearblack.color, for: .normal)
+        button.layer.cornerRadius = 25
+        button.dropShadow()
+        return button
+    }()
+    
+    private let ownerStack : UIStackView = {
+        let stack = UIStackView()
+        stack.alignment = .center
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = 10
+        stack.layer.zPosition = 5
+        return stack
+    }()
+    
+    private let ownerImage : UIImageView = {
+        let imageview = UIImageView()
+        imageview.translatesAutoresizingMaskIntoConstraints = false
+        imageview.contentMode = .scaleAspectFill
+        imageview.layer.cornerRadius = 20
+        imageview.clipsToBounds = true
+        return imageview
+    }()
+    
+    private let ownerNameLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Montserrat-Medium", size: 16)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let voteButtonImage: UIImageView = {
+        let imageview = UIImageView()
+        imageview.translatesAutoresizingMaskIntoConstraints = false
+        imageview.image = UIImage(named: "logo-vote-btn")
+        return imageview
+    }()
+    
+    // MARK: - Object lifecycle
     
     init(layout: UICollectionViewLayout, index: Int) {
         super.init(collectionViewLayout: layout)
@@ -108,7 +159,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         return nil
     }
     
-    // MARK: Setup
+    // MARK: - Setup
     
     private func setup()
     {
@@ -136,27 +187,36 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         return .all
     }
     
-    // MARK: View lifecycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.indexLabel.text = "\(currentIndex + 1)/\(String(describing: collectionView!.numberOfItems(inSection: 0)))"
+        
         self.leftControl.addTarget(self, action: #selector(xButtonAction), for: .touchUpInside)
+        
         setupTopStackView()
-        gradientLayer.frame = self.view.bounds
-        view.layer.addSublayer(self.gradientLayer)
+        
+        topGradientLayer.frame = self.view.bounds
+        bottomGradientLayer.frame = self.view.bounds
+        view.layer.addSublayer(self.topGradientLayer)
+        
         let toggleControlsGesture = UITapGestureRecognizer(target: self, action: #selector(toggleControls))
         toggleControlsGesture.numberOfTapsRequired = 1
         self.collectionView?.addGestureRecognizer(toggleControlsGesture)
+        
+        updateBottomViews(canVote: false)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         scrollToIndex(index: currentIndex)
+        toggleControls()
     }
     
     override func viewDidLayoutSubviews() {
-        gradientLayer.frame = self.view.bounds
+        topGradientLayer.frame = self.view.bounds
+        bottomGradientLayer.frame = self.view.bounds
     }
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         scrollToIndex(index: currentIndex)
@@ -194,6 +254,57 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
             ])
     }
     
+    private func setupOwnerView() {
+        view.addSubview(self.ownerStack)
+        NSLayoutConstraint.activate([
+            self.ownerStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+                self.ownerStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                self.ownerStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                self.ownerStack.heightAnchor.constraint(equalToConstant: 40),
+                
+                self.ownerImage.heightAnchor.constraint(equalToConstant: 40),
+                self.ownerImage.widthAnchor.constraint(equalToConstant: 40)
+            ])
+        ownerStack.addArrangedSubview(self.ownerImage)
+        ownerStack.addArrangedSubview(self.ownerNameLabel)
+        view.layer.addSublayer(self.bottomGradientLayer)
+    }
+    
+    private func setupVoteButton() {
+        view.addSubview(self.voteButton)
+        voteButton.addSubview(self.voteButtonImage)
+        self.bottomGradientLayer.removeFromSuperlayer()
+        NSLayoutConstraint.activate([
+                self.voteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                self.voteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+                self.voteButton.heightAnchor.constraint(equalToConstant: 50),
+                self.voteButton.widthAnchor.constraint(equalToConstant: 264),
+                
+                self.voteButtonImage.heightAnchor.constraint(equalToConstant: 36),
+                self.voteButtonImage.widthAnchor.constraint(equalToConstant: 32),
+                self.voteButtonImage.centerYAnchor.constraint(equalTo: voteButton.centerYAnchor),
+                self.voteButtonImage.leadingAnchor.constraint(equalTo: voteButton.leadingAnchor, constant: 10)
+            ])
+        }
+    
+    private func updateBottomViews(canVote: Bool, hasVoted: Bool = false){
+        if(canVote){
+            self.ownerStack.removeFromSuperview()
+            setupVoteButton()
+            if(hasVoted){
+                self.voteButton.setTitle(NSLocalizedString("CHOOSE SHOT", comment: "not voted"), for: .normal)
+            }else {
+                self.voteButton.setTitle(NSLocalizedString("FAVOURITE SHOT", comment: "not voted"), for: .normal)
+            }
+            self.voteButton.titleLabel?.addCharacterSpacing(kernValue: 1.7)
+        }else {
+            self.voteButton.removeFromSuperview()
+            self.ownerImage.image = UIImage(named: "dmcimg")
+            self.ownerNameLabel.text = "leo1mml"
+            setupOwnerView()
+        }
+    }
+    
     // MARK: - Collection View
     
     ///Configures the collectionview and changes it to its right size and color.
@@ -213,11 +324,12 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath) as! ImageViewCell
-        indexPath.item % 2 == 0 ?
-            cell.setData(data: PhotosSlideScreen.FetchPhotos.ViewModel.Photo(isMyShot: true, isVoted: true, photo: UIImage(named: "chronoimg")!))
-        :
-            cell.setData(data: PhotosSlideScreen.FetchPhotos.ViewModel.Photo(isMyShot: true, isVoted: true, photo: UIImage(named: "dmcimg")!))
+        let data = indexPath.item % 2 == 0 ?
+            PhotosSlideScreen.FetchPhotos.ViewModel.Photo(isMyShot: true, isVoted: true, photo: UIImage(named: "chronoimg")!, ownerImage: UIImage(named: "chronoimg"), ownerName: "amoebadopoder")
+            :
+            PhotosSlideScreen.FetchPhotos.ViewModel.Photo(isMyShot: true, isVoted: true, photo: UIImage(named: "dmcimg")!, ownerImage: UIImage(named: "chronoimg"), ownerName: "leo1mml")
         
+            cell.setData(data: data)
         return cell
     }
 
@@ -234,6 +346,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         let cell = cell as! ImageViewCell
         cell.updateZoomScaleForSize(UIScreen.main.bounds.size)
     }
+    
     // MARK: - SCROLL VIEW
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -245,6 +358,12 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         }
         
         self.indexLabel.text = "\(currentIndex + 1)/\(String(describing: collectionView!.numberOfItems(inSection: 0)))"
+        
+        if(currentIndex % 2 == 0){
+            updateBottomViews(canVote: false)
+        }else {
+            updateBottomViews(canVote: true, hasVoted: true)
+        }
     }
     
     func scrollToIndex(index: Int){
@@ -260,22 +379,29 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     @objc private func toggleControls() {
         if(self.leftControl.isEnabled){
             UIView.animate(withDuration: 0.5) {
-                self.gradientLayer.opacity = 0
+                self.topGradientLayer.opacity = 0
+                self.bottomGradientLayer.opacity = 0
                 self.topStack.alpha = 0
                 self.indexLabel.alpha = 0
                 self.flagButton.alpha = 0
                 self.xButton.alpha = 0
+                self.ownerStack.alpha = 0
+                self.voteButton.alpha = 0
             }
         }else {
             UIView.animate(withDuration: 0.5) {
-                self.gradientLayer.opacity = 1
+                self.topGradientLayer.opacity = 1
+                self.bottomGradientLayer.opacity = 1
                 self.topStack.alpha = 1
                 self.indexLabel.alpha = 1
                 self.flagButton.alpha = 1
                 self.xButton.alpha = 1
+                self.ownerStack.alpha = 1
+                self.voteButton.alpha = 1
             }
         }
         self.leftControl.isEnabled = !self.leftControl.isEnabled
+        self.voteButton.isEnabled = !self.voteButton.isEnabled
     }
     
     @objc private func xButtonAction(sender: UIButton){

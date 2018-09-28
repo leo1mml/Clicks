@@ -30,6 +30,8 @@ enum PhotosSlideScreen
             var isMyShot: Bool
             var isVoted: Bool
             var photo: UIImage
+            var ownerImage: UIImage?
+            var ownerName: String?
         }
         var photos: [Photo]
     }

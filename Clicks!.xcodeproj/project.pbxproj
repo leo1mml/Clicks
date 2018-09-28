@@ -135,7 +135,6 @@
 		8AB91D2520EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2220EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift */; };
 		8AB91D2820EFF46F006446F6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2720EFF46F006446F6 /* ProfileHeaderView.swift */; };
 		8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */; };
-		8AC4B0A820B3AE28001D98B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A720B3AE28001D98B1 /* Assets.xcassets */; };
 		8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0E520B683F0001D98B1 /* HomeViewController.swift */; };
 		8AC4B0FA20B687EE001D98B1 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0F920B687EE001D98B1 /* Challenge.swift */; };
 		8AC4B0FB20B687EE001D98B1 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0F920B687EE001D98B1 /* Challenge.swift */; };
@@ -262,6 +261,8 @@
 		8AE6C08B20BCB8BF005E8FFC /* MontserratAlternates-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6C01C20BCB8BF005E8FFC /* MontserratAlternates-Medium.otf */; };
 		8AE6C08C20BCD541005E8FFC /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6BFE020B7B40C005E8FFC /* AppColors.swift */; };
 		8AE6C09120BCFBB1005E8FFC /* PageCell_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6C09020BCFBB1005E8FFC /* PageCell_Tests.swift */; };
+		8AF5DCC0215DBE5E009112CB /* UILabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5DCBF215DBE5E009112CB /* UILabelHelper.swift */; };
+		8AF5DCC4215DC05B009112CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF5DCC3215DC05B009112CB /* Assets.xcassets */; };
 		8AFED3EB20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
 		8AFED3EC20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
 		8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
@@ -419,7 +420,6 @@
 		8AB91D2720EFF46F006446F6 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		8AC4B09D20B3AE26001D98B1 /* Clicks!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clicks!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AC4B0A720B3AE28001D98B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AC4B0AC20B3AE28001D98B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC4B0B120B3AE28001D98B1 /* Clicks!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clicks!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC4B0B720B3AE28001D98B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -471,6 +471,8 @@
 		8AE6C01B20BCB8BE005E8FFC /* MontserratAlternates-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		8AE6C01C20BCB8BF005E8FFC /* MontserratAlternates-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Medium.otf"; sourceTree = "<group>"; };
 		8AE6C09020BCFBB1005E8FFC /* PageCell_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell_Tests.swift; sourceTree = "<group>"; };
+		8AF5DCBF215DBE5E009112CB /* UILabelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelHelper.swift; sourceTree = "<group>"; };
+		8AF5DCC3215DC05B009112CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextChallengesContainerCell.swift; sourceTree = "<group>"; };
 		8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextChallengeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -530,7 +532,7 @@
 		08DF49CD20BE5786004D4057 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				8AC4B0A720B3AE28001D98B1 /* Assets.xcassets */,
+				8AF5DCC3215DC05B009112CB /* Assets.xcassets */,
 				8AE6BFF620BCB893005E8FFC /* Fonts */,
 				8AE6BFF420B7E078005E8FFC /* Localizable.strings */,
 			);
@@ -556,6 +558,7 @@
 				8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */,
 				8A4F8EE520E1DA9D0005E1BF /* TimeIntervalHelper.swift */,
 				8A4E018121582A9D00FE8013 /* UIImageViewHelper.swift */,
+				8AF5DCBF215DBE5E009112CB /* UILabelHelper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1250,6 +1253,7 @@
 				8AE6C05C20BCB8BF005E8FFC /* Montserrat-LightItalic.otf in Resources */,
 				8AE6C04A20BCB8BF005E8FFC /* Montserrat-ExtraBold.otf in Resources */,
 				8AE6C08920BCB8BF005E8FFC /* MontserratAlternates-Medium.otf in Resources */,
+				8AF5DCC4215DC05B009112CB /* Assets.xcassets in Resources */,
 				8AE6C07720BCB8BF005E8FFC /* MontserratAlternates-Bold.otf in Resources */,
 				8AE6C03B20BCB8BF005E8FFC /* MontserratAlternates-BlackItalic.otf in Resources */,
 				8AE6C05320BCB8BF005E8FFC /* MontserratAlternates-Light.otf in Resources */,
@@ -1270,7 +1274,6 @@
 				8A4F8EF320E1EE7A0005E1BF /* TimerView.xib in Resources */,
 				8AE6C01D20BCB8BF005E8FFC /* Montserrat-MediumItalic.otf in Resources */,
 				8AE6BFF020B7E078005E8FFC /* Localizable.strings in Resources */,
-				8AC4B0A820B3AE28001D98B1 /* Assets.xcassets in Resources */,
 				8AE6C07D20BCB8BF005E8FFC /* MontserratAlternates-Italic.otf in Resources */,
 				8AE6C06B20BCB8BF005E8FFC /* MontserratAlternates-LightItalic.otf in Resources */,
 				8AE6C06220BCB8BF005E8FFC /* Montserrat-SemiBoldItalic.otf in Resources */,
@@ -1426,6 +1429,7 @@
 				8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8AB91D1A20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8A1DB55F20CF87FC0094CC95 /* MainScreenRouter.swift in Sources */,
+				8AF5DCC0215DBE5E009112CB /* UILabelHelper.swift in Sources */,
 				8A4F8EFC20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
 				8AB2E08820EF22960047CB00 /* ProfilePhotoCell.swift in Sources */,
 				8A6256AE20B691620032195E /* User.swift in Sources */,
