@@ -24,12 +24,15 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     var navigationController : UINavigationController?
     var homeInteractionDelegate: HomeVCInteraction?
     
-    //IDs
+    // MARK: - IDs
     let photoCellID = "profilePhotoCellID"
     let headerCellID = "profileHeaderCellID"
     
     var interactor: ProfileBusinessLogic?
     var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
+    
+    // MARK: - UI Objects
+    let imageViewToZoom = UIImageView()
     
     // MARK: Object lifecycle
     
