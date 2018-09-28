@@ -33,6 +33,7 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     
     // MARK: - UI Objects
     let imageViewToZoom = UIImageView()
+    let backgroundFader = UIView()
     
     // MARK: Object lifecycle
     

@@ -152,6 +152,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         self.collectionView?.register(ImageViewCell.self, forCellWithReuseIdentifier: self.photoCellID)
         setup()
         setupCollectionView()
+        scrollToIndex(index: currentIndex)
     }
     
     required init?(coder aDecoder: NSCoder)
@@ -210,7 +211,6 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        scrollToIndex(index: currentIndex)
         toggleControls()
     }
     
@@ -369,8 +369,10 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     func scrollToIndex(index: Int){
         collectionView?.collectionViewLayout.invalidateLayout()
         let indexPath = IndexPath(item: currentIndex, section: 0)
+        self.collectionView?.alpha = 0
         DispatchQueue.main.async {
             self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            self.collectionView?.alpha = 1
         }
     }
     
