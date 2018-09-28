@@ -16,7 +16,7 @@ class ImageViewCell: UICollectionViewCell, UIScrollViewDelegate {
     let scrollViewToZoom : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 5.0
+        scrollView.maximumZoomScale = 3.0
         scrollView.zoomScale = 1.0
         scrollView.isUserInteractionEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
