@@ -17,6 +17,8 @@
 		8A06D6AE20DB28F7000BC688 /* CarouselCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */; };
 		8A0D29F020E1374E00DDAA16 /* DateHelper_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D29EF20E1374E00DDAA16 /* DateHelper_Tests.swift */; };
 		8A0D29F220E139E100DDAA16 /* UIViewHelper_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0D29F120E139E100DDAA16 /* UIViewHelper_Tests.swift */; };
+		8A17B5C821630AA600D72C8A /* ZoomableCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17B5C721630AA600D72C8A /* ZoomableCollectionViewDelegate.swift */; };
+		8A17B5CA21630BC500D72C8A /* ProfileZoomableCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17B5C921630BC500D72C8A /* ProfileZoomableCollectionViewDelegate.swift */; };
 		8A1853BA20BDAFFE00DC179B /* OnboardingPresenter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853B920BDAFFE00DC179B /* OnboardingPresenter_Tests.swift */; };
 		8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853BC20BDC7E300DC179B /* AppColors_Tests.swift */; };
 		8A1853C020BDCDCD00DC179B /* Challenge_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1853BF20BDCDCD00DC179B /* Challenge_Tests.swift */; };
@@ -39,8 +41,6 @@
 		8A1DB59220D1D01F0094CC95 /* CarouselCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59120D1D01F0094CC95 /* CarouselCollectionViewLayout.swift */; };
 		8A1DB59720D1E9350094CC95 /* MainScreenTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59620D1E9350094CC95 /* MainScreenTableHeaderView.swift */; };
 		8A1DB59D20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
-		8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
-		8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DB59C20D1FD900094CC95 /* OpenChallengeCell.swift */; };
 		8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA2BD020BE4F19007F2EA4 /* Formatter+iso8601.swift */; };
 		8A30FCE2214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDC214B70D3002D12B6 /* PhotosSlideScreenPresenter.swift */; };
 		8A30FCE3214B70D3002D12B6 /* PhotosSlideScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A30FCDD214B70D3002D12B6 /* PhotosSlideScreenWorker.swift */; };
@@ -82,11 +82,8 @@
 		8A4F8EFD20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */; };
 		8A4F8EFE20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8EFB20E1F6B40005E1BF /* VotationPeriodView.swift */; };
 		8A4F8F0720E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */; };
-		8A4F8F0820E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */; };
-		8A4F8F0920E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0620E403B90005E1BF /* LastChallengesContainerCell.swift */; };
 		8A4F8F0C20E4437C0005E1BF /* LastChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */; };
-		8A4F8F0D20E4437C0005E1BF /* LastChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */; };
-		8A4F8F0E20E4437C0005E1BF /* LastChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F8F0B20E4437C0005E1BF /* LastChallengeCell.swift */; };
+		8A57A1332162B00300BB97D8 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A664EAB20E4B5E20030CFC9 /* CalendarView.swift */; };
 		8A6256AC20B690CB0032195E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AB20B690CB0032195E /* Photo.swift */; };
 		8A6256AE20B691620032195E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256AD20B691620032195E /* User.swift */; };
 		8A6256BF20B790E40032195E /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6256B520B790E40032195E /* OnboardingRouter.swift */; };
@@ -109,8 +106,6 @@
 		8AB11FE72149F793004B9235 /* ShadowView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB11FE22149F767004B9235 /* ShadowView.framework */; };
 		8AB11FE92149F819004B9235 /* ShadowView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB11FE22149F767004B9235 /* ShadowView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AB2E08820EF22960047CB00 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2E08720EF22960047CB00 /* ProfilePhotoCell.swift */; };
-		8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
-		8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
 		8AB603B520D2020000C87DA1 /* OpenChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB603B120D201C000C87DA1 /* OpenChallengesContainerCell.swift */; };
 		8AB91CF720EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CF620EFDBA5006446F6 /* ContainerCollectionView.swift */; };
 		8AB91CF820EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91CF620EFDBA5006446F6 /* ContainerCollectionView.swift */; };
@@ -122,17 +117,9 @@
 		8AB91D0D20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D0C20EFE89A006446F6 /* NextChallengesContainerCell+CVDelegate.swift */; };
 		8AB91D1120EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1020EFE995006446F6 /* NextChallengeContainerCell+CVFlowLayout.swift */; };
 		8AB91D1620EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1520EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift */; };
-		8AB91D1720EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1520EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift */; };
-		8AB91D1820EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1520EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift */; };
 		8AB91D1A20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1920EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift */; };
-		8AB91D1B20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1920EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift */; };
-		8AB91D1C20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1920EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift */; };
 		8AB91D1F20EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1E20EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift */; };
-		8AB91D2020EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1E20EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift */; };
-		8AB91D2120EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D1E20EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift */; };
 		8AB91D2320EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2220EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift */; };
-		8AB91D2420EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2220EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift */; };
-		8AB91D2520EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2220EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift */; };
 		8AB91D2820EFF46F006446F6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB91D2720EFF46F006446F6 /* ProfileHeaderView.swift */; };
 		8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0A020B3AE26001D98B1 /* AppDelegate.swift */; };
 		8AC4B0F320B683F0001D98B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4B0E520B683F0001D98B1 /* HomeViewController.swift */; };
@@ -264,11 +251,7 @@
 		8AF5DCC0215DBE5E009112CB /* UILabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5DCBF215DBE5E009112CB /* UILabelHelper.swift */; };
 		8AF5DCC4215DC05B009112CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF5DCC3215DC05B009112CB /* Assets.xcassets */; };
 		8AFED3EB20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
-		8AFED3EC20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
-		8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EA20E48C6700ABA0C7 /* NextChallengesContainerCell.swift */; };
 		8AFED3F020E4909900ABA0C7 /* NextChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */; };
-		8AFED3F120E4909900ABA0C7 /* NextChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */; };
-		8AFED3F220E4909900ABA0C7 /* NextChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFED3EF20E4909900ABA0C7 /* NextChallengeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,6 +335,8 @@
 		8A06D69F20D8B8A3000BC688 /* UIImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
 		8A0D29EF20E1374E00DDAA16 /* DateHelper_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper_Tests.swift; sourceTree = "<group>"; };
 		8A0D29F120E139E100DDAA16 /* UIViewHelper_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewHelper_Tests.swift; sourceTree = "<group>"; };
+		8A17B5C721630AA600D72C8A /* ZoomableCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		8A17B5C921630BC500D72C8A /* ProfileZoomableCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileZoomableCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		8A1853B920BDAFFE00DC179B /* OnboardingPresenter_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter_Tests.swift; sourceTree = "<group>"; };
 		8A1853BC20BDC7E300DC179B /* AppColors_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors_Tests.swift; sourceTree = "<group>"; };
 		8A1853BF20BDCDCD00DC179B /* Challenge_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_Tests.swift; sourceTree = "<group>"; };
@@ -563,6 +548,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8A17B5C621630A8C00D72C8A /* ZoomableCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8A17B5C721630AA600D72C8A /* ZoomableCollectionViewDelegate.swift */,
+			);
+			path = ZoomableCollectionView;
+			sourceTree = "<group>";
+		};
 		8A1853BB20BDC7B000DC179B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,20 +682,13 @@
 			path = LoadScreen;
 			sourceTree = "<group>";
 		};
-		8A3B139E215202C5000E38EB /* CustomNavigationController */ = {
+		8A4F8EE020E1CE250005E1BF /* CustomObjects */ = {
 			isa = PBXGroup;
 			children = (
 				8A3B13A1215202EF000E38EB /* FreeRotationNavController.swift */,
-			);
-			path = CustomNavigationController;
-			sourceTree = "<group>";
-		};
-		8A4F8EE020E1CE250005E1BF /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
 				8A4F8EE920E1EA360005E1BF /* TimerView */,
 			);
-			path = CustomViews;
+			path = CustomObjects;
 			sourceTree = "<group>";
 		};
 		8A4F8EE920E1EA360005E1BF /* TimerView */ = {
@@ -852,6 +838,7 @@
 				8AB91CFB20EFE6D9006446F6 /* ProfileCollectionViewDataSource.swift */,
 				8AB91CFF20EFE6EE006446F6 /* ProfileCollectionViewDelegateFlowLayout.swift */,
 				8AB91D0320EFE6FD006446F6 /* ProfileViewCollectionViewDelegate.swift */,
+				8A17B5C921630BC500D72C8A /* ProfileZoomableCollectionViewDelegate.swift */,
 			);
 			path = ProfileViewExtensions;
 			sourceTree = "<group>";
@@ -979,9 +966,9 @@
 		8AE6BFDF20B7B3F0005E8FFC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8A3B139E215202C5000E38EB /* CustomNavigationController */,
+				8A17B5C621630A8C00D72C8A /* ZoomableCollectionView */,
 				8AB91CF520EFDB4D006446F6 /* GenericObjects */,
-				8A4F8EE020E1CE250005E1BF /* CustomViews */,
+				8A4F8EE020E1CE250005E1BF /* CustomObjects */,
 				08DF49D020BE5E76004D4057 /* Extensions */,
 				08DF49CF20BE5E56004D4057 /* Layouts */,
 				08DF49C620BE50EC004D4057 /* Managers */,
@@ -1398,6 +1385,8 @@
 				8A1DB57220D0EAB40094CC95 /* ProfilePresenter.swift in Sources */,
 				8A30FCE3214B70D3002D12B6 /* PhotosSlideScreenWorker.swift in Sources */,
 				8AC4B0A120B3AE26001D98B1 /* AppDelegate.swift in Sources */,
+				8A17B5C821630AA600D72C8A /* ZoomableCollectionViewDelegate.swift in Sources */,
+				8A17B5CA21630BC500D72C8A /* ProfileZoomableCollectionViewDelegate.swift in Sources */,
 				8A1DB55920CF87FC0094CC95 /* MainScreenPresenter.swift in Sources */,
 				8A4F8EE620E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8A06D69E20D88A90000BC688 /* UIViewHelper.swift in Sources */,
@@ -1461,40 +1450,30 @@
 				8A0D29F220E139E100DDAA16 /* UIViewHelper_Tests.swift in Sources */,
 				8AE6BFE520B7BA4E005E8FFC /* OnboardingModels.swift in Sources */,
 				8A6256C620B790E40032195E /* OnboardingViewController.swift in Sources */,
-				8AB91D1B20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8A6256C920B790E40032195E /* OnboardingPresenter.swift in Sources */,
 				8A1853C020BDCDCD00DC179B /* Challenge_Tests.swift in Sources */,
-				8AB91D2420EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8A06D6AB20DB28CD000BC688 /* UIImageHelper.swift in Sources */,
 				8A6EF3E420CA160F0006C80A /* HomeViewController_Tests.swift in Sources */,
 				8A4F8EFD20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
 				8A30889920BE695B00FE6AFB /* Formatter+iso8601.swift in Sources */,
 				8A4F8EE720E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8ACD434D20C8BB7B00594046 /* OnboardingViewController_Tests.swift in Sources */,
-				8AB91D2020EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A1DB54B20CF83A30094CC95 /* DateHelper.swift in Sources */,
 				8AE6C09120BCFBB1005E8FFC /* PageCell_Tests.swift in Sources */,
 				8A1853C520BDCE7B00DC179B /* Photo_Tests.swift in Sources */,
 				8A1853BD20BDC7E300DC179B /* AppColors_Tests.swift in Sources */,
 				8A1853C320BDCE3D00DC179B /* User_Tests.swift in Sources */,
 				8A4F8EC020E18BEA0005E1BF /* User.swift in Sources */,
-				8AFED3EC20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
-				8A1DB59E20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 				8A06D6AD20DB28F6000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
-				8A4F8F0820E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */,
 				8A1853BA20BDAFFE00DC179B /* OnboardingPresenter_Tests.swift in Sources */,
 				8A06D6A920DB28C9000BC688 /* UIViewHelper.swift in Sources */,
 				8A4F8EBF20E18BE60005E1BF /* Photo.swift in Sources */,
 				8AB91CF820EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */,
 				8A4F8EF020E1ED910005E1BF /* TimerView.swift in Sources */,
-				8AB603B320D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
-				8A4F8F0D20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
 				8A6256C020B790E40032195E /* OnboardingRouter.swift in Sources */,
 				8A4F8EBE20E186C50005E1BF /* UIImageHelper_Tests.swift in Sources */,
 				8AE6BFE920B7BFC1005E8FFC /* PageCell.swift in Sources */,
-				8AFED3F120E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
 				8A0D29F020E1374E00DDAA16 /* DateHelper_Tests.swift in Sources */,
-				8AB91D1720EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
 				8AE6C08C20BCD541005E8FFC /* AppColors.swift in Sources */,
 				8AC4B0FB20B687EE001D98B1 /* Challenge.swift in Sources */,
 			);
@@ -1506,33 +1485,24 @@
 			files = (
 				8A06D6AE20DB28F7000BC688 /* CarouselCollectionViewLayout.swift in Sources */,
 				8A658F0F20C8CA990062F0C4 /* OnboardingViewController_UITests.swift in Sources */,
-				8AB91D1820EFEA0D006446F6 /* LastChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A4F8EF120E1ED910005E1BF /* TimerView.swift in Sources */,
 				8A4F8ECB20E18CBA0005E1BF /* UIImageHelper.swift in Sources */,
 				8A4F8ECA20E18CBA0005E1BF /* UIViewHelper.swift in Sources */,
-				8A4F8F0E20E4437C0005E1BF /* LastChallengeCell.swift in Sources */,
 				8A4F8EFE20E1F6B40005E1BF /* VotationPeriodView.swift in Sources */,
 				8A4F8EC420E18C9F0005E1BF /* Challenge.swift in Sources */,
 				8A4F8EC820E18CBA0005E1BF /* Formatter+iso8601.swift in Sources */,
 				8AE6BFEA20B7BFC1005E8FFC /* PageCell.swift in Sources */,
-				8AFED3ED20E48C6700ABA0C7 /* NextChallengesContainerCell.swift in Sources */,
 				8A4F8EC620E18CAD0005E1BF /* Photo.swift in Sources */,
+				8A57A1332162B00300BB97D8 /* CalendarView.swift in Sources */,
 				8AB91CF920EFDBA5006446F6 /* ContainerCollectionView.swift in Sources */,
-				8AB91D2120EFEB5F006446F6 /* OpenChallengesContainerCell+CVDataSource.swift in Sources */,
 				8A4F8ED820E18D0F0005E1BF /* OnboardingPresenter.swift in Sources */,
-				8AB91D1C20EFEA81006446F6 /* LastChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8A4F8EC920E18CBA0005E1BF /* DateHelper.swift in Sources */,
-				8AB603B420D201E600C87DA1 /* OpenChallengesContainerCell.swift in Sources */,
 				8A4F8EC520E18CA80005E1BF /* User.swift in Sources */,
 				8A4F8EE820E1DA9D0005E1BF /* TimeIntervalHelper.swift in Sources */,
 				8A4F8EC720E18CBA0005E1BF /* AppColors.swift in Sources */,
 				8A4F8ED720E18D0F0005E1BF /* OnboardingRouter.swift in Sources */,
-				8A4F8F0920E403B90005E1BF /* LastChallengesContainerCell.swift in Sources */,
-				8AB91D2520EFEBF2006446F6 /* OpenChallengesContainerCell+CVDelegateFlowLayout.swift in Sources */,
 				8A4F8EC320E18C710005E1BF /* OnboardingViewController.swift in Sources */,
-				8AFED3F220E4909900ABA0C7 /* NextChallengeCell.swift in Sources */,
 				8A4F8ED620E18D0F0005E1BF /* OnboardingModels.swift in Sources */,
-				8A1DB59F20D1FD900094CC95 /* OpenChallengeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

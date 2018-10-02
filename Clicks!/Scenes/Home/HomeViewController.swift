@@ -18,6 +18,7 @@
     func showStatusBar()
     func rotateToPortrait()
     func scrollToIndex(index: Int)
+    func layoutCollectionView()
  }
  
  class HomeViewController: UIViewController
@@ -419,8 +420,7 @@
         UIView.animate(withDuration: 0.25, animations: {
             self.setNeedsStatusBarAppearanceUpdate()
         }) { (complete) in
-            self.containerCollectionView.setNeedsLayout()
-            self.containerCollectionView.layoutIfNeeded()
+            self.layoutCollectionView()
         }
     }
     
@@ -429,9 +429,13 @@
         UIView.animate(withDuration: 0.25, animations: {
             self.setNeedsStatusBarAppearanceUpdate()
         }) { (complete) in
-            self.containerCollectionView.setNeedsLayout()
-            self.containerCollectionView.layoutIfNeeded()
+            self.layoutCollectionView()
         }
+    }
+    
+    func layoutCollectionView() {
+        self.containerCollectionView.setNeedsLayout()
+        self.containerCollectionView.layoutIfNeeded()
     }
     
     func rotateToPortrait() {

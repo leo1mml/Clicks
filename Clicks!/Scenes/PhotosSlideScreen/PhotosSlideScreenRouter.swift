@@ -35,7 +35,9 @@ class PhotosSlideScreenRouter: NSObject, PhotosSlideScreenRoutingLogic, PhotosSl
         viewController?.homeInteractorDelegate?.showStatusBar()
         viewController?.homeInteractorDelegate?.rotateToPortrait()
         viewController?.homeInteractorDelegate?.scrollToIndex(index: 1)
-        self.viewController?.dismiss(animated: true, completion: nil)
+        self.viewController?.dismiss(animated: false, completion: {
+            self.viewController?.zoomableCollectionViewDelegate?.animateZoomedImageBack(indexPath: IndexPath(item: (self.viewController?.currentIndex)!, section: 0))
+        })
     }
     
     //func routeToSomewhere(segue: UIStoryboardSegue?)

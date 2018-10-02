@@ -32,8 +32,24 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
     var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
     
     // MARK: - UI Objects
-    let imageViewToZoom = UIImageView()
-    let backgroundFader = UIView()
+    let imageViewToZoom: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    let backgroundFader: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.frame = UIScreen.main.bounds
+        return view
+    }()
+    let cellCover : UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColors.darkwhite.color
+        view.frame = CGRect.zero
+        return view
+    }()
     
     // MARK: Object lifecycle
     

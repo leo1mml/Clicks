@@ -36,9 +36,10 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing
         photoScreen.modalPresentationStyle = .overCurrentContext
         mainView?.homeInteractionDelegate?.hideStatusBar()
         photoScreen.homeInteractorDelegate = mainView?.homeInteractionDelegate
+        photoScreen.zoomableCollectionViewDelegate = mainView
+        photoScreen.currentIndex = photoIndex
         mainView?.navigationController?.present(photoScreen, animated: false, completion: {
-            self.mainView?.imageViewToZoom.removeFromSuperview()
-            self.mainView?.backgroundFader.removeFromSuperview()
+//            self.mainView.zoomOutImageToZoom()
         })
     }
     

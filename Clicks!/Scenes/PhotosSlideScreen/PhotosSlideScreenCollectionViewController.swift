@@ -24,11 +24,12 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     var interactor: PhotosSlideScreenBusinessLogic?
     var router: (NSObjectProtocol & PhotosSlideScreenRoutingLogic & PhotosSlideScreenDataPassing)?
     var homeInteractorDelegate: HomeVCInteraction?
+    var zoomableCollectionViewDelegate: ZoomableCollectionViewDelegate?
     
     // MARK: - VARIABLES
     private let photoCellID = "photoCellID"
     private var prevIndex : Int = 0;
-    private var currentIndex: Int!;
+    var currentIndex: Int!;
     
     // MARK: - UI Variables
     
@@ -152,7 +153,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         self.collectionView?.register(ImageViewCell.self, forCellWithReuseIdentifier: self.photoCellID)
         setup()
         setupCollectionView()
-        scrollToIndex(index: currentIndex)
+//        scrollToIndex(index: currentIndex)
     }
     
     required init?(coder aDecoder: NSCoder)
@@ -211,7 +212,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        toggleControls()
+        self.collectionView?.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: false)
     }
     
     override func viewDidLayoutSubviews() {
@@ -228,8 +229,8 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         self.view.addSubview(self.topStack)
         NSLayoutConstraint.activate([
                 self.topStack.heightAnchor.constraint(equalToConstant: 70/667 * view.frame.height),
-                self.topStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-                self.topStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+                self.topStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                self.topStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                 self.topStack.topAnchor.constraint(equalTo: self.view.topAnchor),
                 self.flagButton.heightAnchor.constraint(equalToConstant: 24)
             ])
@@ -244,12 +245,12 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         NSLayoutConstraint.activate([
                 self.xButton.heightAnchor.constraint(equalToConstant: 16),
                 self.xButton.widthAnchor.constraint(equalToConstant: 16),
-                self.xButton.leadingAnchor.constraint(equalTo: self.leftControl.leadingAnchor),
+                self.xButton.leadingAnchor.constraint(equalTo: self.leftControl.leadingAnchor, constant: 20),
                 self.xButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
                 
                 self.flagButton.heightAnchor.constraint(equalToConstant: 24),
                 self.flagButton.widthAnchor.constraint(equalToConstant: 16),
-                self.flagButton.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor),
+                self.flagButton.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor, constant: -20),
                 self.flagButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
             ])
     }
@@ -345,6 +346,9 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = cell as! ImageViewCell
         cell.updateZoomScaleForSize(UIScreen.main.bounds.size)
+        if let image = cell.photoView.image {
+            self.zoomableCollectionViewDelegate?.updateZoomedInFrame(image: image, item: indexPath.item)
+        }
     }
     
     // MARK: - SCROLL VIEW
