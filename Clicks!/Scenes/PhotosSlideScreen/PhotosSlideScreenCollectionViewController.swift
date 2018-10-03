@@ -222,107 +222,13 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         scrollToIndex(index: currentIndex)
     }
-    
-    // MARK: - UI Setup Items
-    
-    private func setupTopStackView(){
-        self.view.addSubview(self.topStack)
-        NSLayoutConstraint.activate([
-                self.topStack.heightAnchor.constraint(equalToConstant: 70/667 * view.frame.height),
-                self.topStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                self.topStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                self.topStack.topAnchor.constraint(equalTo: self.view.topAnchor),
-                self.flagButton.heightAnchor.constraint(equalToConstant: 24)
-            ])
-        
-        self.topStack.addArrangedSubview(self.leftControl)
-        self.topStack.addArrangedSubview(self.indexLabel)
-        self.topStack.addArrangedSubview(self.rightControl)
-        
-        // Configure the buttons
-        self.view.addSubview(self.xButton)
-        self.view.addSubview(self.flagButton)
-        NSLayoutConstraint.activate([
-                self.xButton.heightAnchor.constraint(equalToConstant: 16),
-                self.xButton.widthAnchor.constraint(equalToConstant: 16),
-                self.xButton.leadingAnchor.constraint(equalTo: self.leftControl.leadingAnchor, constant: 20),
-                self.xButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
-                
-                self.flagButton.heightAnchor.constraint(equalToConstant: 24),
-                self.flagButton.widthAnchor.constraint(equalToConstant: 16),
-                self.flagButton.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor, constant: -20),
-                self.flagButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
-            ])
-    }
-    
-    private func setupOwnerView() {
-        view.addSubview(self.ownerStack)
-        NSLayoutConstraint.activate([
-            self.ownerStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-                self.ownerStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                self.ownerStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                self.ownerStack.heightAnchor.constraint(equalToConstant: 40),
-                
-                self.ownerImage.heightAnchor.constraint(equalToConstant: 40),
-                self.ownerImage.widthAnchor.constraint(equalToConstant: 40)
-            ])
-        ownerStack.addArrangedSubview(self.ownerImage)
-        ownerStack.addArrangedSubview(self.ownerNameLabel)
-        view.layer.addSublayer(self.bottomGradientLayer)
-    }
-    
-    private func setupVoteButton() {
-        view.addSubview(self.voteButton)
-        voteButton.addSubview(self.voteButtonImage)
-        self.bottomGradientLayer.removeFromSuperlayer()
-        NSLayoutConstraint.activate([
-                self.voteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                self.voteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
-                self.voteButton.heightAnchor.constraint(equalToConstant: 50),
-                self.voteButton.widthAnchor.constraint(equalToConstant: 264),
-                
-                self.voteButtonImage.heightAnchor.constraint(equalToConstant: 36),
-                self.voteButtonImage.widthAnchor.constraint(equalToConstant: 32),
-                self.voteButtonImage.centerYAnchor.constraint(equalTo: voteButton.centerYAnchor),
-                self.voteButtonImage.leadingAnchor.constraint(equalTo: voteButton.leadingAnchor, constant: 10)
-            ])
-        }
-    
-    private func updateBottomViews(canVote: Bool, hasVoted: Bool = false){
-        if(canVote){
-            self.ownerStack.removeFromSuperview()
-            setupVoteButton()
-            if(hasVoted){
-                self.voteButton.setTitle(NSLocalizedString("CHOOSE SHOT", comment: "not voted"), for: .normal)
-            }else {
-                self.voteButton.setTitle(NSLocalizedString("FAVOURITE SHOT", comment: "not voted"), for: .normal)
-            }
-            self.voteButton.titleLabel?.addCharacterSpacing(kernValue: 1.7)
-        }else {
-            self.voteButton.removeFromSuperview()
-            self.ownerImage.image = UIImage(named: "dmcimg")
-            self.ownerNameLabel.text = "leo1mml"
-            setupOwnerView()
-        }
-    }
-    
-    // MARK: - Collection View
-    
-    ///Configures the collectionview and changes it to its right size and color.
-    func setupCollectionView() {
-        collectionView?.backgroundColor = AppColors.clearblack.color
-        collectionView?.isPagingEnabled = true
-        collectionView?.showsHorizontalScrollIndicator = false
-        //Registers the collection view page cells
-        collectionView?.register(ImageViewCell.self, forCellWithReuseIdentifier: self.photoCellID)
-        collectionView?.translatesAutoresizingMaskIntoConstraints = false
-        collectionView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-    }
-    
-    
+
+
+}
+
+
+// MARK: - CollectionView Datasource
+extension PhotosSlideScreenCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.photoCellID, for: indexPath) as! ImageViewCell
         let data = indexPath.item % 2 == 0 ?
@@ -330,19 +236,21 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
             :
             PhotosSlideScreen.FetchPhotos.ViewModel.Photo(isMyShot: true, isVoted: true, photo: UIImage(named: "dmcimg")!, ownerImage: UIImage(named: "chronoimg"), ownerName: "leo1mml")
         
-            cell.setData(data: data)
+        cell.setData(data: data)
         return cell
     }
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 44
     }
-    
-    
+}
+
+// MARK: - CollectionView Delegate
+extension PhotosSlideScreenCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = cell as! ImageViewCell
         cell.updateZoomScaleForSize(UIScreen.main.bounds.size)
@@ -350,8 +258,9 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
             self.zoomableCollectionViewDelegate?.updateZoomedInFrame(image: image, item: indexPath.item)
         }
     }
-    
-    // MARK: - SCROLL VIEW
+}
+// MARK: - SCROLL VIEW
+extension PhotosSlideScreenCollectionViewController {
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let x = targetContentOffset.pointee.x
@@ -379,8 +288,108 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
             self.collectionView?.alpha = 1
         }
     }
+}
+
+// MARK: - UI Setup Items
+extension PhotosSlideScreenCollectionViewController {
+    private func setupTopStackView(){
+        self.view.addSubview(self.topStack)
+        NSLayoutConstraint.activate([
+            self.topStack.heightAnchor.constraint(equalToConstant: 70/667 * view.frame.height),
+            self.topStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.topStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.topStack.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.flagButton.heightAnchor.constraint(equalToConstant: 24)
+            ])
+        
+        self.topStack.addArrangedSubview(self.leftControl)
+        self.topStack.addArrangedSubview(self.indexLabel)
+        self.topStack.addArrangedSubview(self.rightControl)
+        
+        // Configure the buttons
+        self.view.addSubview(self.xButton)
+        self.view.addSubview(self.flagButton)
+        NSLayoutConstraint.activate([
+            self.xButton.heightAnchor.constraint(equalToConstant: 16),
+            self.xButton.widthAnchor.constraint(equalToConstant: 16),
+            self.xButton.leadingAnchor.constraint(equalTo: self.leftControl.leadingAnchor, constant: 20),
+            self.xButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
+            
+            self.flagButton.heightAnchor.constraint(equalToConstant: 24),
+            self.flagButton.widthAnchor.constraint(equalToConstant: 16),
+            self.flagButton.trailingAnchor.constraint(equalTo: self.rightControl.trailingAnchor, constant: -20),
+            self.flagButton.centerYAnchor.constraint(equalTo: self.topStack.centerYAnchor),
+            ])
+    }
     
-    // MARK: - Interaction UI Functions
+    private func setupOwnerView() {
+        view.addSubview(self.ownerStack)
+        NSLayoutConstraint.activate([
+            self.ownerStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            self.ownerStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            self.ownerStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            self.ownerStack.heightAnchor.constraint(equalToConstant: 40),
+            
+            self.ownerImage.heightAnchor.constraint(equalToConstant: 40),
+            self.ownerImage.widthAnchor.constraint(equalToConstant: 40)
+            ])
+        ownerStack.addArrangedSubview(self.ownerImage)
+        ownerStack.addArrangedSubview(self.ownerNameLabel)
+        view.layer.addSublayer(self.bottomGradientLayer)
+    }
+    
+    private func setupVoteButton() {
+        view.addSubview(self.voteButton)
+        voteButton.addSubview(self.voteButtonImage)
+        self.bottomGradientLayer.removeFromSuperlayer()
+        NSLayoutConstraint.activate([
+            self.voteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.voteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            self.voteButton.heightAnchor.constraint(equalToConstant: 50),
+            self.voteButton.widthAnchor.constraint(equalToConstant: 264),
+            
+            self.voteButtonImage.heightAnchor.constraint(equalToConstant: 36),
+            self.voteButtonImage.widthAnchor.constraint(equalToConstant: 32),
+            self.voteButtonImage.centerYAnchor.constraint(equalTo: voteButton.centerYAnchor),
+            self.voteButtonImage.leadingAnchor.constraint(equalTo: voteButton.leadingAnchor, constant: 10)
+            ])
+    }
+    
+    ///Configures the collectionview and changes it to its right size and color.
+    func setupCollectionView() {
+        collectionView?.backgroundColor = AppColors.clearblack.color
+        collectionView?.isPagingEnabled = true
+        collectionView?.showsHorizontalScrollIndicator = false
+        //Registers the collection view page cells
+        collectionView?.register(ImageViewCell.self, forCellWithReuseIdentifier: self.photoCellID)
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    }
+}
+
+// MARK: - Interaction UI Functions
+extension PhotosSlideScreenCollectionViewController {
+    
+    private func updateBottomViews(canVote: Bool, hasVoted: Bool = false){
+        if(canVote){
+            self.ownerStack.removeFromSuperview()
+            setupVoteButton()
+            if(hasVoted){
+                self.voteButton.setTitle(NSLocalizedString("CHOOSE SHOT", comment: "not voted"), for: .normal)
+            }else {
+                self.voteButton.setTitle(NSLocalizedString("FAVOURITE SHOT", comment: "not voted"), for: .normal)
+            }
+            self.voteButton.titleLabel?.addCharacterSpacing(kernValue: 1.7)
+        }else {
+            self.voteButton.removeFromSuperview()
+            self.ownerImage.image = UIImage(named: "dmcimg")
+            self.ownerNameLabel.text = "leo1mml"
+            setupOwnerView()
+        }
+    }
     
     @objc private func toggleControls() {
         if(self.leftControl.isEnabled){
@@ -414,4 +423,3 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
         self.router?.dismissSelf()
     }
 }
-
