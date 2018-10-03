@@ -9,20 +9,23 @@
 import UIKit
 
 extension ProfileView: ZoomableCollectionViewDelegate {
+    var viewToZoom: UIView {
+        get {
+            return self.imageViewToZoom
+        }
+        set {
+            let imageView = newValue as! UIImageView
+            self.imageViewToZoom.frame = imageView.frame
+            self.imageViewToZoom.alpha = imageView.alpha
+            self.imageViewToZoom.image = imageView.image
+        }
+    }
+    
     func updateZoomedInFrame(image: UIImage, item: Int) {
         self.imageViewToZoom.image = image
         self.imageViewToZoom.frame = getZoomedImageFrame(from: self.imageViewToZoom)
     }
-    
-//    func updateZoomedOutFrame(collectionView: UICollectionView,indexPath: IndexPath) {
-////        self.containerCollectionView.collectionViewLayout.invalidateLayout()
-//        DispatchQueue.main.async {
-////            self.containerCollectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
-////            self.cellCover.frame = self.getCellFrameFrom(collectionView: self.containerCollectionView, at: indexPath)
-////            collectionView.becomeFirstResponder()
-//        }
-//    }
-//
+
     func animateZoomedImageBack(indexPath: IndexPath) {
         self.containerCollectionView.alpha = 0
 //        self.containerCollectionView.collectionViewLayout.invalidateLayout()

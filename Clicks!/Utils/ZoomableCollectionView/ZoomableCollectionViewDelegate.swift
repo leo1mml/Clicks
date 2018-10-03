@@ -9,6 +9,9 @@
 import UIKit
 
 protocol ZoomableCollectionViewDelegate {
+    ///this view is used to keep track of the desired view attributes of the zoomable content
+    ///so you decide which attributes will be updated in the set of this variable
+    var viewToZoom : UIView {get set}
     func animateZoomedImageBack(indexPath: IndexPath) 
     func updateZoomedInFrame(image: UIImage ,item: Int)
     func getZoomedImageFrame(from imageView: UIImageView) -> CGRect

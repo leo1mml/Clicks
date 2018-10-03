@@ -188,8 +188,10 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
     }
-    
-    // MARK: - View lifecycle
+}
+
+// MARK: - View lifecycle
+extension PhotosSlideScreenCollectionViewController {
     
     override func viewDidLoad()
     {
@@ -222,8 +224,6 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         scrollToIndex(index: currentIndex)
     }
-
-
 }
 
 
