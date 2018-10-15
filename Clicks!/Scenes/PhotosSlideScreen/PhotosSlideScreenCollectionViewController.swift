@@ -36,7 +36,7 @@ class PhotosSlideScreenCollectionViewController: UICollectionViewController, Pho
     private let topStack: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.alignment = UIStackViewAlignment.center
+        stack.alignment = UIStackView.Alignment.center
         stack.axis = .horizontal
         stack.distribution = .fillEqually
         stack.layer.zPosition = 6

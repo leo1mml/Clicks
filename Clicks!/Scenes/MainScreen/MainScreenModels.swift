@@ -15,6 +15,9 @@ import UIKit
 enum MainScreen
 {
     enum OpenChallenges {
+        struct Request{
+        
+        }
         struct ViewModel {
             struct OpenChallenges {
                 struct OpenChallenge {

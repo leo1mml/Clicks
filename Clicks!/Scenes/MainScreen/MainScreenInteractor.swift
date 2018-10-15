@@ -15,21 +15,27 @@ import UIKit
 protocol MainScreenBusinessLogic
 {
 //    func doSomething(request: MainScreen.Something.Request)
+    func fetchOpenChallenges(request: MainScreen.OpenChallenges.Request)
 }
 
 protocol MainScreenDataStore
 {
     //var name: String { get set }
+    var openChallenges: MainScreen.OpenChallenges.ViewModel.OpenChallenges? {get}
 }
 
 class MainScreenInteractor: MainScreenBusinessLogic, MainScreenDataStore
 {
+    var openChallenges: MainScreen.OpenChallenges.ViewModel.OpenChallenges?
+    
     var presenter: MainScreenPresentationLogic?
     var worker: MainScreenWorker?
     //var name: String = ""
     
     // MARK: Do something
-    
+    func fetchOpenChallenges(request: MainScreen.OpenChallenges.Request) {
+        
+    }
 //    func doSomething(request: MainScreen.Something.Request)
 //    {
 //        worker = MainScreenWorker()

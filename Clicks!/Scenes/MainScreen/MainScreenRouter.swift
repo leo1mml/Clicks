@@ -15,6 +15,7 @@ import UIKit
 @objc protocol MainScreenRoutingLogic
 {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToOpenChallenge()
 }
 
 protocol MainScreenDataPassing
@@ -29,6 +30,11 @@ class MainScreenRouter: NSObject, MainScreenRoutingLogic, MainScreenDataPassing
     
     // MARK: Routing
     
+    
+    func routeToOpenChallenge(){
+        let challegenScreen = ChallengeViewController(initialViewModel: ChallengeScreen.ChallengeData.ViewModel.init(theme: "", buttonStatus: .noDataYet, challengeStatus: .noDataYet, numberOfPhotos: 0, winnerPhoto: nil, photos: [], favouritePhoto: nil, myPhoto: nil))
+        self.view?.navigationController?.pushViewController(challegenScreen, animated: false)
+    }
     //func routeToSomewhere(segue: UIStoryboardSegue?)
     //{
     //  if let segue = segue {

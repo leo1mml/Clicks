@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ShadowView
+import SDWebImage
 
 class OpenChallengeCell : UICollectionViewCell {
     
@@ -82,14 +83,18 @@ class OpenChallengeCell : UICollectionViewCell {
      */
     
     func setCellData(_ data: MainScreen.OpenChallenges.ViewModel.OpenChallenges.OpenChallenge) {
-        self.coverImage.image = data.coverImage
+        let theme = data.title.replacingOccurrences(of: " ", with: "+").lowercased()
+        self.coverImage.sd_setImage(with: URL(string: "https://source.unsplash.com/600x700/?\(theme),\(theme)"), placeholderImage: nil, options: [], progress: nil, completed: { (image, error, type, url) in
+            if((image) != nil){
+                self.shadowContainerView.updateShadow()
+            }
+        })
         self.titleLabel.text = data.title
         self.numberOfPhotosLabel.text = data.numberOfPhotos + " "  + NSLocalizedString("Photos", comment: "")
         self.timerView.endDate = data.startDate
         if(!data.isOnVotationPeriod){
             self.votationPeriodView.alpha = 0
         }
-        self.shadowContainerView.updateShadow()
         
     }
     
@@ -119,7 +124,7 @@ class OpenChallengeCell : UICollectionViewCell {
         self.shadowContainerView.frame = self.bounds
         shadowContainerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         shadowContainerView.shadowOffset = CGSize(width: 0, height: 3)
-        shadowContainerView.shadowRadius = 2
+        shadowContainerView.shadowRadius = 5
         addSubview(shadowContainerView)
     }
     

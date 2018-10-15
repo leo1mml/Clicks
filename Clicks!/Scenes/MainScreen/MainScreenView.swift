@@ -28,6 +28,8 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
     
     var interactor: MainScreenBusinessLogic?
     var router: (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
+    ///This delegate is used to manage the data from the open challenges cell using this view controller. =)
+    var openChallengesDataSource: OpenChallengesContainerCellDataSource?
     
     //Commom variables
     private let headerCellId = "headerCellId"
@@ -103,7 +105,7 @@ class MainScreenView: UICollectionViewCell, MainScreenDisplayLogic
         //Appearance
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         tableView.backgroundColor = AppColors.darkwhite.color
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
@@ -134,6 +136,9 @@ extension MainScreenView : UITableViewDataSource, UITableViewDelegate {
         switch indexPath.section {
         case 0:
             cell = tableView.dequeueReusableCell(withIdentifier: openChallengesCellId)
+            let openChallengesCell = cell as! OpenChallengesContainerCell
+            openChallengesCell.router = self.router
+            self.openChallengesDataSource = openChallengesCell
             break;
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: lastWinnersCellId)

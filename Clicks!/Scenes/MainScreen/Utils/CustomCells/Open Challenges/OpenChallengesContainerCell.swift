@@ -10,8 +10,13 @@ import Foundation
 import UIKit
 import CHIPageControl
 
+protocol OpenChallengesContainerCellDataSource {
+    func updateData(viewModel: MainScreen.OpenChallenges.ViewModel.OpenChallenges)
+    func desappearWithEveryThing()
+}
+
 ///Container to all the challenges
-class OpenChallengesContainerCell: UITableViewCell {
+class OpenChallengesContainerCell: UITableViewCell, OpenChallengesContainerCellDataSource {
     
     // MARK: - Screen Items
     
@@ -33,9 +38,11 @@ class OpenChallengesContainerCell: UITableViewCell {
     // MARK: - Variables
     let openChallengeCellId = "openChallengeCell"
     
+    var router : (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
+    
     // MARK: - Object life cycle
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = AppColors.darkwhite.color
         initCollectionView()
@@ -46,6 +53,13 @@ class OpenChallengesContainerCell: UITableViewCell {
         return nil
     }
     
+    func updateData(viewModel: MainScreen.OpenChallenges.ViewModel.OpenChallenges) {
+        self.openChallengesViewModel = viewModel
+        openChallengesCollectionView?.reloadData()
+    }
+    func desappearWithEveryThing() {
+        self.pageControl.removeFromSuperview()
+    }
     
     // MARK: - Page Control
     /**

@@ -99,7 +99,7 @@ class ProfileView: UICollectionViewCell, ProfileDisplayLogic {
         
         // Register
         containerCollectionView.register(ProfilePhotoCell.self, forCellWithReuseIdentifier: self.photoCellID)
-        containerCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: self.headerCellID)
+        containerCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: self.headerCellID)
         
         //Appearance
         containerCollectionView.backgroundColor = AppColors.darkwhite.color

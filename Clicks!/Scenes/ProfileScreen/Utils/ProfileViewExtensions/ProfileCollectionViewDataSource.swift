@@ -23,7 +23,7 @@ extension ProfileView : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: self.headerCellID, for: indexPath) as! ProfileHeaderView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: self.headerCellID, for: indexPath) as! ProfileHeaderView
         let data = Profile.FetchUser.ViewModel.User(profileImage: #imageLiteral(resourceName: "chronoimg"), name: "Serge", nickName: "serge", numberOfPhotos: "44", numberOfTrophies: "44")
         headerView.setData(data: data)
         return headerView
