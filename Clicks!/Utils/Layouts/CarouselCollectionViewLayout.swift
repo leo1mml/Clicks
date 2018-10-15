@@ -74,7 +74,7 @@ class CarouselCollectionViewLayout : UICollectionViewFlowLayout {
                     {
                         let a = attributes.center.x - proposedContentOffsetCenterX
                         let b = candAttr!.center.x - proposedContentOffsetCenterX
-                        if fabs(a) < fabs(b)
+                        if abs(a) < abs(b)
                         {
                             candidateAttribute = attributes
                         }
