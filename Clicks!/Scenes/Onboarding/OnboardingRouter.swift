@@ -28,7 +28,7 @@ class OnboardingRouter: NSObject, OnboardingRoutingLogic, OnboardingDataPassing
     var dataStore: OnboardingDataStore?
 
     func skipOnboarding() {
-        let homeVC = UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "Home")
+        let homeVC = HomeViewController()
         viewController?.navigationController?.pushViewController(homeVC, animated: true)
     }
 }
